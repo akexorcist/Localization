@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/large_margin"
+    android:paddingLeft="@dimen/large_margin"
+    android:paddingRight="@dimen/large_margin"
+    android:paddingTop="@dimen/large_margin"
+    tools:context="com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/large_margin"
+        android:text="@string/viewpager_description"
+        android:textColor="@color/app_light_text"
+        android:textSize="@dimen/text_size" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/large_margin"
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_greeting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="@dimen/vp_btn_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:text="@string/prev"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/large_text_size" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/vp_btn_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:text="@string/next"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/large_text_size" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/layout_language_chooser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

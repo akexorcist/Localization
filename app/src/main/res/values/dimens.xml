@@ -1,0 +1,13 @@
+<resources>
+
+    <dimen name="large_margin">16dp</dimen>
+    <dimen name="large_padding">16dp</dimen>
+    <dimen name="padding">4dp</dimen>
+    <dimen name="margin">4dp</dimen>
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="large_text_size">24sp</dimen>
+    <dimen name="btn_language_size">50dp</dimen>
+    <dimen name="iv_apple_size">150dp</dimen>
+    <dimen name="vp_btn_width">40dp</dimen>
+
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_language_chooser"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding">
+
+        <ImageButton
+            android:id="@+id/btn_america"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_america" />
+
+        <ImageButton
+            android:id="@+id/btn_china"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_china" />
+
+        <ImageButton
+            android:id="@+id/btn_italy"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_italy" />
+
+        <ImageButton
+            android:id="@+id/btn_japan"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_japan" />
+
+        <ImageButton
+            android:id="@+id/btn_korea"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_korea" />
+
+        <ImageButton
+            android:id="@+id/btn_portugal"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_portugal" />
+
+        <ImageButton
+            android:id="@+id/btn_thai"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_thai" />
+    </LinearLayout>
+</HorizontalScrollView>
