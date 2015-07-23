@@ -58,6 +58,11 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
         }
     }
 
+    // Get current language
+    public final String getLanguage() {
+        return LanguageSetting.getLangauge(this);
+    }
+
     // Check that bundle come from locale change.
     // If yes, bundle will obe remove and set boolean flag to "true".
     private void checkBeforeLocaleChanging() {
