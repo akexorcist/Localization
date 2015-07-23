@@ -58,6 +58,10 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
         }
     }
 
+    public final void setDefaultLanguage(String language) {
+        LanguageSetting.setDefaultLanguage(language);
+    }
+
     // Get current language
     public final String getLanguage() {
         return LanguageSetting.getLangauge(this);

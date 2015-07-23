@@ -15,7 +15,7 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         // You can set default language when first time running. Must to setup before onCreate was called.
-        LanguageSetting.setDefaultLanguage("th");
+        setDefaultLanguage("th");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
