@@ -41,7 +41,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private boolean isLocalizationChanged = false;
 
     // Prepare default language.
-    private String currentLanguage = LanguageSetting.getDefaultLanguage();
+    private String currentLanguage = LanguageSetting.getLangauge(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
