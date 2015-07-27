@@ -1,0 +1,15 @@
+language: android
+jdk: oraclejdk7
+
+android:
+  components:
+    - build-tools-22.0.1
+    - android-22
+
+notifications:
+  email: false
+
+before_install:
+ - chmod +x gradlew
+
+script: ./gradlew clean
