@@ -3,7 +3,7 @@
 Android-LocalizationActivity
 ==============================
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/01-header.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/01-header.jpg)
 
 Localization Activity Library for Android
 
@@ -49,7 +49,7 @@ Extend from AppCompatActivity
 ===========================
 LocalizationActivity is extend from AppCompatActivity class. So you still can use all method from AppCompatActivity class.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/03-extend.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
 
 
 Usage
@@ -91,7 +91,7 @@ In the example above, when user click on a button. It will change to English or 
 
 Then just build up some String Resouce for English and Thai language.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/02-string_resource.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/02-string_resource.jpg)
 
 Complete! Now your application can support multiple language.
 
@@ -148,21 +148,21 @@ void onAfterLocaleChanged()
 
 This override method will be called then activity language was changed. If you need to know when language has change, just override these methods.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/04-life_cycle.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/04-life_cycle.jpg)
 
 Usually change the language code has a problem with activity that already created.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/05-step_one.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/05-step_one.jpg)
 
 If latest activity can change the language. It does not apply to previous activity.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/06-step_two.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/06-step_two.jpg)
 
 But no problem for this library when application getback to previous activity. If you extend that activity to LocalizationActivity. It will changed immediately.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/07-step_three.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/07-step_three.jpg)
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/08-step_four.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/08-step_four.jpg)
 
 When language was changed. An activity wil recreated. So if you have any data object. It should be handle by save/restore instance state for complelely works. (It simple way to supported portrait/landscape orientation)
 
