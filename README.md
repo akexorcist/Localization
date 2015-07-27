@@ -148,7 +148,7 @@ void onAfterLocaleChanged()
 
 This override method will be called then activity language was changed. If you need to know when language has change, just override these methods.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/04-life_cycle.jpg =x300)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/04-life_cycle.jpg)
 
 Usually change the language code has a problem with activity that already created.
 
