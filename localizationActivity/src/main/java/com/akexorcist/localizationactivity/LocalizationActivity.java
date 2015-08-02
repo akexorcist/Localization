@@ -25,6 +25,7 @@ package com.akexorcist.localizationactivity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 
@@ -114,8 +115,13 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     @Override
     protected void onResume() {
         super.onResume();
-        checkLocaleChange();
-        checkAfterLocaleChanging();
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                checkLocaleChange();
+                checkAfterLocaleChanging();
+            }
+        });
     }
 
     // Check if locale has change while this activity was run to backstack.
