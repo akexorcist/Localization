@@ -45,7 +45,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private String currentLanguage = LanguageSetting.getDefaultLanguage();
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         setupLanguage();
         checkBeforeLocaleChanging();
         super.onCreate(savedInstanceState);

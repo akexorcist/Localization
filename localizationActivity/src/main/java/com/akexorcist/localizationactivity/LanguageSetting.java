@@ -50,7 +50,7 @@ public class LanguageSetting {
         editor.apply();
     }
 
-    protected static String getLangauge(Context context) {
+    public static String getLangauge(Context context) {
         return getLanguagePreference(context).getString(KEY_LANGUAGE, DEFAULT_LANGUAGE);
     }
 
@@ -58,7 +58,7 @@ public class LanguageSetting {
         return context.getSharedPreferences(PREFERENCE_LANGUAGE, Activity.MODE_PRIVATE);
     }
 
-    protected static Locale getLocale(Context context) {
+    public static Locale getLocale(Context context) {
         return getLocale(getLangauge(context));
     }
 
