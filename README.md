@@ -5,8 +5,6 @@ Android-LocalizationActivity
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/01-header.jpg)
 
-Localization Activity Library for Android
-
 Keep calm and stay easy with multiple language supported in your android application.
 
 It's basic for android application to be supported multiple languages. Yeah! It's very easy because android has String Resource. Developer just had to prepare the text for different languages then android system will use itself.
@@ -34,7 +32,7 @@ Maven
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.0.4'
+compile 'com.akexorcist:localizationactivity:1.0.6'
 ```
 
 Feature
@@ -222,6 +220,7 @@ It's normal that the activity is blinking because it was recreated.
 Documentation
 ===========================
 English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html
+
 Thai Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language.html
 
 
