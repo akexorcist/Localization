@@ -35,6 +35,7 @@ public class LanguageSetting {
     private static final String PREFERENCE_LANGUAGE = "pref_language";
     private static final String KEY_LANGUAGE = "key_language";
     private static String DEFAULT_LANGUAGE = Locale.ENGLISH.getLanguage();
+    private static String currentLanguage = Locale.ENGLISH.getLanguage();
 
     protected static void setDefaultLanguage(String language) {
         DEFAULT_LANGUAGE = language;
@@ -45,12 +46,21 @@ public class LanguageSetting {
     }
 
     protected static void setLanguage(Context context, String language) {
+        currentLanguage = language;
         SharedPreferences.Editor editor = getLanguagePreference(context).edit();
         editor.putString(KEY_LANGUAGE, language);
         editor.apply();
     }
 
-    public static String getLangauge(Context context) {
+    public static void setLanguage(Context context, Locale locale) {
+        setLanguage(context, locale.getLanguage());
+    }
+
+    public static String getLanguage() {
+        return currentLanguage;
+    }
+
+    private static String getLanguage(Context context) {
         return getLanguagePreference(context).getString(KEY_LANGUAGE, DEFAULT_LANGUAGE);
     }
 
@@ -58,8 +68,16 @@ public class LanguageSetting {
         return context.getSharedPreferences(PREFERENCE_LANGUAGE, Activity.MODE_PRIVATE);
     }
 
-    public static Locale getLocale(Context context) {
-        return getLocale(getLangauge(context));
+    public static void setDefaultLanguage(Locale locale) {
+        LanguageSetting.setDefaultLanguage(locale.getLanguage());
+    }
+
+    public static Locale getLocale() {
+        return getLocale(getLanguage());
+    }
+
+    private static Locale getLocale(Context context) {
+        return getLocale(getLanguage(context));
     }
 
     protected static Locale getLocale(String language) {

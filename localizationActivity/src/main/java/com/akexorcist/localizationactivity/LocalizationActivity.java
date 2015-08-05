@@ -65,7 +65,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Get current language
     public final String getLanguage() {
-        return LanguageSetting.getLangauge(this);
+        return LanguageSetting.getLanguage();
     }
 
     // Check that bundle come from locale change.
@@ -81,7 +81,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     // Setup language to locale and language preference.
     // This method will called before onCreate.
     private void setupLanguage() {
-        Locale locale = LanguageSetting.getLocale(this);
+        Locale locale = LanguageSetting.getLocale();
         setupLocale(locale);
         currentLanguage = locale.getLanguage();
         LanguageSetting.setLanguage(this, locale.getLanguage());
@@ -101,7 +101,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Avoid duplicated setup
     private boolean isDuplicatedLanguageSetting(String language) {
-        return language.toLowerCase(Locale.getDefault()).equals(LanguageSetting.getLangauge(this));
+        return language.toLowerCase(Locale.getDefault()).equals(LanguageSetting.getLanguage());
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
@@ -126,7 +126,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Check if locale has change while this activity was run to backstack.
     private void checkLocaleChange() {
-        if(!LanguageSetting.getLangauge(this).toLowerCase(Locale.getDefault())
+        if(!LanguageSetting.getLanguage().toLowerCase(Locale.getDefault())
                 .equals(currentLanguage.toLowerCase(Locale.getDefault()))) {
             recreate();
         }
