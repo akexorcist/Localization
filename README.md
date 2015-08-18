@@ -32,7 +32,7 @@ Maven
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.0.6'
+compile 'com.akexorcist:localizationactivity:1.0.8'
 ```
 
 Feature
