@@ -59,13 +59,27 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
         }
     }
 
+    // Provide method to set application language by locale.
+    public final void setLanguage(Locale locale) {
+        setLanguage(locale.getLanguage());
+    }
+
     public final void setDefaultLanguage(String language) {
         LanguageSetting.setDefaultLanguage(language);
+    }
+
+    public final void setDefaultLanguage(Locale locale) {
+        LanguageSetting.setDefaultLanguage(locale.getLanguage());
     }
 
     // Get current language
     public final String getLanguage() {
         return LanguageSetting.getLanguage();
+    }
+
+    // Get current locale
+    public final Locale getLocale() {
+        return LanguageSetting.getLocale(this);
     }
 
     // Check that bundle come from locale change.
