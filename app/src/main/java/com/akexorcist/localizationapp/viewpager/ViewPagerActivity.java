@@ -44,14 +44,14 @@ public class ViewPagerActivity extends LocalizationActivity implements View.OnCl
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         // Save current item of view pager.
         outState.putInt(KEY_CURRENT_PAGE, vpGreeting.getCurrentItem());
         super.onSaveInstanceState(outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // Restore current item of view pager.
         vpGreeting.setCurrentItem(savedInstanceState.getInt(KEY_CURRENT_PAGE));

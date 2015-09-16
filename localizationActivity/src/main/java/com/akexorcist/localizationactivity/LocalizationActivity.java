@@ -45,7 +45,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private String currentLanguage = LanguageSetting.getDefaultLanguage();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         setupLanguage();
         checkBeforeLocaleChanging();
         super.onCreate(savedInstanceState);
@@ -127,7 +127,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // If activity is run to backstack. So we have to check if this activity is resume working.
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         new Handler().post(new Runnable() {
             @Override

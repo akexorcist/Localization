@@ -38,14 +38,14 @@ public class SimpleFragmentActivity extends LocalizationActivity implements View
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         // Save x-position of horizontal scroll view.
         outState.putInt(KEY_SCROLL_X, svLanguageChooser.getScrollX());
         super.onSaveInstanceState(outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // Restore x-position of horizontal scroll view.
         svLanguageChooser.scrollTo(savedInstanceState.getInt(KEY_SCROLL_X), 0);
