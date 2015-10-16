@@ -23,6 +23,7 @@
 package com.akexorcist.localizationactivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
@@ -122,6 +123,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private void notifyLanguageChanged() {
         onBeforeLocaleChanged();
         getIntent().putExtra(KEY_ACTIVIY_LOCALE_CHANGED, true);
+        startActivity(new Intent(this, BlankDummyActivity.class));
         recreate();
     }
 
