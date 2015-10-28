@@ -25,10 +25,12 @@ package com.akexorcist.localizationactivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import java.util.Locale;
 
@@ -75,7 +77,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Get current language
     public final String getLanguage() {
-        return LanguageSetting.getLanguage();
+        return LanguageSetting.getLanguage(this);
     }
 
     // Get current locale
@@ -96,7 +98,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     // Setup language to locale and language preference.
     // This method will called before onCreate.
     private void setupLanguage() {
-        Locale locale = LanguageSetting.getLocale();
+        Locale locale = LanguageSetting.getLocale(this);
         setupLocale(locale);
         currentLanguage = locale.getLanguage();
         LanguageSetting.setLanguage(this, locale.getLanguage());
@@ -116,7 +118,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Avoid duplicated setup
     private boolean isDuplicatedLanguageSetting(String language) {
-        return language.toLowerCase(Locale.getDefault()).equals(LanguageSetting.getLanguage());
+        return language.toLowerCase(Locale.getDefault()).equals(LanguageSetting.getLanguage(this));
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
@@ -142,7 +144,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
 
     // Check if locale has change while this activity was run to backstack.
     private void checkLocaleChange() {
-        if(!LanguageSetting.getLanguage().toLowerCase(Locale.getDefault())
+        if(!LanguageSetting.getLanguage(this).toLowerCase(Locale.getDefault())
                 .equals(currentLanguage.toLowerCase(Locale.getDefault()))) {
             callDummyActivity();
             recreate();
@@ -158,7 +160,8 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     }
 
     private void callDummyActivity() {
-        startActivity(new Intent(this, BlankDummyActivity.class));
+        Intent intent = new Intent(this, BlankDummyActivity.class);
+        startActivity(intent);
     }
 
     // Just override method locale change event
