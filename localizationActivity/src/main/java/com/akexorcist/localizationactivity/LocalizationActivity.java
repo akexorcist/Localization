@@ -123,7 +123,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private void notifyLanguageChanged() {
         onBeforeLocaleChanged();
         getIntent().putExtra(KEY_ACTIVIY_LOCALE_CHANGED, true);
-        startActivity(new Intent(this, BlankDummyActivity.class));
+        callDummyActivity();
         recreate();
     }
 
@@ -144,6 +144,7 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     private void checkLocaleChange() {
         if(!LanguageSetting.getLanguage().toLowerCase(Locale.getDefault())
                 .equals(currentLanguage.toLowerCase(Locale.getDefault()))) {
+            callDummyActivity();
             recreate();
         }
     }
@@ -154,6 +155,10 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
             onAfterLocaleChanged();
             isLocalizationChanged = false;
         }
+    }
+
+    private void callDummyActivity() {
+        startActivity(new Intent(this, BlankDummyActivity.class));
     }
 
     // Just override method locale change event
