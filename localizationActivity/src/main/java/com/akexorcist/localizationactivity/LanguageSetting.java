@@ -35,6 +35,7 @@ public class LanguageSetting {
     private static final String PREFERENCE_LANGUAGE = "pref_language";
     private static final String KEY_LANGUAGE = "key_language";
     private static String DEFAULT_LANGUAGE = Locale.ENGLISH.getLanguage();
+    private static String currentLanguage = Locale.ENGLISH.getLanguage();
 
     public static void setDefaultLanguage(String language) {
         DEFAULT_LANGUAGE = language;
@@ -45,6 +46,7 @@ public class LanguageSetting {
     }
 
     public static void setLanguage(Context context, String language) {
+        currentLanguage = language;
         SharedPreferences.Editor editor = getLanguagePreference(context).edit();
         editor.putString(KEY_LANGUAGE, language);
         editor.apply();
@@ -54,7 +56,11 @@ public class LanguageSetting {
         setLanguage(context, locale.getLanguage());
     }
 
-    public static String getLanguage(Context context) {
+    public static String getLanguage() {
+        return currentLanguage;
+    }
+
+    private static String getLanguage(Context context) {
         return getLanguagePreference(context).getString(KEY_LANGUAGE, DEFAULT_LANGUAGE);
     }
 
@@ -64,6 +70,10 @@ public class LanguageSetting {
 
     public static void setDefaultLanguage(Locale locale) {
         LanguageSetting.setDefaultLanguage(locale.getLanguage());
+    }
+
+    public static Locale getLocale() {
+        return getLocale(getLanguage());
     }
 
     public static Locale getLocale(Context context) {
