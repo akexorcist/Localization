@@ -212,11 +212,6 @@ Only support API 11 and higher
 Because [recreate activity method](http://developer.android.com/intl/es/reference/android/app/Activity.html#recreate()) was added in API 11. So this library isn't available for lower version than API 11
 
 
-Activity Blinking Problem
-===========================
-It's normal that the activity is blinking because it was recreated.
-
-
 Documentation
 ===========================
 English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html
