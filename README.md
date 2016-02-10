@@ -1,5 +1,6 @@
 
-[![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--LocalizationActivity-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity) [![Methods Count](https://img.shields.io/badge/Methods and size-core: 77 | deps: 13224 | 21 KB-e91e63.svg)](http://www.methodscount.com/?lib=com.akexorcist%3Alocalizationactivity%3A1.0.9)
+
 Android-LocalizationActivity
 ==============================
 
