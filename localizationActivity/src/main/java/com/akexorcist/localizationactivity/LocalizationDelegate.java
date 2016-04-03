@@ -97,7 +97,7 @@ public class LocalizationDelegate {
     }
 
     private void updateLocaleConfiguration(Context context, Locale locale) {
-        Configuration config = new Configuration();
+        Configuration config = context.getResources().getConfiguration();
         config.locale = locale;
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         context.getResources().updateConfiguration(config, dm);
