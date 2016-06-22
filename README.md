@@ -33,10 +33,10 @@ Maven
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.1.1'
+compile 'com.akexorcist:localizationactivity:1.1.0'
 ```
 
-(Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7.
+(Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
 
 
 Feature
