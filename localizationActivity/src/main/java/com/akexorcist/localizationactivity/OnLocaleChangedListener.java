@@ -25,7 +25,7 @@ package com.akexorcist.localizationactivity;
 /**
  * Created by Akexorcist on 7/21/15 AD.
  */
-interface OnLocaleChangedListener {
+public interface OnLocaleChangedListener {
     void onBeforeLocaleChanged();
     void onAfterLocaleChanged();
 }
