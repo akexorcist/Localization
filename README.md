@@ -44,11 +44,72 @@ Feature
 * Very easy to use it.
 
 
-Extend from AppCompatActivity
+LocalizationActivity extends from AppCompatActivity
 ===========================
 LocalizationActivity is extend from AppCompatActivity class. So you still can use all method from AppCompatActivity class.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
+
+
+Don't like AppCompat? Try delegate way 
+===========================
+(By @AleksanderMielczarek)
+```java
+import android.os.Bundle;
+
+import com.akexorcist.localizationactivity.LocalizationDelegate;
+
+import java.util.Locale;
+
+public class CustomLocalizationActivity extends Activity implements OnLocaleChangedListener {
+
+    private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        localizationDelegate.addOnLocaleChengedListener(this);
+        localizationDelegate.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        localizationDelegate.onResume();
+    }
+
+    public final void setLanguage(String language) {
+        localizationDelegate.setLanguage(language);
+    }
+
+    public final void setLanguage(Locale locale) {
+        localizationDelegate.setLanguage(locale);
+    }
+
+    public final void setDefaultLanguage(String language) {
+        localizationDelegate.setDefaultLanguage(language);
+    }
+
+    public final void setDefaultLanguage(Locale locale) {
+        localizationDelegate.setDefaultLanguage(locale);
+    }
+
+    public final String getLanguage() {
+        return localizationDelegate.getLanguage();
+    }
+
+    public final Locale getLocale() {
+        return localizationDelegate.getLocale();
+    }
+
+    // Just override method locale change event
+    @Override
+    public void onBeforeLocaleChanged() { }
+
+    @Override
+    public void onAfterLocaleChanged() { }
+}
+```
 
 
 Usage
@@ -208,16 +269,17 @@ Fragment language configuration is depending with activity. If activity language
 About Save/Restore Instance State. Read more on The [Real Best Practices to Save/Restore Activity's and Fragment's state.](http://inthecheesefactory.com/blog/fragment-state-saving-best-practices/en)
 
 
-Only support API 11 and higher
-===========================
-Because [recreate activity method](http://developer.android.com/intl/es/reference/android/app/Activity.html#recreate()) was added in API 11. So this library isn't available for lower version than API 11
-
-
 Documentation
 ===========================
 English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html
 
 Thai Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language.html
+
+
+Special Thanks
+===========================
+@first087
+@AleksanderMielczarek
 
 
 Licence
