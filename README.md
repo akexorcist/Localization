@@ -27,14 +27,17 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localizationactivity</artifactId>
-  <version>1.0.4</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.0.9'
+compile 'com.akexorcist:localizationactivity:1.1.1'
 ```
+
+(Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7.
+
 
 Feature
 ===========================
@@ -51,7 +54,7 @@ LocalizationActivity is extend from AppCompatActivity class. So you still can us
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
 
 
-Don't like AppCompat? Try delegate way 
+Don't like AppCompat v7? Try delegate way 
 ===========================
 (By @AleksanderMielczarek)
 ```java
