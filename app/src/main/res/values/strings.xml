@@ -13,6 +13,7 @@
     <string name="prev"><![CDATA[<]]></string>
     <string name="next"><![CDATA[>]]></string>
     <string name="simple_activity">Simple Activity</string>
+    <string name="custom_activity">Custom Activity</string>
     <string name="fragment_activity">Activity + Fragment</string>
     <string name="viewpager_activity">Activity + View Pager</string>
     <string name="viewpager_description">Swipe or click to change page</string>

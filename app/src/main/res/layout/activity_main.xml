@@ -33,6 +33,12 @@
             android:text="@string/simple_activity" />
 
         <Button
+            android:id="@+id/btn_custom_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_activity" />
+
+        <Button
             android:id="@+id/btn_activity_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
