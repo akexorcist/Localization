@@ -133,8 +133,7 @@ public class LocalizationDelegate {
     private void checkLocaleChange() {
         if (!LanguageSetting.getLanguage().toLowerCase(Locale.getDefault())
                 .equals(currentLanguage.toLowerCase(Locale.getDefault()))) {
-            callDummyActivity();
-            activity.recreate();
+            notifyLanguageChanged();
         }
     }
 
