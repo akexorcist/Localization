@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -98,7 +100,11 @@ public class LocalizationDelegate {
 
     private void updateLocaleConfiguration(Context context, Locale locale) {
         Configuration config = context.getResources().getConfiguration();
-        config.locale = locale;
+        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+        } else {
+            config.locale = locale;
+        }
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         context.getResources().updateConfiguration(config, dm);
     }
