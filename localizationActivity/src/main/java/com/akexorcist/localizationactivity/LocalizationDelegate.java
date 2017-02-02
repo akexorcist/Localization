@@ -32,7 +32,7 @@ public class LocalizationDelegate {
         this.activity = activity;
     }
 
-    public void addOnLocaleChengedListener(OnLocaleChangedListener onLocaleChangedListener) {
+    public void addOnLocaleChangedListener(OnLocaleChangedListener onLocaleChangedListener) {
         localeChangedListeners.add(onLocaleChangedListener);
     }
 
