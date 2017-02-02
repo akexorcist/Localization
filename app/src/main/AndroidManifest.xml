@@ -18,6 +18,8 @@
         <activity android:name=".viewpager.ViewPagerActivity" />
         <activity android:name=".simpleactivity.SimpleActivity" />
         <activity android:name=".customactivity.SimpleCustomActivity" />
+        <activity android:name=".stackedactivity.Stack1Activity" />
+        <activity android:name=".stackedactivity.Stack2Activity" />
     </application>
 
 </manifest>
