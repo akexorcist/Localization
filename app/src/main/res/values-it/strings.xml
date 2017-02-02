@@ -1,22 +1,11 @@
 <resources>
 
-    <string name="app_name">Localization</string>
-    <string name="activity">Activity</string>
-    <string name="fragment">Fragment</string>
-
     <string name="one">Uno</string>
     <string name="two">Due</string>
     <string name="three">Tre</string>
     <string name="hello_world">Ciao mondo</string>
     <string name="language">Italiano</string>
     <string name="sample_youtube_app">Quando apri l\'app YouTube, viene visualizzata la sezione Che cosa guardare. In questa sezione vengono messi in evidenza i caricamenti recenti, le attività provenienti dalle tue iscrizioni e i video consigliati. Vengono anche visualizzati i contenuti popolari e i Mix di YouTube se hai già guardato video musicali in precedenza. Puoi tornare a questo feed in qualsiasi momento dalla Guida.</string>
-    <string name="sample_apple_story">La mela è il frutto (più precisamente si tratta di un falso frutto a pomo) del melo. Il melo ha origine in Asia centrale e l\'evoluzione dei meli botanici risalirebbe al Neolitico. La specie è presente in Italia nominalmente con circa 2000 varietà, ma la definizione più precisa è difficile data la sovrapposizione storica delle denominazioni, e le specie estinte o irreperibili. La mela è il frutto più destagionalizzato (lo si trova tutto l\'anno) e ciò richiede la presenza di impianti che provvedono alla conservazione e ne distribuiscano la disponibilità su di un ampio arco di tempo. La maturazione naturale varia da fine agosto a metà ottobre. La disponibilità alla conservazione naturale dei frutti è drasticamente diversa nelle differenti varietà; dati gli elevati contenuti in acidi organici, di norma la conservazione va da uno a quattro mesi. Nella conservazione industriale sono importanti le condizioni fisiche in cui questa avviene. Dopo il raccolto, i frutti sono conservati a temperature da 1,0 a 3,5 °C con umidità relativa del 59-68%. Per conservazioni prolungate si ricorre a conservazioni in celle con atmosfera controllata (più ricca di CO2). La mela ha un potere antiossidante (ORAC) con un indice di valore 4275[1] poiché contiene vitamine importanti come provitamina A, vitamine B1, B2, B6, E e C, niacina e acido folico, insieme a flavonoidi e carotenoidi, dall\'effetto antiossidante.</string>
-    <string name="prev"><![CDATA[<]]></string>
-    <string name="next"><![CDATA[>]]></string>
-    <string name="simple_activity">Simple Activity</string>
-    <string name="custom_activity">Custom Activity</string>
-    <string name="fragment_activity">Activity + Fragment</string>
-    <string name="viewpager_activity">Activity + View Pager</string>
-    <string name="viewpager_description">Swipe or click to change page</string>
+    <string name="sample_apple_story">La mela è il frutto (più precisamente si tratta di un falso frutto a pomo) del melo. Il melo ha origine in Asia centrale e l\'evoluzione dei meli botanici risalirebbe al Neolitico. La specie è presente in Italia nominalmente con circa 2000 varietà, ma la definizione più precisa è difficile data la sovrapposizione storica delle denominazioni, e le specie estinte o irreperibili. La mela è il frutto più destagionalizzato (lo si trova tutto l\'anno) e ciò richiede la presenza di impianti che provvedono alla conservazione e ne distribuiscano la disponibilità su di un ampio arco di tempo. La maturazione naturale varia da fine agosto a metà ottobre. La disponibilità alla conservazione naturale dei frutti è drasticamente diversa nelle differenti varietà; dati gli elevati contenuti in acidi organici, di norma la conservazione va da uno a quattro mesi. Nella conservazione industriale sono importanti le condizioni fisiche in cui questa avviene. Dopo il raccolto, i frutti sono conservati a temperature da 1,0 a 3,5 °C con umidità relativa del 59–68%. Per conservazioni prolungate si ricorre a conservazioni in celle con atmosfera controllata (più ricca di CO2). La mela ha un potere antiossidante (ORAC) con un indice di valore 4275[1] poiché contiene vitamine importanti come provitamina A, vitamine B1, B2, B6, E e C, niacina e acido folico, insieme a flavonoidi e carotenoidi, dall\'effetto antiossidante.</string>
 
 </resources>

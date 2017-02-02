@@ -1,9 +1,5 @@
 <resources>
 
-    <string name="app_name">Localization</string>
-    <string name="activity">Activity</string>
-    <string name="fragment">Fragment</string>
-
     <string name="one">Um</string>
     <string name="two">Dois</string>
     <string name="three">Três</string>
@@ -11,12 +7,5 @@
     <string name="language">Português</string>
     <string name="sample_youtube_app">Ao abrir a aplicação YouTube, é-lhe apresentada a página O que ver. A página O que ver destaca os carregamentos e as atividades mais recentes das suas subscrições e os vídeos recomendados para si. Verá ainda os conteúdos mais populares e também Mixes do YouTube, caso tenha acedido a vídeos de música anteriormente. Pode regressar a este feed em qualquer momento através do Guia.</string>
     <string name="sample_apple_story">A maçã é o pseudofruto pomáceo da macieira,1 árvore da família Rosaceae. É um dos pseudofrutos de árvore mais cultivados, e o mais conhecido dos muitos membros do género Malus que são usados ​​pelos seres humanos. As maçãs crescem em pequenas árvores, de folha caducifólia que florescem na Primavera e produzem fruto no Outono. A árvore é originária da Ásia Ocidental, onde o seu ancestral selvagem, Malus sieversii, ainda é encontrado atualmente. As maçãs têm sido cultivadas há milhares de anos na Ásia e Europa, tendo sido trazidas para a América do Norte pelos colonizadores europeus. As maçãs têm estado presentes na mitologia e religiões de muitas culturas, incluindo as tradições nórdica, grega e cristã. Em 2010, o genoma da fruta foi descodificado, levando a uma nova compreensão no controle de doenças e na reprodução seletiva durante a produção da maçã. Existem mais de 7.500 plantações conhecidas de maçãs, resultando numa gama de características desejadas. A maçã sempre foi uma importante fonte alimentícia em regiões de clima frio. Provavelmente, a macieira é a árvore cultivada há mais tempo pelo homem[carece de fontes]. É a espécie de fruta, à exceção dos cítricos, que pode ser conservada durante mais tempo, conservando boa parte de seu valor nutritivo. As maçãs de inverno, colhidas no final do outono e guardadas em câmaras ou armazéns acima do ponto de congelamento, têm sido um alimento destacado durante milênios na Ásia e na Europa e, desde 1800, nos Estados Unidos.</string>
-    <string name="prev"><![CDATA[<]]></string>
-    <string name="next"><![CDATA[>]]></string>
-    <string name="simple_activity">Simple Activity</string>
-    <string name="custom_activity">Custom Activity</string>
-    <string name="fragment_activity">Activity + Fragment</string>
-    <string name="viewpager_activity">Activity + View Pager</string>
-    <string name="viewpager_description">Swipe or click to change page</string>
 
 </resources>
