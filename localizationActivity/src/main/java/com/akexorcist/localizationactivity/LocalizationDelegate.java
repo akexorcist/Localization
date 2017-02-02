@@ -17,7 +17,7 @@ import java.util.Locale;
  */
 public class LocalizationDelegate {
 
-    private static final String KEY_ACTIVIY_LOCALE_CHANGED = "activity_locale_changed";
+    private static final String KEY_ACTIVITY_LOCALE_CHANGED = "activity_locale_changed";
 
     // Boolean flag to check that activity was recreated from locale changed.
     private boolean isLocalizationChanged = false;
@@ -32,7 +32,7 @@ public class LocalizationDelegate {
         this.activity = activity;
     }
 
-    public void addOnLocaleChengedListener(OnLocaleChangedListener onLocaleChangedListener) {
+    public void addOnLocaleChangedListener(OnLocaleChangedListener onLocaleChangedListener) {
         localeChangedListeners.add(onLocaleChangedListener);
     }
 
@@ -43,7 +43,7 @@ public class LocalizationDelegate {
 
     // Provide method to set application language by country name.
     public final void setLanguage(String language) {
-        if (!isDuplicatedLanguageSetting(language)) {
+        if (!isCurrentLanguageSetting(language)) {
             LanguageSetting.setLanguage(activity, language);
             notifyLanguageChanged();
         }
@@ -75,10 +75,10 @@ public class LocalizationDelegate {
     // Check that bundle come from locale change.
     // If yes, bundle will obe remove and set boolean flag to "true".
     private void checkBeforeLocaleChanging() {
-        boolean isLocalizationChanged = activity.getIntent().getBooleanExtra(KEY_ACTIVIY_LOCALE_CHANGED, false);
+        boolean isLocalizationChanged = activity.getIntent().getBooleanExtra(KEY_ACTIVITY_LOCALE_CHANGED, false);
         if (isLocalizationChanged) {
             this.isLocalizationChanged = true;
-            activity.getIntent().removeExtra(KEY_ACTIVIY_LOCALE_CHANGED);
+            activity.getIntent().removeExtra(KEY_ACTIVITY_LOCALE_CHANGED);
         }
     }
 
@@ -104,16 +104,14 @@ public class LocalizationDelegate {
     }
 
     // Avoid duplicated setup
-    private boolean isDuplicatedLanguageSetting(String language) {
-        return language.toLowerCase(Locale.getDefault()).equals(LanguageSetting.getLanguage());
+    private boolean isCurrentLanguageSetting(String language) {
+        return language.equals(LanguageSetting.getLanguage());
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
     private void notifyLanguageChanged() {
-        for (OnLocaleChangedListener changedListener : localeChangedListeners) {
-            changedListener.onBeforeLocaleChanged();
-        }
-        activity.getIntent().putExtra(KEY_ACTIVIY_LOCALE_CHANGED, true);
+        sendOnBeforeLocaleChangedEvent();
+        activity.getIntent().putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true);
         callDummyActivity();
         activity.recreate();
     }
@@ -131,8 +129,9 @@ public class LocalizationDelegate {
 
     // Check if locale has change while this activity was run to backstack.
     private void checkLocaleChange() {
-        if (!LanguageSetting.getLanguage().toLowerCase(Locale.getDefault())
-                .equals(currentLanguage.toLowerCase(Locale.getDefault()))) {
+        if (!isCurrentLanguageSetting(currentLanguage)) {
+            sendOnBeforeLocaleChangedEvent();
+            isLocalizationChanged = true;
             callDummyActivity();
             activity.recreate();
         }
@@ -141,10 +140,20 @@ public class LocalizationDelegate {
     // Call override method if local is really changed
     private void checkAfterLocaleChanging() {
         if (isLocalizationChanged) {
-            for (OnLocaleChangedListener listener : localeChangedListeners) {
-                listener.onAfterLocaleChanged();
-            }
+            sendOnAfterLocaleChangedEvent();
             isLocalizationChanged = false;
+        }
+    }
+
+    private void sendOnBeforeLocaleChangedEvent() {
+        for (OnLocaleChangedListener changedListener : localeChangedListeners) {
+            changedListener.onBeforeLocaleChanged();
+        }
+    }
+
+    private void sendOnAfterLocaleChangedEvent() {
+        for (OnLocaleChangedListener listener : localeChangedListeners) {
+            listener.onAfterLocaleChanged();
         }
     }
 

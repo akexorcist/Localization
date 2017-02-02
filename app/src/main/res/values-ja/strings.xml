@@ -1,22 +1,11 @@
 <resources>
 
-    <string name="app_name">Localization</string>
-    <string name="activity">Activity</string>
-    <string name="fragment">Fragment</string>
-
     <string name="one">一</string>
     <string name="two">二</string>
     <string name="three">三</string>
     <string name="hello_world">こんにちは世界</string>
     <string name="language">日本語</string>
     <string name="sample_youtube_app">YouTube アプリを開くと、[あなたへのおすすめ] ページが表示されます。[あなたへのおすすめ] では登録チャンネルの最新アップロードやアクティビティ、おすすめの動画が紹介されます。また、以前にミュージック ビデオを視聴した場合は人気のコンテンツや YouTube ミックスリストも表示されます。ガイドから、いつでもこのフィードに戻ることができます。</string>
-    <string name="sample_apple_story">リンゴ は、バラ科リンゴ属の落葉高木樹。またはその果実のこと。植物学上はセイヨウリンゴと呼ぶ。 原産地はカザフスタン南部、キルギスタン、タジキスタンとされており、ここからヨーロッパやアジアルートで日本にも広まったと考えられている。現在[いつ?]日本で栽培されているものは、明治時代以降に導入されたものであり、日本において、病害抵抗性、食味、収量などの点から品種改良が加えられた。人口比で比較しても日本の青森における生産量は多く、日本ブランド名で（元々の日本リンゴ農家などから商標に関する係争があり）中国でも多量に生産されている。現在[いつ?]は7500以上の品種が栽培されており、亜寒帯、亜熱帯及び温帯で栽培可能であるが、暑さに弱いため熱帯での栽培は難しい。 リンゴの木は、落葉高木で晩春頃に白い5弁花が開花する。リンゴの果実は直径約3-15 cm、重さ約35-1000 g。色は赤や黄緑または黄色をしている。熟するとヘプタコサンを含んだ蝋状の分泌物に覆われる。 リンゴの蜜は比重が大きいため、水の中に入れると沈む。他の果実の部分は比重が小さいため水に浮かぶ。</string>
-    <string name="prev"><![CDATA[<]]></string>
-    <string name="next"><![CDATA[>]]></string>
-    <string name="simple_activity">Simple Activity</string>
-    <string name="custom_activity">Custom Activity</string>
-    <string name="fragment_activity">Activity + Fragment</string>
-    <string name="viewpager_activity">Activity + View Pager</string>
-    <string name="viewpager_description">Swipe or click to change page</string>
+    <string name="sample_apple_story">リンゴ は、バラ科リンゴ属の落葉高木樹。またはその果実のこと。植物学上はセイヨウリンゴと呼ぶ。 原産地はカザフスタン南部、キルギスタン、タジキスタンとされており、ここからヨーロッパやアジアルートで日本にも広まったと考えられている。現在[いつ?]日本で栽培されているものは、明治時代以降に導入されたものであり、日本において、病害抵抗性、食味、収量などの点から品種改良が加えられた。人口比で比較しても日本の青森における生産量は多く、日本ブランド名で（元々の日本リンゴ農家などから商標に関する係争があり）中国でも多量に生産されている。現在[いつ?]は7500以上の品種が栽培されており、亜寒帯、亜熱帯及び温帯で栽培可能であるが、暑さに弱いため熱帯での栽培は難しい。 リンゴの木は、落葉高木で晩春頃に白い5弁花が開花する。リンゴの果実は直径約3–15 cm、重さ約35–1000 g。色は赤や黄緑または黄色をしている。熟するとヘプタコサンを含んだ蝋状の分泌物に覆われる。 リンゴの蜜は比重が大きいため、水の中に入れると沈む。他の果実の部分は比重が小さいため水に浮かぶ。</string>
 
 </resources>
