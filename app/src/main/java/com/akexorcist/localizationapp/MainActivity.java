@@ -8,6 +8,7 @@ import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity;
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity;
 import com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity;
+import com.akexorcist.localizationapp.stackedactivity.Stack1Activity;
 import com.akexorcist.localizationapp.viewpager.ViewPagerActivity;
 
 public class MainActivity extends LocalizationActivity implements View.OnClickListener {
@@ -21,6 +22,7 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
 
         findViewById(R.id.btn_simple_activity).setOnClickListener(this);
         findViewById(R.id.btn_custom_activity).setOnClickListener(this);
+        findViewById(R.id.btn_stacked_activity).setOnClickListener(this);
         findViewById(R.id.btn_activity_fragment).setOnClickListener(this);
         findViewById(R.id.btn_activity_view_pager).setOnClickListener(this);
     }
@@ -32,6 +34,8 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
             goToActivity(SimpleActivity.class);
         } else if (id == R.id.btn_custom_activity) {
             goToActivity(SimpleCustomActivity.class);
+        } else if (id == R.id.btn_stacked_activity) {
+            goToActivity(Stack1Activity.class);
         } else if (id == R.id.btn_activity_fragment) {
             goToActivity(SimpleFragmentActivity.class);
         } else if (id == R.id.btn_activity_view_pager) {
