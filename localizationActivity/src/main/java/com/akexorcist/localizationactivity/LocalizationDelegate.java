@@ -17,7 +17,7 @@ import java.util.Locale;
  */
 public class LocalizationDelegate {
 
-    private static final String KEY_ACTIVIY_LOCALE_CHANGED = "activity_locale_changed";
+    private static final String KEY_ACTIVITY_LOCALE_CHANGED = "activity_locale_changed";
 
     // Boolean flag to check that activity was recreated from locale changed.
     private boolean isLocalizationChanged = false;
@@ -75,10 +75,10 @@ public class LocalizationDelegate {
     // Check that bundle come from locale change.
     // If yes, bundle will obe remove and set boolean flag to "true".
     private void checkBeforeLocaleChanging() {
-        boolean isLocalizationChanged = activity.getIntent().getBooleanExtra(KEY_ACTIVIY_LOCALE_CHANGED, false);
+        boolean isLocalizationChanged = activity.getIntent().getBooleanExtra(KEY_ACTIVITY_LOCALE_CHANGED, false);
         if (isLocalizationChanged) {
             this.isLocalizationChanged = true;
-            activity.getIntent().removeExtra(KEY_ACTIVIY_LOCALE_CHANGED);
+            activity.getIntent().removeExtra(KEY_ACTIVITY_LOCALE_CHANGED);
         }
     }
 
@@ -113,7 +113,7 @@ public class LocalizationDelegate {
         for (OnLocaleChangedListener changedListener : localeChangedListeners) {
             changedListener.onBeforeLocaleChanged();
         }
-        activity.getIntent().putExtra(KEY_ACTIVIY_LOCALE_CHANGED, true);
+        activity.getIntent().putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true);
         callDummyActivity();
         activity.recreate();
     }
