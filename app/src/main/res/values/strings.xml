@@ -14,6 +14,7 @@
     <string name="next" translatable="false"><![CDATA[>]]></string>
     <string name="simple_activity" translatable="false">Simple Activity</string>
     <string name="custom_activity" translatable="false">Custom Activity</string>
+    <string name="stacked_activity" translatable="false">Stacked Activity</string>
     <string name="fragment_activity" translatable="false">Activity + Fragment</string>
     <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>

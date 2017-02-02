@@ -39,6 +39,12 @@
             android:text="@string/custom_activity" />
 
         <Button
+            android:id="@+id/btn_stacked_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stacked_activity" />
+
+        <Button
             android:id="@+id/btn_activity_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
