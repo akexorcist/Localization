@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by Akexorcist on 7/22/15 AD.
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    private final int PAGE_COUNT = 4;
+    private static final int PAGE_COUNT = 4;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
