@@ -69,12 +69,8 @@ public abstract class LocalizationActivity extends AppCompatActivity implements 
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final String getLanguage() {
+    public final Locale getCurrentLanguage() {
         return localizationDelegate.getLanguage();
-    }
-
-    public final Locale getLocale() {
-        return localizationDelegate.getLocale();
     }
 
     // Just override method locale change event

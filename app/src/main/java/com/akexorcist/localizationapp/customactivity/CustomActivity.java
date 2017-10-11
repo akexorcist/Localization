@@ -50,12 +50,8 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final String getLanguage() {
+    public final Locale getLanguage() {
         return localizationDelegate.getLanguage();
-    }
-
-    public final Locale getLocale() {
-        return localizationDelegate.getLocale();
     }
 
     // Just override method locale change event
