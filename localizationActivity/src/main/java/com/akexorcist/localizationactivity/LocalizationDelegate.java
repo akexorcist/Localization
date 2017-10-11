@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.LocaleList;
 import android.util.DisplayMetrics;
 
 import java.util.ArrayList;
@@ -97,10 +99,29 @@ public class LocalizationDelegate {
     }
 
     private void updateLocaleConfiguration(Context context, Locale locale) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            Configuration config = context.getResources().getConfiguration();
+            config.locale = locale;
+            DisplayMetrics dm = context.getResources().getDisplayMetrics();
+            context.getResources().updateConfiguration(config, dm);
+        }
+    }
+
+    public Context attachBaseContext(Context context) {
+        Locale locale = LanguageSetting.getLocale(context);
         Configuration config = context.getResources().getConfiguration();
-        config.locale = locale;
-        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        context.getResources().updateConfiguration(config, dm);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            config.setLocale(locale);
+            LocaleList localeList = new LocaleList(locale);
+            LocaleList.setDefault(localeList);
+            config.setLocales(localeList);
+            return context.createConfigurationContext(config);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+            return context.createConfigurationContext(config);
+        } else {
+            return context;
+        }
     }
 
     // Avoid duplicated setup

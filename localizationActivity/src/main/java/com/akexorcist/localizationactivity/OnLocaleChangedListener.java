@@ -27,5 +27,6 @@ package com.akexorcist.localizationactivity;
  */
 public interface OnLocaleChangedListener {
     void onBeforeLocaleChanged();
+
     void onAfterLocaleChanged();
 }
