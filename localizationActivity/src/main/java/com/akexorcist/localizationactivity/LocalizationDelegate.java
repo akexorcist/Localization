@@ -139,12 +139,9 @@ public class LocalizationDelegate {
 
     // If activity is run to backstack. So we have to check if this activity is resume working.
     public void onResume() {
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                checkLocaleChange();
-                checkAfterLocaleChanging();
-            }
+        new Handler().post(() -> {
+            checkLocaleChange();
+            checkAfterLocaleChanging();
         });
     }
 
