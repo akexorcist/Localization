@@ -1,5 +1,5 @@
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--LocalizationActivity-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity) [![Methods Count](https://img.shields.io/badge/Methods and size-core: 77 | deps: 13224 | 21 KB-e91e63.svg)](http://www.methodscount.com/?lib=com.akexorcist%3Alocalizationactivity%3A1.1.1)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--LocalizationActivity-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
 
 Android-LocalizationActivity
 ==============================
@@ -27,16 +27,23 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localizationactivity</artifactId>
-  <version>1.1.1</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.1.1'
+compile 'com.akexorcist:localizationactivity:1.2.0'
 ```
 
 (Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
+
+Update 1.2.0
+===========================
+* [bug] Bug fixed : Android 7.0 language #14
+* [bug] Language and country support #5
+* [bug] RTL on orientation changes #15 #9
+
 
 
 Feature
@@ -58,19 +65,25 @@ Don't like AppCompat v7? Try delegate way
 ===========================
 (By @AleksanderMielczarek)
 ```java
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.akexorcist.localizationactivity.LocalizationDelegate;
+import com.akexorcist.localizationactivity.OnLocaleChangedListener;
 
 import java.util.Locale;
 
-public class CustomLocalizationActivity extends Activity implements OnLocaleChangedListener {
+/**
+ * Created by Akexorcist on 6/23/16 AD.
+ */
+public abstract class CustomActivity extends Activity implements OnLocaleChangedListener {
 
     private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        localizationDelegate.addOnLocaleChengedListener(this);
+        localizationDelegate.addOnLocaleChangedListener(this);
         localizationDelegate.onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
     }
@@ -81,8 +94,17 @@ public class CustomLocalizationActivity extends Activity implements OnLocaleChan
         localizationDelegate.onResume();
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
+    }
+
     public final void setLanguage(String language) {
         localizationDelegate.setLanguage(language);
+    }
+
+    public final void setLanguage(String language, String country) {
+        localizationDelegate.setLanguage(language, country);
     }
 
     public final void setLanguage(Locale locale) {
@@ -93,24 +115,25 @@ public class CustomLocalizationActivity extends Activity implements OnLocaleChan
         localizationDelegate.setDefaultLanguage(language);
     }
 
+    public final void setDefaultLanguage(String language, String country) {
+        localizationDelegate.setDefaultLanguage(language, country);
+    }
+
     public final void setDefaultLanguage(Locale locale) {
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final String getLanguage() {
+    public final Locale getLanguage() {
         return localizationDelegate.getLanguage();
     }
 
-    public final Locale getLocale() {
-        return localizationDelegate.getLocale();
+    @Override
+    public void onBeforeLocaleChanged() {
     }
 
-    // Just override method locale change event
     @Override
-    public void onBeforeLocaleChanged() { }
-
-    @Override
-    public void onAfterLocaleChanged() { }
+    public void onAfterLocaleChanged() {
+    }
 }
 ```
 
@@ -152,22 +175,26 @@ In the example above, when user click on a button. It will change to English or 
 
 **It's very easy, right?** You barely have to do anything.
 
-Then just build up some String Resouce for English and Thai language.
+Then just build up some String Resource for English and Thai language.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/02-string_resource.jpg)
 
-Complete! Now your application can support multiple language.
+Complete! Your application support with multiple language now.
 
 
 Public method on LocalizationActivity
-===========================
+---------------------------
 
 I wanted it to be easy to use and does not have to do much coding. So it have only 3 public methods.
 
 ```java
 void setLanguage(String language)
+void setLanguage(String language, String country)
+void setLanguage(Locale locale)
 String getLanguage()
 void setDefaultLanguage(String language)
+void setDefaultLanguage(String language, String country)
+void setDefaultLanguage(Locale locale)
 ```
 
 **setLanguage** Set the language that you needs to change. The string value given will be use for setup Locale class later.
@@ -176,13 +203,13 @@ Example
 
 ```java
 setLanguage("th")                             // Language : Thailand
-setLanguage("th_TH)                           // Language : Thailand, Country : Thai
+setLanguage("th", "TH")                       // Language : Thailand, Country : Thai
 setLanguage("en")                             // Language : English
-setLanguage("en_GB")                          // Language : English,  Country : Great Britain
-setLanguage("en_US")                          // Language : English,  Country : United States
-setLanguage(Locale.KOREA.toString())          // Language : Korean,  Country : Korea
-setLanguage(Locale.KOREAN.toString())         // Language : Korean
-setLanguage(Locale.CANADA_FRENCH.toString())  // Language : French,  Country : Canada
+setLanguage("en", "GB")                       // Language : English,  Country : Great Britain
+setLanguage("en", "US")                       // Language : English,  Country : United States
+setLanguage(Locale.KOREA)                     // Language : Korean,  Country : Korea
+setLanguage(Locale.KOREAN)                    // Language : Korean
+setLanguage(Locale.CANADA_FRENCH)             // Language : French,  Country : Canada
 ```
 
 So you must determine the correct language for Locale class.
@@ -194,7 +221,7 @@ So you must determine the correct language for Locale class.
 ```java
 @Override
 public void onCreate(Bundle savedInstanceState) {
-    setDefaultLanguage(Locale.JAPAN.toString());
+    setDefaultLanguage(Locale.JAPAN);
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
@@ -227,6 +254,29 @@ But no problem for this library when application getback to previous activity. I
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/08-step_four.jpg)
 
+
+Action Bar or Toolbar's title
+---------------------------
+You have to call 
+```
+setTitle(String title)
+// or
+getActionBar().setTitle(String title)
+ ```
+ in on activity create (onCreate) every time
+ ```
+ public class MainActivity extends Localization {
+     @Override
+     public void onCreate(Bundle onSavedInstanceState) {
+         ...
+         setTitle(R.string,user_management_screen);
+     }
+ }
+ ```
+
+
+Instance State
+---------------------------
 When language was changed. An activity wil recreated. So if you have any data object. It should be handle by save/restore instance state for complelely works. (It simple way to supported portrait/landscape orientation)
 
 Therefore you have to override onSaveInstance and onRestoreInstance in to your code, and handle it.
@@ -265,6 +315,9 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
 }
 ```
 
+
+Fragment
+---------------------------
 It's affect on fragment as well.
 
 Fragment language configuration is depending with activity. If activity language was changed and recreated. It will apply to fragment as well. So you have to handle to Instance State on fragment like an activity.
