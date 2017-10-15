@@ -6,6 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -15,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".simplefragment.SimpleFragmentActivity" />
+        <activity android:name=".nestedfragment.NestedFragmentActivity" />
         <activity android:name=".viewpager.ViewPagerActivity" />
         <activity android:name=".simpleactivity.SimpleActivity" />
         <activity android:name=".customactivity.SimpleCustomActivity" />

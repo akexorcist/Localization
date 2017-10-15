@@ -5,8 +5,8 @@
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/large_margin"
-    android:paddingLeft="@dimen/large_margin"
-    android:paddingRight="@dimen/large_margin"
+    android:paddingEnd="@dimen/large_margin"
+    android:paddingStart="@dimen/large_margin"
     android:paddingTop="@dimen/large_margin"
     tools:context="com.akexorcist.localizationapp.simpleactivity.SimpleActivity">
 
@@ -20,8 +20,9 @@
             android:id="@+id/btn_america"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/america"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_america" />
 
@@ -29,8 +30,9 @@
             android:id="@+id/btn_china"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/china"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_china" />
 
@@ -38,8 +40,9 @@
             android:id="@+id/btn_italy"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/italy"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_italy" />
 
@@ -55,8 +58,9 @@
             android:id="@+id/btn_japan"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/japan"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_japan" />
 
@@ -64,8 +68,9 @@
             android:id="@+id/btn_korea"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/korea"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_korea" />
 
@@ -73,8 +78,9 @@
             android:id="@+id/btn_portugal"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/portugal"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_portugal" />
 
@@ -82,8 +88,9 @@
             android:id="@+id/btn_thai"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginRight="@dimen/padding"
+            android:layout_marginEnd="@dimen/padding"
             android:background="@color/transparent"
+            android:contentDescription="@string/thai"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_thai" />
     </LinearLayout>

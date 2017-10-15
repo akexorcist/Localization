@@ -34,54 +34,44 @@ import java.util.Locale;
 public class LanguageSetting {
     private static final String PREFERENCE_LANGUAGE = "pref_language";
     private static final String KEY_LANGUAGE = "key_language";
-    private static String DEFAULT_LANGUAGE = Locale.ENGLISH.getLanguage();
-    private static String currentLanguage = Locale.ENGLISH.getLanguage();
+    private static Locale DEFAULT_LANGUAGE = Locale.ENGLISH;
+    private static Locale currentLanguage = Locale.ENGLISH;
 
-    public static void setDefaultLanguage(String language) {
-        DEFAULT_LANGUAGE = language;
+    public static void setDefaultLanguage(Locale locale) {
+        DEFAULT_LANGUAGE = locale;
     }
 
-    public static String getDefaultLanguage() {
+    public static Locale getDefaultLanguage() {
         return DEFAULT_LANGUAGE;
     }
 
-    public static void setLanguage(Context context, String language) {
-        currentLanguage = language;
+    public static void setLanguage(Context context, Locale locale) {
+        currentLanguage = locale;
         SharedPreferences.Editor editor = getLanguagePreference(context).edit();
-        editor.putString(KEY_LANGUAGE, language);
+        editor.putString(KEY_LANGUAGE, locale.toString());
         editor.apply();
     }
 
-    public static void setLanguage(Context context, Locale locale) {
-        setLanguage(context, locale.getLanguage());
-    }
-
-    public static String getLanguage() {
+    public static Locale getCurrentLanguage() {
         return currentLanguage;
     }
 
-    private static String getLanguage(Context context) {
-        return getLanguagePreference(context).getString(KEY_LANGUAGE, DEFAULT_LANGUAGE);
+    public static Locale getLanguage(Context context) {
+        String[] language = getLanguagePreference(context)
+                .getString(KEY_LANGUAGE, DEFAULT_LANGUAGE.toString())
+                .split("_");
+        Locale locale;
+        if (language.length == 1) {
+            locale = new Locale(language[0]);
+        } else if (language.length == 2) {
+            locale = new Locale(language[0], language[1].toUpperCase());
+        } else {
+            locale = DEFAULT_LANGUAGE;
+        }
+        return locale;
     }
 
     private static SharedPreferences getLanguagePreference(Context context) {
         return context.getSharedPreferences(PREFERENCE_LANGUAGE, Activity.MODE_PRIVATE);
     }
-
-    public static void setDefaultLanguage(Locale locale) {
-        LanguageSetting.setDefaultLanguage(locale.getLanguage());
-    }
-
-    public static Locale getLocale() {
-        return getLocale(getLanguage());
-    }
-
-    public static Locale getLocale(Context context) {
-        return getLocale(getLanguage(context));
-    }
-
-    public static Locale getLocale(String language) {
-        return new Locale(language.toLowerCase(Locale.getDefault()));
-    }
-
 }

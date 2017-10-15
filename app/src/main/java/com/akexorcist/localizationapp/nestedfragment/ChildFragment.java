@@ -1,4 +1,4 @@
-package com.akexorcist.localizationapp.simplefragment;
+package com.akexorcist.localizationapp.nestedfragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,19 +13,19 @@ import com.akexorcist.localizationapp.R;
 /**
  * Created by Akexorcist on 7/22/15 AD.
  */
-public class SimpleFragment extends Fragment {
+public class ChildFragment extends Fragment {
     private final String KEY_SCROLL_Y = "scroll_y";
 
     private ScrollView svAppleStory;
 
     public static Fragment newInstance() {
-        return new SimpleFragment();
+        return new ChildFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_simple, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_nested_child, container, false);
         svAppleStory = rootView.findViewById(R.id.sv_apple_story);
 
         if (savedInstanceState != null) {

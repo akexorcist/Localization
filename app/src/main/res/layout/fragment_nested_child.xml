@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -10,7 +10,7 @@
         android:layout_marginBottom="@dimen/margin"
         android:layout_marginStart="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
-        android:text="@string/fragment"
+        android:text="@string/child_fragment"
         android:textColor="@color/app_light_text"
         android:textSize="@dimen/text_size" />
 
@@ -29,8 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin"
-                android:layout_marginEnd="@dimen/margin"
                 android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
                 android:text="@string/sample_apple_story"
                 android:textColor="@color/app_text"
                 android:textSize="@dimen/text_size" />
@@ -38,11 +38,12 @@
             <ImageView
                 android:layout_width="@dimen/iv_apple_size"
                 android:layout_height="@dimen/iv_apple_size"
-                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginBottom="@dimen/large_margin"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/apple" />
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

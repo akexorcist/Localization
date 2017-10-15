@@ -1,23 +1,28 @@
-package com.akexorcist.localizationapp.customactivity;
+package com.akexorcist.localizationapp.nestedfragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 
+import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
+import com.akexorcist.localizationapp.simplefragment.SimpleFragment;
 
-public class SimpleCustomActivity extends CustomActivity {
-    private final String KEY_SCROLL_X = "scroll_x";
+/**
+ * Created by Akexorcist on 10/15/2017 AD.
+ */
+
+public class NestedFragmentActivity extends LocalizationActivity {
+    private static final String KEY_SCROLL_X = "scroll_x";
 
     private HorizontalScrollView svLanguageChooser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple);
-
-        // Activity title is not change the language automatically.
-        setTitle(R.string.hello_world);
+        setContentView(R.layout.activity_nested_fragment);
 
         findViewById(R.id.btn_america).setOnClickListener(onAmericaLanguageSelected());
         findViewById(R.id.btn_china).setOnClickListener(onChinaLanguageSelected());
@@ -28,6 +33,13 @@ public class SimpleCustomActivity extends CustomActivity {
         findViewById(R.id.btn_thai).setOnClickListener(onThaiLanguageSelected());
 
         svLanguageChooser = findViewById(R.id.sv_language_chooser);
+
+        if (savedInstanceState == null) {
+            Fragment fragment = ParentFragment.newInstance();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.layout_fragment_container, fragment);
+            transaction.commit();
+        }
     }
 
     @Override

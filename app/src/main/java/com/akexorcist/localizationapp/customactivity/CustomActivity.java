@@ -1,6 +1,7 @@
 package com.akexorcist.localizationapp.customactivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.akexorcist.localizationactivity.LocalizationDelegate;
@@ -11,7 +12,7 @@ import java.util.Locale;
 /**
  * Created by Akexorcist on 6/23/16 AD.
  */
-public class CustomActivity extends Activity implements OnLocaleChangedListener {
+public abstract class CustomActivity extends Activity implements OnLocaleChangedListener {
 
     private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
 
@@ -28,8 +29,17 @@ public class CustomActivity extends Activity implements OnLocaleChangedListener 
         localizationDelegate.onResume();
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
+    }
+
     public final void setLanguage(String language) {
         localizationDelegate.setLanguage(language);
+    }
+
+    public final void setLanguage(String language, String country) {
+        localizationDelegate.setLanguage(language, country);
     }
 
     public final void setLanguage(Locale locale) {
@@ -40,22 +50,24 @@ public class CustomActivity extends Activity implements OnLocaleChangedListener 
         localizationDelegate.setDefaultLanguage(language);
     }
 
+    public final void setDefaultLanguage(String language, String country) {
+        localizationDelegate.setDefaultLanguage(language, country);
+    }
+
     public final void setDefaultLanguage(Locale locale) {
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final String getLanguage() {
+    public final Locale getLanguage() {
         return localizationDelegate.getLanguage();
-    }
-
-    public final Locale getLocale() {
-        return localizationDelegate.getLocale();
     }
 
     // Just override method locale change event
     @Override
-    public void onBeforeLocaleChanged() { }
+    public void onBeforeLocaleChanged() {
+    }
 
     @Override
-    public void onAfterLocaleChanged() { }
+    public void onAfterLocaleChanged() {
+    }
 }

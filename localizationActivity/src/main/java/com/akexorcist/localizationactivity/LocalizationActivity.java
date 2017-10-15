@@ -22,6 +22,7 @@
 
 package com.akexorcist.localizationactivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -30,7 +31,7 @@ import java.util.Locale;
 /**
  * Created by Akexorcist on 7/20/15 AD.
  */
-public class LocalizationActivity extends AppCompatActivity implements OnLocaleChangedListener {
+public abstract class LocalizationActivity extends AppCompatActivity implements OnLocaleChangedListener {
 
     private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
 
@@ -45,6 +46,11 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
     public void onResume() {
         super.onResume();
         localizationDelegate.onResume();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
     }
 
     public final void setLanguage(String language) {
@@ -63,18 +69,16 @@ public class LocalizationActivity extends AppCompatActivity implements OnLocaleC
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final String getLanguage() {
+    public final Locale getCurrentLanguage() {
         return localizationDelegate.getLanguage();
-    }
-
-    public final Locale getLocale() {
-        return localizationDelegate.getLocale();
     }
 
     // Just override method locale change event
     @Override
-    public void onBeforeLocaleChanged() { }
+    public void onBeforeLocaleChanged() {
+    }
 
     @Override
-    public void onAfterLocaleChanged() { }
+    public void onAfterLocaleChanged() {
+    }
 }

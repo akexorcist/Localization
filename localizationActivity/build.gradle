@@ -18,10 +18,14 @@ android {
             res.srcDirs = ['src/main/res']
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 }
 
 apply from: '../maven_push.gradle'

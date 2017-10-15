@@ -7,8 +7,8 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/large_margin"
-    android:paddingLeft="@dimen/large_margin"
-    android:paddingRight="@dimen/large_margin"
+    android:paddingEnd="@dimen/large_margin"
+    android:paddingStart="@dimen/large_margin"
     android:paddingTop="@dimen/large_margin"
     tools:context="com.akexorcist.localizationapp.MainActivity">
 
@@ -49,6 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/fragment_activity" />
+
+        <Button
+            android:id="@+id/btn_activity_nested_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nested_fragment_activity" />
 
         <Button
             android:id="@+id/btn_activity_view_pager"
