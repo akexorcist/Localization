@@ -40,9 +40,9 @@ compile 'com.akexorcist:localizationactivity:1.2.0'
 
 Update 1.2.0
 ===========================
-* [bug] Bug fixed : Android 7.0 language #14
-* [bug] Language and country support #5
-* [bug] RTL on orientation changes #15 #9
+* [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-LocalizationActivity/issues/14)
+* [bug] Language and country support [#5](https://github.com/akexorcist/Android-LocalizationActivity/issues/5)
+* [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-LocalizationActivity/issues/15) [#9](https://github.com/akexorcist/Android-LocalizationActivity/issues/9)
 
 
 
