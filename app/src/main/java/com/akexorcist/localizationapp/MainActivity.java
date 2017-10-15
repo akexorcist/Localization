@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity;
+import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity;
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity;
 import com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity;
 import com.akexorcist.localizationapp.stackedactivity.Stack1Activity;
@@ -24,6 +25,7 @@ public class MainActivity extends LocalizationActivity {
         findViewById(R.id.btn_custom_activity).setOnClickListener(onCustomActivityClick());
         findViewById(R.id.btn_stacked_activity).setOnClickListener(onStackedActivityClick());
         findViewById(R.id.btn_activity_fragment).setOnClickListener(onSimpleFragmentClick());
+        findViewById(R.id.btn_activity_nested_fragment).setOnClickListener(onNestedFragmentClick());
         findViewById(R.id.btn_activity_view_pager).setOnClickListener(onViewPagerClick());
     }
 
@@ -41,6 +43,10 @@ public class MainActivity extends LocalizationActivity {
 
     public View.OnClickListener onSimpleFragmentClick() {
         return view -> goToActivity(SimpleFragmentActivity.class);
+    }
+
+    private View.OnClickListener onNestedFragmentClick() {
+        return view -> goToActivity(NestedFragmentActivity.class);
     }
 
     public View.OnClickListener onViewPagerClick() {

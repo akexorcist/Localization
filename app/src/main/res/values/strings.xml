@@ -2,6 +2,8 @@
     <string name="app_name" translatable="false">Localization</string>
     <string name="activity" translatable="false">Activity</string>
     <string name="fragment" translatable="false">Fragment</string>
+    <string name="parent_fragment" translatable="false">Parent Fragment</string>
+    <string name="child_fragment" translatable="false">Child Fragment</string>
 
     <string name="one">One</string>
     <string name="two">Two</string>
@@ -16,6 +18,7 @@
     <string name="custom_activity" translatable="false">Custom Activity</string>
     <string name="stacked_activity" translatable="false">Stacked Activity</string>
     <string name="fragment_activity" translatable="false">Activity + Fragment</string>
+    <string name="nested_fragment_activity" translatable="false">Activity + Nested Fragment</string>
     <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
 </resources>
