@@ -14,6 +14,8 @@
     <string name="sample_apple_story">The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today. Apples have been grown for thousands of years in Asia and Europe, and were brought to North America by European colonists. Apples have religious and mythological significance in many cultures, including Norse, Greek and European Christian traditions. Apple trees are large if grown from seed, but small if grafted onto roots (rootstock). There are more than 7,500 known cultivars of apples, resulting in a range of desired characteristics. Different cultivars are bred for various tastes and uses, including cooking, eating raw and cider production. Apples are generally propagated by grafting, although wild apples grow readily from seed. Trees and fruit are prone to a number of fungal, bacterial and pest problems, which can be controlled by a number of organic and non-organic means. In 2010, the fruit\'s genome was decoded as part of research on disease control and selective breeding in apple production. About 80 million tons of apples were grown worldwide in 2013, and China produced almost half of this total.[3] The United States is the second-leading producer, with more than 6% of world production. Turkey is third, followed by Italy, India and Poland. Apples are often eaten raw, but can also be found in many prepared foods (especially desserts) and drinks. Many beneficial health effects are thought to result from eating apples; however, two types of allergies are attributed to various proteins found in the fruit.</string>
     <string name="prev" translatable="false"><![CDATA[<]]></string>
     <string name="next" translatable="false"><![CDATA[>]]></string>
+    <string name="change_language" translatable="false">Change Language</string>
+
     <string name="simple_activity" translatable="false">Simple Activity</string>
     <string name="custom_activity" translatable="false">Custom Activity</string>
     <string name="stacked_activity" translatable="false">Stacked Activity</string>
@@ -21,4 +23,12 @@
     <string name="nested_fragment_activity" translatable="false">Activity + Nested Fragment</string>
     <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
+
+    <string name="america" translatable="false">America</string>
+    <string name="china" translatable="false">China</string>
+    <string name="italy" translatable="false">Italy</string>
+    <string name="japan" translatable="false">Japan</string>
+    <string name="korea" translatable="false">Korea</string>
+    <string name="portugal" translatable="false">Portugal</string>
+    <string name="thai" translatable="false">Thai</string>
 </resources>

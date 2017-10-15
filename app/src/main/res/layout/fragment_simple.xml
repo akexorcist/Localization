@@ -7,11 +7,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="@dimen/large_margin"
-        android:layout_marginLeft="@dimen/large_margin"
-        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
         android:text="@string/fragment"
         android:textColor="@color/app_light_text"
         android:textSize="@dimen/text_size" />
@@ -30,11 +28,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="@dimen/large_margin"
-                android:layout_marginLeft="@dimen/large_margin"
-                android:layout_marginRight="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:text="@string/sample_apple_story"
                 android:textColor="@color/app_text"
                 android:textSize="@dimen/text_size" />
@@ -42,7 +38,8 @@
             <ImageView
                 android:layout_width="@dimen/iv_apple_size"
                 android:layout_height="@dimen/iv_apple_size"
-                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/margin"
+                android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/apple" />
 
