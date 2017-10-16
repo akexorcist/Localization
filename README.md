@@ -6,11 +6,13 @@ Android-LocalizationActivity
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/01-header.jpg)
 
-Keep calm and stay easy with multiple language supported in your android application.
+You can now chill out on supporting multiple languages on your android application.
 
-It's basic for android application to be supported multiple languages. Yeah! It's very easy because android has String Resource. Developer just had to prepare the text for different languages then android system will use itself.
-But frequently problem is "On-time Language Changing". Because the String Resource was designed to be depending on current device language. but if we want to change the language by click some button. It will be difficult to handle it.
-This problem will solved because I have created a new library to handle application language. It called "Localization Activity" library.
+It is normal for your Android application to support multiple languages. And it is very easy because you can do them by putting each language in different String Resource folders. That is the only thing that developers has to do. The rest will be handled by Android system.
+
+
+Its easiness comes with a limitation. The language of your application follows your Android System language. Life is hard when you change your application language on-the-fly. E.g., you have a language switcher button in your application. If you have this problem, you come to the right place. I have created a library to handle language changing at application level.
+It is called "Localization Activity".
 
 
 Demo
@@ -50,13 +52,13 @@ Feature
 ===========================
 * On-time language changing supported.
 * Auto setup when activity was created.
-* Current language config will saved to SharedPreference automatically.
+* Current language config will save to `SharedPreference` automagically.
 * Very easy to use it.
 
 
 LocalizationActivity extends from AppCompatActivity
 ===========================
-LocalizationActivity is extend from AppCompatActivity class. So you still can use all method from AppCompatActivity class.
+LocalizationActivity is extended from AppCompatActivity class. So you still can use all methods from AppCompatActivity class.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
 
@@ -171,15 +173,15 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
 }
 ```
 
-In the example above, when user click on a button. It will change to English or Thai language. That's It! Localization Activity Library example.
+In the example above, when a user clicks on a button. It will change to English or Thai language. That's it! 
 
-**It's very easy, right?** You barely have to do anything.
+**It's very easy, right?** You barely do anything.
 
 Then just build up some String Resource for English and Thai language.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/02-string_resource.jpg)
 
-Complete! Your application support with multiple language now.
+Complete! Your application now supports multiple languages now.
 
 
 Public method on LocalizationActivity
@@ -197,7 +199,7 @@ void setDefaultLanguage(String language, String country)
 void setDefaultLanguage(Locale locale)
 ```
 
-**setLanguage** Set the language that you needs to change. The string value given will be use for setup Locale class later.
+**setLanguage** Set the language that you need to change. The string value given will be use for setup Locale class later.
 
 Example
 
