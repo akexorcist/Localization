@@ -23,8 +23,12 @@
 package com.akexorcist.localizationactivity;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.akexorcist.localizationactivity.LocalizationActivityDelegate;
+import com.akexorcist.localizationactivity.OnLocaleChangedListener;
 
 import java.util.Locale;
 
@@ -33,7 +37,7 @@ import java.util.Locale;
  */
 public abstract class LocalizationActivity extends AppCompatActivity implements OnLocaleChangedListener {
 
-    private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
+    private LocalizationActivityDelegate localizationDelegate = new LocalizationActivityDelegate(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public abstract class LocalizationActivity extends AppCompatActivity implements 
     @Override
     public void onResume() {
         super.onResume();
-        localizationDelegate.onResume();
+        localizationDelegate.onResume(this);
     }
 
     @Override
@@ -53,12 +57,22 @@ public abstract class LocalizationActivity extends AppCompatActivity implements 
         super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
     }
 
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
+    }
+
+    @Override
+    public Resources getResources() {
+        return localizationDelegate.getResources(super.getResources());
+    }
+
     public final void setLanguage(String language) {
-        localizationDelegate.setLanguage(language);
+        localizationDelegate.setLanguage(this, language);
     }
 
     public final void setLanguage(Locale locale) {
-        localizationDelegate.setLanguage(locale);
+        localizationDelegate.setLanguage(this, locale);
     }
 
     public final void setDefaultLanguage(String language) {
@@ -70,7 +84,7 @@ public abstract class LocalizationActivity extends AppCompatActivity implements 
     }
 
     public final Locale getCurrentLanguage() {
-        return localizationDelegate.getLanguage();
+        return localizationDelegate.getLanguage(this);
     }
 
     // Just override method locale change event
