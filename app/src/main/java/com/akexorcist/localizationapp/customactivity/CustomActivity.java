@@ -2,10 +2,11 @@ package com.akexorcist.localizationapp.customactivity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
-import com.akexorcist.localizationactivity.LocalizationDelegate;
-import com.akexorcist.localizationactivity.OnLocaleChangedListener;
+import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate;
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 
 import java.util.Locale;
 
@@ -14,7 +15,7 @@ import java.util.Locale;
  */
 public abstract class CustomActivity extends Activity implements OnLocaleChangedListener {
 
-    private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
+    private LocalizationActivityDelegate localizationDelegate = new LocalizationActivityDelegate(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
     @Override
     public void onResume() {
         super.onResume();
-        localizationDelegate.onResume();
+        localizationDelegate.onResume(this);
     }
 
     @Override
@@ -34,32 +35,34 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
         super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
     }
 
-    public final void setLanguage(String language) {
-        localizationDelegate.setLanguage(language);
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
     }
 
-    public final void setLanguage(String language, String country) {
-        localizationDelegate.setLanguage(language, country);
+    @Override
+    public Resources getResources() {
+        return localizationDelegate.getResources(super.getResources());
+    }
+
+    public final void setLanguage(String language) {
+        localizationDelegate.setLanguage(this, language);
     }
 
     public final void setLanguage(Locale locale) {
-        localizationDelegate.setLanguage(locale);
+        localizationDelegate.setLanguage(this, locale);
     }
 
     public final void setDefaultLanguage(String language) {
         localizationDelegate.setDefaultLanguage(language);
     }
 
-    public final void setDefaultLanguage(String language, String country) {
-        localizationDelegate.setDefaultLanguage(language, country);
-    }
-
     public final void setDefaultLanguage(Locale locale) {
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final Locale getLanguage() {
-        return localizationDelegate.getLanguage();
+    public final Locale getCurrentLanguage() {
+        return localizationDelegate.getLanguage(this);
     }
 
     // Just override method locale change event

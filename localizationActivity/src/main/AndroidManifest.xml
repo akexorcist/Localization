@@ -5,7 +5,7 @@
 
     <application>
         <activity
-            android:name=".BlankDummyActivity"
+            android:name=".ui.BlankDummyActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
     </application>
 

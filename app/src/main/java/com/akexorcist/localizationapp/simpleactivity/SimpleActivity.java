@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
 
 public class SimpleActivity extends LocalizationActivity {

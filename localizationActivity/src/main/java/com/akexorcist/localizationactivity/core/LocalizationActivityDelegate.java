@@ -1,24 +1,27 @@
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.core;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
 
+import com.akexorcist.localizationactivity.ui.BlankDummyActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Aleksander Mielczarek on 03.04.2016.
+ * Created by Akexorcist on 10/19/2017 AD.
  */
-public class LocalizationDelegate {
 
+public class LocalizationActivityDelegate {
     private static final String KEY_ACTIVITY_LOCALE_CHANGED = "activity_locale_changed";
 
     // Boolean flag to check that activity was recreated from locale changed.
@@ -30,7 +33,7 @@ public class LocalizationDelegate {
     private final Activity activity;
     private final List<OnLocaleChangedListener> localeChangedListeners = new ArrayList<>();
 
-    public LocalizationDelegate(Activity activity) {
+    public LocalizationActivityDelegate(Activity activity) {
         this.activity = activity;
     }
 
@@ -43,19 +46,63 @@ public class LocalizationDelegate {
         checkBeforeLocaleChanging();
     }
 
+    // If activity is run to back stack. So we have to check if this activity is resume working.
+    public void onResume(Context context) {
+        new Handler().post(() -> {
+            checkLocaleChange(context);
+            checkAfterLocaleChanging();
+        });
+    }
+
+    public Context attachBaseContext(Context context) {
+        Locale locale = LanguageSetting.getLanguage(context);
+        Configuration config = context.getResources().getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            config.setLocale(locale);
+            LocaleList localeList = new LocaleList(locale);
+            LocaleList.setDefault(localeList);
+            config.setLocales(localeList);
+            return context.createConfigurationContext(config);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+            return context.createConfigurationContext(config);
+        } else {
+            return context;
+        }
+    }
+
+    public Context getApplicationContext(Context applicationContext) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            return LocalizationUtility.applyLocalizationContext(applicationContext);
+        } else {
+            return applicationContext;
+        }
+    }
+
+    public Resources getResources(Resources resources) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Configuration config = resources.getConfiguration();
+            config.locale = LanguageSetting.getLanguage(activity);
+            DisplayMetrics metrics = resources.getDisplayMetrics();
+            return new Resources(activity.getAssets(), metrics, config);
+        } else {
+            return resources;
+        }
+    }
+
     // Provide method to set application language by country name.
-    public final void setLanguage(String language) {
+    public final void setLanguage(Context context, String language) {
         Locale locale = new Locale(language);
-        setLanguage(locale);
+        setLanguage(context, locale);
     }
 
-    public final void setLanguage(String language, String country) {
+    public final void setLanguage(Context context, String language, String country) {
         Locale locale = new Locale(language, country);
-        setLanguage(locale);
+        setLanguage(context, locale);
     }
 
-    public final void setLanguage(Locale locale) {
-        if (!isCurrentLanguageSetting(locale)) {
+    public final void setLanguage(Context context, Locale locale) {
+        if (!isCurrentLanguageSetting(context, locale)) {
             LanguageSetting.setLanguage(activity, locale);
             notifyLanguageChanged();
         }
@@ -76,8 +123,8 @@ public class LocalizationDelegate {
     }
 
     // Get current language
-    public final Locale getLanguage() {
-        return LanguageSetting.getCurrentLanguage();
+    public final Locale getLanguage(Context context) {
+        return LanguageSetting.getLanguage(context);
     }
 
     // Check that bundle come from locale change.
@@ -104,6 +151,7 @@ public class LocalizationDelegate {
         updateLocaleConfiguration(activity, locale);
     }
 
+
     private void updateLocaleConfiguration(Context context, Locale locale) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
             Configuration config = context.getResources().getConfiguration();
@@ -113,26 +161,9 @@ public class LocalizationDelegate {
         }
     }
 
-    public Context attachBaseContext(Context context) {
-        Locale locale = LanguageSetting.getLanguage(context);
-        Configuration config = context.getResources().getConfiguration();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.setLocale(locale);
-            LocaleList localeList = new LocaleList(locale);
-            LocaleList.setDefault(localeList);
-            config.setLocales(localeList);
-            return context.createConfigurationContext(config);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLocale(locale);
-            return context.createConfigurationContext(config);
-        } else {
-            return context;
-        }
-    }
-
     // Avoid duplicated setup
-    private boolean isCurrentLanguageSetting(Locale locale) {
-        return locale.toString().equals(LanguageSetting.getCurrentLanguage().toString());
+    private boolean isCurrentLanguageSetting(Context context, Locale locale) {
+        return locale.toString().equals(LanguageSetting.getLanguage(context).toString());
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
@@ -143,17 +174,9 @@ public class LocalizationDelegate {
         activity.recreate();
     }
 
-    // If activity is run to back stack. So we have to check if this activity is resume working.
-    public void onResume() {
-        new Handler().post(() -> {
-            checkLocaleChange();
-            checkAfterLocaleChanging();
-        });
-    }
-
     // Check if locale has change while this activity was run to back stack.
-    private void checkLocaleChange() {
-        if (!isCurrentLanguageSetting(currentLanguage)) {
+    private void checkLocaleChange(Context context) {
+        if (!isCurrentLanguageSetting(context, currentLanguage)) {
             sendOnBeforeLocaleChangedEvent();
             isLocalizationChanged = true;
             callDummyActivity();

@@ -6,11 +6,13 @@ Android-LocalizationActivity
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/01-header.jpg)
 
-Keep calm and stay easy with multiple language supported in your android application.
+You can now chill out on supporting multiple languages on your android application.
 
-It's basic for android application to be supported multiple languages. Yeah! It's very easy because android has String Resource. Developer just had to prepare the text for different languages then android system will use itself.
-But frequently problem is "On-time Language Changing". Because the String Resource was designed to be depending on current device language. but if we want to change the language by click some button. It will be difficult to handle it.
-This problem will solved because I have created a new library to handle application language. It called "Localization Activity" library.
+It is normal for your Android application to support multiple languages. And it is very easy because you can do them by putting each language in different String Resource folders. That is the only thing that developers has to do. The rest will be handled by Android system.
+
+
+Its easiness comes with a limitation. The language of your application follows your Android System language. Life is hard when you change your application language on-the-fly. E.g., you have a language switcher button in your application. If you have this problem, you come to the right place. I have created a library to handle language changing at application level.
+It is called "Localization Activity".
 
 
 Demo
@@ -27,19 +29,28 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localizationactivity</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.2.0'
+compile 'com.akexorcist:localizationactivity:1.2.1'
 ```
 
 (Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
 
-Update 1.2.0
+
+Update
 ===========================
+ 1.2.1
+ ---------------------------
+• Support string resource from getApplicationContext() 
+• Add LocalizationApplicationDelegate. So you need to custom application class in your app
+• LocalizationDelegate was deprecated, replace by LocalizationActivityDelegate 
+
+1.2.0
+---------------------------
 * [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-LocalizationActivity/issues/14)
 * [bug] Language and country support [#5](https://github.com/akexorcist/Android-LocalizationActivity/issues/5)
 * [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-LocalizationActivity/issues/15) [#9](https://github.com/akexorcist/Android-LocalizationActivity/issues/9)
@@ -50,13 +61,13 @@ Feature
 ===========================
 * On-time language changing supported.
 * Auto setup when activity was created.
-* Current language config will saved to SharedPreference automatically.
+* Current language config will save to `SharedPreference` automagically.
 * Very easy to use it.
 
 
 LocalizationActivity extends from AppCompatActivity
 ===========================
-LocalizationActivity is extend from AppCompatActivity class. So you still can use all method from AppCompatActivity class.
+LocalizationActivity is extended from AppCompatActivity class. So you still can use all methods from AppCompatActivity class.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
 
@@ -67,19 +78,17 @@ Don't like AppCompat v7? Try delegate way
 ```java
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
-import com.akexorcist.localizationactivity.LocalizationDelegate;
-import com.akexorcist.localizationactivity.OnLocaleChangedListener;
+import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate;
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 
 import java.util.Locale;
 
-/**
- * Created by Akexorcist on 6/23/16 AD.
- */
 public abstract class CustomActivity extends Activity implements OnLocaleChangedListener {
 
-    private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
+    private LocalizationActivityDelegate localizationDelegate = new LocalizationActivityDelegate(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,7 +100,7 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
     @Override
     public void onResume() {
         super.onResume();
-        localizationDelegate.onResume();
+        localizationDelegate.onResume(this);
     }
 
     @Override
@@ -99,34 +108,37 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
         super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
     }
 
-    public final void setLanguage(String language) {
-        localizationDelegate.setLanguage(language);
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
     }
 
-    public final void setLanguage(String language, String country) {
-        localizationDelegate.setLanguage(language, country);
+    @Override
+    public Resources getResources() {
+        return localizationDelegate.getResources(super.getResources());
+    }
+
+    public final void setLanguage(String language) {
+        localizationDelegate.setLanguage(this, language);
     }
 
     public final void setLanguage(Locale locale) {
-        localizationDelegate.setLanguage(locale);
+        localizationDelegate.setLanguage(this, locale);
     }
 
     public final void setDefaultLanguage(String language) {
         localizationDelegate.setDefaultLanguage(language);
     }
 
-    public final void setDefaultLanguage(String language, String country) {
-        localizationDelegate.setDefaultLanguage(language, country);
-    }
-
     public final void setDefaultLanguage(Locale locale) {
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final Locale getLanguage() {
-        return localizationDelegate.getLanguage();
+    public final Locale getCurrentLanguage() {
+        return localizationDelegate.getLanguage(this);
     }
 
+    // Just override method locale change event
     @Override
     public void onBeforeLocaleChanged() {
     }
@@ -140,13 +152,42 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
 
 Usage
 ===========================
-This is an example.
+You need to use custom application class in your project that implemented the LocalizationApplicationDelegate class.
+```java
+import android.app.Application;
+import android.content.Context;
+import android.content.res.Configuration;
+
+import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
+
+public class MainApplication extends Application {
+    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate(this);
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(base));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        localizationDelegate.onConfigurationChanged(this);
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
+    }
+}
+```
+
+In your activity, just extends from LocalizationActivity class or your custom class.
 
 ```java
 import android.os.Bundle;
 import android.view.View;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 
 public class MainActivity extends LocalizationActivity implements View.OnClickListener {
 
@@ -171,15 +212,15 @@ public class MainActivity extends LocalizationActivity implements View.OnClickLi
 }
 ```
 
-In the example above, when user click on a button. It will change to English or Thai language. That's It! Localization Activity Library example.
+In the example above, when a user clicks on a button. It will change to English or Thai language. That's it! 
 
-**It's very easy, right?** You barely have to do anything.
+**It's very easy, right?** You barely do anything.
 
 Then just build up some String Resource for English and Thai language.
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/02-string_resource.jpg)
 
-Complete! Your application support with multiple language now.
+Complete! Your application now supports multiple languages now.
 
 
 Public method on LocalizationActivity
@@ -197,7 +238,7 @@ void setDefaultLanguage(String language, String country)
 void setDefaultLanguage(Locale locale)
 ```
 
-**setLanguage** Set the language that you needs to change. The string value given will be use for setup Locale class later.
+**setLanguage** Set the language that you need to change. The string value given will be use for setup Locale class later.
 
 Example
 
@@ -258,13 +299,13 @@ But no problem for this library when application getback to previous activity. I
 Action Bar or Toolbar's title
 ---------------------------
 You have to call 
-```
+```java
 setTitle(String title)
 // or
 getActionBar().setTitle(String title)
  ```
  in on activity create (onCreate) every time
- ```
+ ```java
  public class MainActivity extends Localization {
      @Override
      public void onCreate(Bundle onSavedInstanceState) {

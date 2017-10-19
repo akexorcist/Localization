@@ -1,8 +1,10 @@
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.akexorcist.localizationactivity.R;
 
 public class BlankDummyActivity extends Activity {
     @Override

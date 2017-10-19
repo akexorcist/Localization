@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.core;
 
 import android.app.Activity;
 import android.content.Context;
@@ -35,7 +35,6 @@ public class LanguageSetting {
     private static final String PREFERENCE_LANGUAGE = "pref_language";
     private static final String KEY_LANGUAGE = "key_language";
     private static Locale DEFAULT_LANGUAGE = Locale.ENGLISH;
-    private static Locale currentLanguage = Locale.ENGLISH;
 
     public static void setDefaultLanguage(Locale locale) {
         DEFAULT_LANGUAGE = locale;
@@ -46,14 +45,10 @@ public class LanguageSetting {
     }
 
     public static void setLanguage(Context context, Locale locale) {
-        currentLanguage = locale;
+        Locale.setDefault(locale);
         SharedPreferences.Editor editor = getLanguagePreference(context).edit();
         editor.putString(KEY_LANGUAGE, locale.toString());
         editor.apply();
-    }
-
-    public static Locale getCurrentLanguage() {
-        return currentLanguage;
     }
 
     public static Locale getLanguage(Context context) {

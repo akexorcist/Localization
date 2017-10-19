@@ -6,9 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
-import com.akexorcist.localizationapp.simplefragment.SimpleFragment;
 
 /**
  * Created by Akexorcist on 10/15/2017 AD.
