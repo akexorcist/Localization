@@ -29,19 +29,28 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localizationactivity</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.2.0'
+compile 'com.akexorcist:localizationactivity:1.2.1'
 ```
 
 (Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
 
-Update 1.2.0
+
+Update
 ===========================
+ 1.2.1
+ ---------------------------
+• Support string resource from getApplicationContext() 
+• Add LocalizationApplicationDelegate. So you need to custom application class in your app
+• LocalizationDelegate was deprecated, replace by LocalizationActivityDelegate 
+
+1.2.0
+---------------------------
 * [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-LocalizationActivity/issues/14)
 * [bug] Language and country support [#5](https://github.com/akexorcist/Android-LocalizationActivity/issues/5)
 * [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-LocalizationActivity/issues/15) [#9](https://github.com/akexorcist/Android-LocalizationActivity/issues/9)
@@ -69,19 +78,17 @@ Don't like AppCompat v7? Try delegate way
 ```java
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
-import com.akexorcist.localizationactivity.core.LocalizationDelegate;
+import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate;
 import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 
 import java.util.Locale;
 
-/**
- * Created by Akexorcist on 6/23/16 AD.
- */
 public abstract class CustomActivity extends Activity implements OnLocaleChangedListener {
 
-    private LocalizationDelegate localizationDelegate = new LocalizationDelegate(this);
+    private LocalizationActivityDelegate localizationDelegate = new LocalizationActivityDelegate(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,7 +100,7 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
     @Override
     public void onResume() {
         super.onResume();
-        localizationDelegate.onResume();
+        localizationDelegate.onResume(this);
     }
 
     @Override
@@ -101,34 +108,37 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
         super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
     }
 
-    public final void setLanguage(String language) {
-        localizationDelegate.setLanguage(language);
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
     }
 
-    public final void setLanguage(String language, String country) {
-        localizationDelegate.setLanguage(language, country);
+    @Override
+    public Resources getResources() {
+        return localizationDelegate.getResources(super.getResources());
+    }
+
+    public final void setLanguage(String language) {
+        localizationDelegate.setLanguage(this, language);
     }
 
     public final void setLanguage(Locale locale) {
-        localizationDelegate.setLanguage(locale);
+        localizationDelegate.setLanguage(this, locale);
     }
 
     public final void setDefaultLanguage(String language) {
         localizationDelegate.setDefaultLanguage(language);
     }
 
-    public final void setDefaultLanguage(String language, String country) {
-        localizationDelegate.setDefaultLanguage(language, country);
-    }
-
     public final void setDefaultLanguage(Locale locale) {
         localizationDelegate.setDefaultLanguage(locale);
     }
 
-    public final Locale getLanguage() {
-        return localizationDelegate.getLanguage();
+    public final Locale getCurrentLanguage() {
+        return localizationDelegate.getLanguage(this);
     }
 
+    // Just override method locale change event
     @Override
     public void onBeforeLocaleChanged() {
     }
@@ -142,7 +152,36 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
 
 Usage
 ===========================
-This is an example.
+You need to use custom application class in your project that implemented the LocalizationApplicationDelegate class.
+```java
+import android.app.Application;
+import android.content.Context;
+import android.content.res.Configuration;
+
+import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
+
+public class MainApplication extends Application {
+    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate(this);
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(base));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        localizationDelegate.onConfigurationChanged(this);
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext());
+    }
+}
+```
+
+In your activity, just extends from LocalizationActivity class
 
 ```java
 import android.os.Bundle;
@@ -260,13 +299,13 @@ But no problem for this library when application getback to previous activity. I
 Action Bar or Toolbar's title
 ---------------------------
 You have to call 
-```
+```java
 setTitle(String title)
 // or
 getActionBar().setTitle(String title)
  ```
  in on activity create (onCreate) every time
- ```
+ ```java
  public class MainActivity extends Localization {
      @Override
      public void onCreate(Bundle onSavedInstanceState) {
