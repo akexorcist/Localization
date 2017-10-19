@@ -181,7 +181,7 @@ public class MainApplication extends Application {
 }
 ```
 
-In your activity, just extends from LocalizationActivity class
+In your activity, just extends from LocalizationActivity class or your custom class.
 
 ```java
 import android.os.Bundle;
