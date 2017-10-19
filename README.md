@@ -45,9 +45,9 @@ Update
 ===========================
  1.2.1
  ---------------------------
-• Support string resource from getApplicationContext() 
-• Add LocalizationApplicationDelegate. So you need to custom application class in your app
-• LocalizationDelegate was deprecated, replace by LocalizationActivityDelegate 
+* Support string resource from getApplicationContext() 
+* Add LocalizationApplicationDelegate. So you need to custom application class in your app
+* LocalizationDelegate was deprecated, replace by LocalizationActivityDelegate 
 
 1.2.0
 ---------------------------
