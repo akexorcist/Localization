@@ -1,4 +1,4 @@
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.core;
 
 import android.content.Context;
 import android.content.res.Configuration;

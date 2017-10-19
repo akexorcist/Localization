@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 
-import com.akexorcist.localizationactivity.LocalizationActivityDelegate;
-import com.akexorcist.localizationactivity.OnLocaleChangedListener;
+import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate;
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 
 import java.util.Locale;
 

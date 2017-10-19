@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
 
 /**

@@ -71,8 +71,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.akexorcist.localizationactivity.LocalizationDelegate;
-import com.akexorcist.localizationactivity.OnLocaleChangedListener;
+import com.akexorcist.localizationactivity.core.LocalizationDelegate;
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 
 import java.util.Locale;
 
@@ -148,7 +148,7 @@ This is an example.
 import android.os.Bundle;
 import android.view.View;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 
 public class MainActivity extends LocalizationActivity implements View.OnClickListener {
 

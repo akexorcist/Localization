@@ -3,7 +3,7 @@ package com.akexorcist.localizationapp.stackedactivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
 
 /**

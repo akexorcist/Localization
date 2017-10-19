@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
 
 public class ViewPagerActivity extends LocalizationActivity implements ViewPager.OnPageChangeListener {

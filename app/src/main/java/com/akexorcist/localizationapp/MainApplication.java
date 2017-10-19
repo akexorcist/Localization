@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 
-import com.akexorcist.localizationactivity.LocalizationApplicationDelegate;
+import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
 
 /**
  * Created by Akexorcist on 10/19/2017 AD.

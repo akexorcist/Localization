@@ -1,4 +1,4 @@
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.core;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
+
+import com.akexorcist.localizationactivity.ui.BlankDummyActivity;
 
 import java.util.ArrayList;
 import java.util.List;

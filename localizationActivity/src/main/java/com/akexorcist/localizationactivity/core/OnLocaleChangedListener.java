@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-package com.akexorcist.localizationactivity;
+package com.akexorcist.localizationactivity.core;
 
 /**
  * Created by Akexorcist on 7/21/15 AD.
