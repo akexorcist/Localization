@@ -25,6 +25,11 @@ public class BlankDummyActivity extends Activity {
     }
 
     private void delayedFinish() {
-        new Handler().postDelayed(this::finish, 200);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 200);
     }
 }

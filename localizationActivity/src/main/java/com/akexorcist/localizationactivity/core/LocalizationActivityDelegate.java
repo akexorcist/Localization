@@ -47,10 +47,13 @@ public class LocalizationActivityDelegate {
     }
 
     // If activity is run to back stack. So we have to check if this activity is resume working.
-    public void onResume(Context context) {
-        new Handler().post(() -> {
-            checkLocaleChange(context);
-            checkAfterLocaleChanging();
+    public void onResume(final Context context) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                checkLocaleChange(context);
+                checkAfterLocaleChanging();
+            }
         });
     }
 
