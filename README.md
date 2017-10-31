@@ -43,6 +43,12 @@ compile 'com.akexorcist:localizationactivity:1.2.1'
 
 Update
 ===========================
+ 1.2.2
+ ---------------------------
+* [bug] Bug fixed [#18](https://github.com/akexorcist/Android-LocalizationActivity/issues/18) 
+* Remove java 1.8 and lambda from the library 
+* Update gradle to 3.0 stable
+
  1.2.1
  ---------------------------
 * Support string resource from getApplicationContext() 
