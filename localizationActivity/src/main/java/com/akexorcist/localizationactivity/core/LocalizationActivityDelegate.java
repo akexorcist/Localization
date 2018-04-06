@@ -80,15 +80,11 @@ public class LocalizationActivityDelegate {
     }
 
     public Resources getResources(Resources resources) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            Configuration config = resources.getConfiguration();
-            Locale locale = LanguageSetting.getLanguage(activity);
-            config.setLocale(locale);
-            DisplayMetrics metrics = resources.getDisplayMetrics();
-            return new Resources(activity.getAssets(), metrics, config);
-        } else {
-            return resources;
-        }
+        Configuration config = resources.getConfiguration();
+        Locale locale = LanguageSetting.getLanguage(activity);
+        config.setLocale(locale);
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        return new Resources(activity.getAssets(), metrics, config);
     }
 
     // Provide method to set application language by country name.
