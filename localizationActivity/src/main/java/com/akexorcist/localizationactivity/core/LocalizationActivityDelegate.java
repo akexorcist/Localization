@@ -2,7 +2,6 @@ package com.akexorcist.localizationactivity.core;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
@@ -10,8 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
-
-import com.akexorcist.localizationactivity.ui.BlankDummyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +82,8 @@ public class LocalizationActivityDelegate {
     public Resources getResources(Resources resources) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Configuration config = resources.getConfiguration();
-            config.locale = LanguageSetting.getLanguage(activity);
+            Locale locale = LanguageSetting.getLanguage(activity);
+            config.setLocale(locale);
             DisplayMetrics metrics = resources.getDisplayMetrics();
             return new Resources(activity.getAssets(), metrics, config);
         } else {
@@ -156,12 +154,14 @@ public class LocalizationActivityDelegate {
 
 
     private void updateLocaleConfiguration(Context context, Locale locale) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            Configuration config = context.getResources().getConfiguration();
+        Configuration config = context.getResources().getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+        } else {
             config.locale = locale;
-            DisplayMetrics dm = context.getResources().getDisplayMetrics();
-            context.getResources().updateConfiguration(config, dm);
         }
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        context.getResources().updateConfiguration(config, dm);
     }
 
     // Avoid duplicated setup
@@ -173,7 +173,6 @@ public class LocalizationActivityDelegate {
     private void notifyLanguageChanged() {
         sendOnBeforeLocaleChangedEvent();
         activity.getIntent().putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true);
-        callDummyActivity();
         activity.recreate();
     }
 
@@ -182,7 +181,6 @@ public class LocalizationActivityDelegate {
         if (!isCurrentLanguageSetting(context, currentLanguage)) {
             sendOnBeforeLocaleChangedEvent();
             isLocalizationChanged = true;
-            callDummyActivity();
             activity.recreate();
         }
     }
@@ -205,9 +203,5 @@ public class LocalizationActivityDelegate {
         for (OnLocaleChangedListener listener : localeChangedListeners) {
             listener.onAfterLocaleChanged();
         }
-    }
-
-    private void callDummyActivity() {
-        activity.startActivity(new Intent(activity, BlankDummyActivity.class));
     }
 }

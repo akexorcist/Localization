@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
+import com.akexorcist.localizationapp.customactivity.CustomActivity;
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity;
 import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity;
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity;
@@ -12,7 +13,7 @@ import com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity;
 import com.akexorcist.localizationapp.stackedactivity.Stack1Activity;
 import com.akexorcist.localizationapp.viewpager.ViewPagerActivity;
 
-public class MainActivity extends LocalizationActivity {
+public class MainActivity extends CustomActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,30 +31,30 @@ public class MainActivity extends LocalizationActivity {
     }
 
     public View.OnClickListener onSimpleActivityClick() {
-        return view -> goToActivity(SimpleActivity.class);
+        return view -> openActivity(SimpleActivity.class);
     }
 
     public View.OnClickListener onCustomActivityClick() {
-        return view -> goToActivity(SimpleCustomActivity.class);
+        return view -> openActivity(SimpleCustomActivity.class);
     }
 
     public View.OnClickListener onStackedActivityClick() {
-        return view -> goToActivity(Stack1Activity.class);
+        return view -> openActivity(Stack1Activity.class);
     }
 
     public View.OnClickListener onSimpleFragmentClick() {
-        return view -> goToActivity(SimpleFragmentActivity.class);
+        return view -> openActivity(SimpleFragmentActivity.class);
     }
 
     private View.OnClickListener onNestedFragmentClick() {
-        return view -> goToActivity(NestedFragmentActivity.class);
+        return view -> openActivity(NestedFragmentActivity.class);
     }
 
     public View.OnClickListener onViewPagerClick() {
-        return view -> goToActivity(ViewPagerActivity.class);
+        return view -> openActivity(ViewPagerActivity.class);
     }
 
-    public void goToActivity(Class<?> activity) {
+    public void openActivity(Class<?> activity) {
         Intent intent = new Intent(this, activity);
         startActivity(intent);
     }
