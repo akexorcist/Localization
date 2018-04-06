@@ -2,12 +2,15 @@ package com.akexorcist.localizationactivity.core;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.util.DisplayMetrics;
 
 import java.util.ArrayList;
@@ -169,7 +172,7 @@ public class LocalizationActivityDelegate {
     private void notifyLanguageChanged() {
         sendOnBeforeLocaleChangedEvent();
         activity.getIntent().putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true);
-        activity.recreate();
+        recreateActivity(activity);
     }
 
     // Check if locale has change while this activity was run to back stack.
@@ -177,7 +180,7 @@ public class LocalizationActivityDelegate {
         if (!isCurrentLanguageSetting(context, currentLanguage)) {
             sendOnBeforeLocaleChangedEvent();
             isLocalizationChanged = true;
-            activity.recreate();
+            recreateActivity(activity);
         }
     }
 
@@ -199,5 +202,28 @@ public class LocalizationActivityDelegate {
         for (OnLocaleChangedListener listener : localeChangedListeners) {
             listener.onAfterLocaleChanged();
         }
+    }
+
+    /**
+     * Recreate activity. Note: use "activity.recreate()" to recreate activity,
+     * if language is RTL, will does not automatically change the layout direction.
+     *
+     * @param activity
+     */
+    public static void recreateActivity(Activity activity) {
+        Intent restartIntent = new Intent(activity, activity.getClass());
+
+        Bundle extras = activity.getIntent().getExtras();
+        if (extras != null) {
+            restartIntent.putExtras(extras);
+        }
+        ActivityCompat.startActivity(
+                activity,
+                restartIntent,
+                ActivityOptionsCompat
+                        .makeCustomAnimation(activity, android.R.anim.fade_in, android.R.anim.fade_out)
+                        .toBundle()
+        );
+        activity.finish();
     }
 }
