@@ -172,7 +172,7 @@ public class LocalizationActivityDelegate {
     private void notifyLanguageChanged() {
         sendOnBeforeLocaleChangedEvent();
         activity.getIntent().putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true);
-        recreateActivity(activity);
+        recreate(activity, true);
     }
 
     // Check if locale has change while this activity was run to back stack.
@@ -180,7 +180,7 @@ public class LocalizationActivityDelegate {
         if (!isCurrentLanguageSetting(context, currentLanguage)) {
             sendOnBeforeLocaleChangedEvent();
             isLocalizationChanged = true;
-            recreateActivity(activity);
+            recreate(activity, true);
         }
     }
 
@@ -205,25 +205,32 @@ public class LocalizationActivityDelegate {
     }
 
     /**
-     * Recreate activity. Note: use "activity.recreate()" to recreate activity,
-     * if language is RTL, will does not automatically change the layout direction.
-     *
-     * @param activity
+     * Helper method to recreate the Activity. This method should be called after a Locale change.
+     * @param activity the Activity that will be recreated
+     * @param animate a flag indicating if the recreation will be animated or not
      */
-    public static void recreateActivity(Activity activity) {
+    public static void recreate(Activity activity, boolean animate) {
         Intent restartIntent = new Intent(activity, activity.getClass());
 
         Bundle extras = activity.getIntent().getExtras();
         if (extras != null) {
             restartIntent.putExtras(extras);
         }
-        ActivityCompat.startActivity(
-                activity,
-                restartIntent,
-                ActivityOptionsCompat
-                        .makeCustomAnimation(activity, android.R.anim.fade_in, android.R.anim.fade_out)
-                        .toBundle()
-        );
+
+        if (animate) {
+            ActivityCompat.startActivity(
+                    activity,
+                    restartIntent,
+                    ActivityOptionsCompat
+                            .makeCustomAnimation(activity, android.R.anim.fade_in, android.R.anim.fade_out)
+                            .toBundle()
+            );
+        } else {
+            activity.startActivity(restartIntent);
+            activity.overridePendingTransition(0, 0);
+        }
+
         activity.finish();
+
     }
 }
