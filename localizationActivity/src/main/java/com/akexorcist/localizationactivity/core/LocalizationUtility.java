@@ -36,6 +36,9 @@ public class LocalizationUtility {
                 config.setLocale(currentLocale);
                 return context.createConfigurationContext(config);
             } else {
+                config.locale = currentLocale;
+                context.getResources().updateConfiguration(config,
+                        context.getResources().getDisplayMetrics());
                 return context;
             }
         } else {
