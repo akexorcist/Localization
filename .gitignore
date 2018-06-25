@@ -5,3 +5,6 @@
 /captures
 *.iml
 local.properties
+# Gradle files
+.gradle/
+build/
