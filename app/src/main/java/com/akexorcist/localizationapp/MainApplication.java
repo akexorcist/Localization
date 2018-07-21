@@ -11,7 +11,7 @@ import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
  */
 
 public class MainApplication extends Application {
-    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate(this);
+    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate();
 
     @Override
     protected void attachBaseContext(Context base) {

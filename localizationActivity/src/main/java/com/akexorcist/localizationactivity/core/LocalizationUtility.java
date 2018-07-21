@@ -2,6 +2,7 @@ package com.akexorcist.localizationactivity.core;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
 
@@ -24,18 +25,22 @@ public class LocalizationUtility {
         Locale baseLocale = LocalizationUtility.getLocaleFromConfiguration(baseContext.getResources().getConfiguration());
         Locale currentLocale = LanguageSetting.getLanguage(baseContext);
         if (!baseLocale.toString().equalsIgnoreCase(currentLocale.toString())) {
-            LocalizationContext context = new LocalizationContext(baseContext);
-            Configuration config = context.getResources().getConfiguration();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                LocalizationContext context = new LocalizationContext(baseContext);
+                Configuration config = context.getResources().getConfiguration();
                 config.setLocale(currentLocale);
-                LocaleList localeList = new LocaleList(currentLocale);
-                LocaleList.setDefault(localeList);
-                config.setLocales(localeList);
-                return context.createConfigurationContext(config);
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLocale(currentLocale);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    LocaleList localeList = new LocaleList(currentLocale);
+                    LocaleList.setDefault(localeList);
+                    config.setLocales(localeList);
+                }
                 return context.createConfigurationContext(config);
             } else {
+                LocalizationContext context = new LocalizationContext(baseContext);
+                Configuration config = context.getResources().getConfiguration();
+                Resources res = context.getResources();
+                config.locale = currentLocale;
+                res.updateConfiguration(config, res.getDisplayMetrics());
                 return context;
             }
         } else {

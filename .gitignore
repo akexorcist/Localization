@@ -5,3 +5,4 @@
 /captures
 *.iml
 local.properties
+.gradle
