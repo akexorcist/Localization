@@ -60,16 +60,18 @@ public class LocalizationActivityDelegate {
     public Context attachBaseContext(Context context) {
         Locale locale = LanguageSetting.getLanguage(context);
         Configuration config = context.getResources().getConfiguration();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             config.setLocale(locale);
-            LocaleList localeList = new LocaleList(locale);
-            LocaleList.setDefault(localeList);
-            config.setLocales(localeList);
-            return context.createConfigurationContext(config);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLocale(locale);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                LocaleList localeList = new LocaleList(locale);
+                LocaleList.setDefault(localeList);
+                config.setLocales(localeList);
+            }
             return context.createConfigurationContext(config);
         } else {
+            Resources res = context.getResources();
+            config.locale = locale;
+            res.updateConfiguration(config, res.getDisplayMetrics());
             return context;
         }
     }

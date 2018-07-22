@@ -54,7 +54,20 @@ public abstract class LocalizationActivity extends AppCompatActivity implements 
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
+        newBase = onBeforeAttachBaseContext(newBase);
+        newBase = localizationDelegate.attachBaseContext(newBase);
+        newBase = onAfterAttachBaseContext(newBase);
+        super.attachBaseContext(newBase);
+    }
+
+    // override this if need to modify base context
+    public Context onBeforeAttachBaseContext(Context context) {
+        return context;
+    }
+
+    // override this if need to modify base context
+    public Context onAfterAttachBaseContext(Context context) {
+        return context;
     }
 
     @Override
