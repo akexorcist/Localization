@@ -1,5 +1,6 @@
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--LocalizationActivity-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
+[![](https://jitpack.io/v/mazenrashed/Android-LocalizationActivity.svg)](https://jitpack.io/#mazenrashed/Android-LocalizationActivity)
 
 Android-LocalizationActivity
 ==============================
@@ -24,7 +25,26 @@ Watch a short demo video from [YouTube](https://www.youtube.com/watch?v=mFtVIFr2
 Download
 ===============================
 
-Maven
+Maven (AndroidX)
+Step 1. Add the JitPack repository to your build file 
+```
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+Step 2. Add the dependency
+```
+<dependency>
+	    <groupId>com.github.mazenrashed</groupId>
+	    <artifactId>Android-LocalizationActivity</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
+```
+
+Maven (Support Lib)
 ```
 <dependency>
   <groupId>com.akexorcist</groupId>
@@ -33,7 +53,23 @@ Maven
 </dependency>
 ```
 
-Gradle
+Gradle (AndroidX)
+Step 1. Add the JitPack repository to your build file 
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Step 2. Add the dependency
+```
+dependencies {
+	        implementation 'com.github.mazenrashed:Android-LocalizationActivity:1.2.3'
+	}
+```
+Gradle (Support Lib)
 ```
 compile 'com.akexorcist:localizationactivity:1.2.2'
 ```
