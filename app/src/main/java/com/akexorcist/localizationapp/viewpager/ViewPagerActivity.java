@@ -1,9 +1,10 @@
 package com.akexorcist.localizationapp.viewpager;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;

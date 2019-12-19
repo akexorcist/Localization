@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 
+import androidx.annotation.NonNull;
+
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
 
@@ -39,7 +41,7 @@ public class SimpleActivity extends LocalizationActivity {
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // Restore x-position of horizontal scroll view.
         svLanguageChooser.scrollTo(savedInstanceState.getInt(KEY_SCROLL_X), 0);
