@@ -76,7 +76,7 @@ public class LocalizationActivityDelegate {
 
     public Context getApplicationContext(Context applicationContext) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            return LocalizationUtility.applyLocalizationContext(applicationContext);
+            return LocalizationUtility.INSTANCE.applyLocalizationContext(applicationContext);
         } else {
             return applicationContext;
         }
