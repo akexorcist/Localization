@@ -17,23 +17,26 @@ object LocalizationUtility {
         if (!baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)) {
             val context = LocalizationContext(baseContext)
             val config = context.resources.configuration
-            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                config.setLocale(currentLocale)
-                val localeList = LocaleList(currentLocale)
-                LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
-                context.createConfigurationContext(config)
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLocale(currentLocale)
-                context.createConfigurationContext(config)
-            } else {
-                context
+            return when {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> {
+                    config.setLocale(currentLocale)
+                    val localeList = LocaleList(currentLocale)
+                    LocaleList.setDefault(localeList)
+                    config.setLocales(localeList)
+                    context.createConfigurationContext(config)
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
+                    config.setLocale(currentLocale)
+                    context.createConfigurationContext(config)
+                }
+                else -> context
             }
         } else {
             return baseContext
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun getLocaleFromConfiguration(configuration: Configuration): Locale {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             configuration.locales.get(0)

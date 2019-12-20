@@ -35,7 +35,7 @@ abstract class LocalizationActivity : AppCompatActivity(), OnLocaleChangedListen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
-        localizationDelegate.onCreate(savedInstanceState)
+        localizationDelegate.onCreate()
         super.onCreate(savedInstanceState)
     }
 
@@ -44,7 +44,7 @@ abstract class LocalizationActivity : AppCompatActivity(), OnLocaleChangedListen
         localizationDelegate.onResume(this)
     }
 
-    override fun attachBaseContext(newBase: Context?) {
+    override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
     }
 

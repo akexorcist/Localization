@@ -7,15 +7,9 @@ import android.content.Context
  */
 class LocalizationApplicationDelegate {
 
-    fun onConfigurationChanged(context: Context) {
-        LocalizationUtility.applyLocalizationContext(context)
-    }
+    fun onConfigurationChanged(context: Context) = LocalizationUtility.applyLocalizationContext(context)
 
-    fun attachBaseContext(context: Context): Context {
-        return LocalizationUtility.applyLocalizationContext(context)
-    }
+    fun attachBaseContext(context: Context): Context = LocalizationUtility.applyLocalizationContext(context)
 
-    fun getApplicationContext(applicationContext: Context): Context {
-        return LocalizationUtility.applyLocalizationContext(applicationContext)
-    }
+    fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.applyLocalizationContext(applicationContext)
 }

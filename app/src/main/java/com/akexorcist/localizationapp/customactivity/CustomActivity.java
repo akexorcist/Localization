@@ -20,7 +20,7 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
     @Override
     public void onCreate(Bundle savedInstanceState) {
         localizationDelegate.addOnLocaleChangedListener(this);
-        localizationDelegate.onCreate(savedInstanceState);
+        localizationDelegate.onCreate();
         super.onCreate(savedInstanceState);
     }
 
