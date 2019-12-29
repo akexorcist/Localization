@@ -12,6 +12,7 @@ import java.util.*
 
 open class LocalizationActivityDelegate(val activity: Activity) {
     private var isLocalizationChanged = false
+    private lateinit var currentLanguage: Locale
     private val localeChangedListeners = ArrayList<OnLocaleChangedListener>()
 
     companion object {
@@ -27,6 +28,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun onCreate() {
+        currentLanguage = LanguageSetting.getDefaultLanguage(activity)
         setupLanguage()
         checkBeforeLocaleChanging()
     }
@@ -59,13 +61,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun getApplicationContext(applicationContext: Context): Context {
-        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            LocalizationUtility.applyLocalizationContext(applicationContext)
-        } else {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             applicationContext
+        } else {
+            LocalizationUtility.applyLocalizationContext(applicationContext)
         }
     }
 
+    @Suppress("DEPRECATION")
     fun getResources(resources: Resources): Resources {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val locale = LanguageSetting.getLanguage(activity)
@@ -84,19 +87,19 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     // Provide method to set application language by country name.
-    fun setLanguage(context: Context, language: String) {
-        val locale = Locale(language)
+    fun setLanguage(context: Context, newLanguage: String) {
+        val locale = Locale(newLanguage)
         setLanguage(context, locale)
     }
 
-    fun setLanguage(context: Context, language: String, country: String) {
-        val locale = Locale(language, country)
+    fun setLanguage(context: Context, newLanguage: String, newCountry: String) {
+        val locale = Locale(newLanguage, newCountry)
         setLanguage(context, locale)
     }
 
-    fun setLanguage(context: Context, locale: Locale) {
-        if (!isCurrentLanguageSetting(context, locale)) {
-            LanguageSetting.setLanguage(activity, locale)
+    fun setLanguage(context: Context, newLocale: Locale) {
+        if (!isCurrentLanguageSetting(context, newLocale)) {
+            LanguageSetting.setLanguage(activity, newLocale)
             notifyLanguageChanged()
         }
     }
@@ -121,7 +124,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     // Check that bundle come from locale change.
-    // If yes, bundle will obe remove and set boolean flag to "true".
+    // If yes, bundle will be remove and set boolean flag to "true".
     private fun checkBeforeLocaleChanging() {
         val isLocalizationChanged = activity.intent.getBooleanExtra(KEY_ACTIVITY_LOCALE_CHANGED, false)
         if (isLocalizationChanged) {
@@ -135,6 +138,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     private fun setupLanguage() {
         val locale = LanguageSetting.getLanguage(activity)
         setupLocale(locale)
+        currentLanguage = locale
         LanguageSetting.setLanguage(activity, locale)
     }
 
@@ -154,8 +158,9 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     // Avoid duplicated setup
-    private fun isCurrentLanguageSetting(context: Context, locale: Locale): Boolean {
-        return locale.toString() == LanguageSetting.getLanguage(context).toString()
+    private fun isCurrentLanguageSetting(context: Context, newLocale: Locale): Boolean {
+        val oldLocale = LanguageSetting.getLanguage(context).toString()
+        return newLocale.toString() == oldLocale
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
@@ -168,7 +173,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     // Check if locale has change while this activity was run to back stack.
     private fun checkLocaleChange(context: Context) {
-        if (!isCurrentLanguageSetting(context, LanguageSetting.getLanguage(context))) {
+        if (!isCurrentLanguageSetting(context, currentLanguage)) {
             sendOnBeforeLocaleChangedEvent()
             isLocalizationChanged = true
             callDummyActivity()
