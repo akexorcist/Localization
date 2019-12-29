@@ -18,7 +18,7 @@ object LocalizationUtility {
             val context = LocalizationContext(baseContext)
             val config = context.resources.configuration
             return when {
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
                     config.setLocale(currentLocale)
                     val localeList = LocaleList(currentLocale)
                     LocaleList.setDefault(localeList)
@@ -38,7 +38,7 @@ object LocalizationUtility {
 
     @Suppress("DEPRECATION")
     fun getLocaleFromConfiguration(configuration: Configuration): Locale {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             configuration.locales.get(0)
         } else {
             configuration.locale

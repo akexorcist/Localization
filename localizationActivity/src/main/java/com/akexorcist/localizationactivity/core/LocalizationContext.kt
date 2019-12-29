@@ -14,7 +14,7 @@ import android.util.DisplayMetrics
 class LocalizationContext(base: Context) : ContextWrapper(base) {
     override fun getResources(): Resources {
         val configuration = super.getResources().configuration
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             configuration.setLocales(LocaleList(LanguageSetting.getLanguage(this)))
         } else {
             configuration.setLocale(LanguageSetting.getLanguage(this))

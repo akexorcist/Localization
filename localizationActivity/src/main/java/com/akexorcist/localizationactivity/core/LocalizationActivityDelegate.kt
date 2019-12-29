@@ -45,7 +45,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
         val locale = LanguageSetting.getLanguage(context)
         val config = context.resources.configuration
         return when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
                 config.setLocale(locale)
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
@@ -61,7 +61,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun getApplicationContext(applicationContext: Context): Context {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             applicationContext
         } else {
             LocalizationUtility.applyLocalizationContext(applicationContext)
@@ -70,7 +70,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     @Suppress("DEPRECATION")
     fun getResources(resources: Resources): Resources {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val locale = LanguageSetting.getLanguage(activity)
             val config = resources.configuration
             config.setLocale(locale)
@@ -137,24 +137,8 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     // This method will called before onCreate.
     private fun setupLanguage() {
         val locale = LanguageSetting.getLanguage(activity)
-        setupLocale(locale)
         currentLanguage = locale
         LanguageSetting.setLanguage(activity, locale)
-    }
-
-    // Set locale configuration.
-    private fun setupLocale(locale: Locale) {
-        updateLocaleConfiguration(activity, locale)
-    }
-
-
-    private fun updateLocaleConfiguration(context: Context, locale: Locale) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            val config = context.resources.configuration
-            config.locale = locale
-            val dm = context.resources.displayMetrics
-            context.resources.updateConfiguration(config, dm)
-        }
     }
 
     // Avoid duplicated setup
