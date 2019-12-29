@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 
+import androidx.annotation.NonNull;
+
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
 
 /**
@@ -11,7 +13,7 @@ import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
  */
 
 public class MainApplication extends Application {
-    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate(this);
+    LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate();
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -19,7 +21,7 @@ public class MainApplication extends Application {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         localizationDelegate.onConfigurationChanged(this);
     }

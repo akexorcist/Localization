@@ -29,13 +29,13 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localizationactivity</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'com.akexorcist:localizationactivity:1.2.1'
+compile 'com.akexorcist:localizationactivity:1.2.2'
 ```
 
 (Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.

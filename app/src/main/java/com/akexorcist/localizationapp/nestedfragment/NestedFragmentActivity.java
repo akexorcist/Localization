@@ -1,10 +1,12 @@
 package com.akexorcist.localizationapp.nestedfragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.R;
@@ -49,7 +51,7 @@ public class NestedFragmentActivity extends LocalizationActivity {
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // Restore x-position of horizontal scroll view.
         svLanguageChooser.scrollTo(savedInstanceState.getInt(KEY_SCROLL_X), 0);

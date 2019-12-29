@@ -1,8 +1,9 @@
 package com.akexorcist.localizationapp.viewpager;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 /**
  * Created by Akexorcist on 7/22/15 AD.
@@ -10,23 +11,24 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private static final int PAGE_COUNT = 4;
 
-    public ViewPagerAdapter(FragmentManager fm) {
-        super(fm);
+    ViewPagerAdapter(FragmentManager fm) {
+        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = null;
         if (position == 0) {
-            fragment = OneFragment.newInstance();
+            return OneFragment.newInstance();
         } else if (position == 1) {
-            fragment = TwoFragment.newInstance();
+            return TwoFragment.newInstance();
         } else if (position == 2) {
-            fragment = ThreeFragment.newInstance();
+            return ThreeFragment.newInstance();
         } else if (position == 3) {
-            fragment = HelloFragment.newInstance();
+            return HelloFragment.newInstance();
+        } else {
+            return HelloFragment.newInstance();
         }
-        return fragment;
     }
 
     @Override
