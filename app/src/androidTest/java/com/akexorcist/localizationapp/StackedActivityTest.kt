@@ -35,6 +35,8 @@ class StackedActivityTest {
         val appCompatButton2 = onView(withId(R.id.btn_change_language))
         appCompatButton2.perform(click())
 
+        Thread.sleep(200)
+
         val appCompatImageButton = onView(withId(R.id.btn_china))
         appCompatImageButton.perform(click())
 
@@ -59,6 +61,8 @@ class StackedActivityTest {
 
         val appCompatButton3 = onView(withId(R.id.btn_change_language))
         appCompatButton3.perform(click())
+
+        Thread.sleep(200)
 
         val appCompatImageButton2 = onView(withId(R.id.btn_italy))
         appCompatImageButton2.perform(click())
@@ -85,6 +89,8 @@ class StackedActivityTest {
         val appCompatButton4 = onView(withId(R.id.btn_change_language))
         appCompatButton4.perform(click())
 
+        Thread.sleep(200)
+
         val appCompatImageButton3 = onView(withId(R.id.btn_japan))
         appCompatImageButton3.perform(click())
 
@@ -109,6 +115,8 @@ class StackedActivityTest {
 
         val appCompatButton5 = onView(withId(R.id.btn_change_language))
         appCompatButton5.perform(click())
+
+        Thread.sleep(200)
 
         val appCompatImageButton4 = onView(withId(R.id.btn_korea))
         appCompatImageButton4.perform(click())
@@ -135,6 +143,8 @@ class StackedActivityTest {
         val appCompatButton6 = onView(withId(R.id.btn_change_language))
         appCompatButton6.perform(click())
 
+        Thread.sleep(200)
+
         val appCompatImageButton5 = onView(withId(R.id.btn_portugal))
         appCompatImageButton5.perform(click())
 
@@ -160,6 +170,8 @@ class StackedActivityTest {
         val appCompatButton7 = onView(withId(R.id.btn_change_language))
         appCompatButton7.perform(click())
 
+        Thread.sleep(200)
+
         val appCompatImageButton6 = onView(withId(R.id.btn_thai))
         appCompatImageButton6.perform(click())
 
@@ -184,6 +196,8 @@ class StackedActivityTest {
 
         val appCompatButton8 = onView(withId(R.id.btn_change_language))
         appCompatButton8.perform(click())
+
+        Thread.sleep(200)
 
         val appCompatImageButton7 = onView(withId(R.id.btn_america))
         appCompatImageButton7.perform(click())
