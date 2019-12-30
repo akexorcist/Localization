@@ -13,7 +13,7 @@ import java.util.*
 object LocalizationUtility {
     fun applyLocalizationContext(baseContext: Context): Context {
         val baseLocale = getLocaleFromConfiguration(baseContext.resources.configuration)
-        val currentLocale = LanguageSetting.getLanguage(baseContext)
+        val currentLocale = LanguageSetting.getLanguageWithDefault(baseContext, LanguageSetting.getDefaultLanguage(baseContext))
         if (!baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)) {
             val context = LocalizationContext(baseContext)
             val config = context.resources.configuration

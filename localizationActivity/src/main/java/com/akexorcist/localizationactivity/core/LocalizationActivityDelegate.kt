@@ -28,7 +28,6 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun onCreate() {
-        currentLanguage = LanguageSetting.getDefaultLanguage(activity)
         setupLanguage()
         checkBeforeLocaleChanging()
     }
@@ -42,7 +41,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun attachBaseContext(context: Context): Context {
-        val locale = LanguageSetting.getLanguage(context)
+        val locale = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
         val config = context.resources.configuration
         return when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
@@ -98,29 +97,16 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun setLanguage(context: Context, newLocale: Locale) {
-        if (!isCurrentLanguageSetting(context, newLocale)) {
+        val oldLocale = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
+        if (!isCurrentLanguageSetting(newLocale, oldLocale)) {
             LanguageSetting.setLanguage(activity, newLocale)
             notifyLanguageChanged()
         }
     }
 
-    fun setDefaultLanguage(language: String) {
-        val locale = Locale(language)
-        setDefaultLanguage(locale)
-    }
-
-    fun setDefaultLanguage(language: String, country: String) {
-        val locale = Locale(language, country)
-        setDefaultLanguage(locale)
-    }
-
-    fun setDefaultLanguage(locale: Locale) {
-        LanguageSetting.setDefaultLanguage(activity, locale)
-    }
-
     // Get current language
     fun getLanguage(context: Context): Locale {
-        return LanguageSetting.getLanguage(context)
+        return LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
     }
 
     // Check that bundle come from locale change.
@@ -136,15 +122,16 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     // Setup language to locale and language preference.
     // This method will called before onCreate.
     private fun setupLanguage() {
-        val locale = LanguageSetting.getLanguage(activity)
-        currentLanguage = locale
-        LanguageSetting.setLanguage(activity, locale)
+        LanguageSetting.getLanguage(activity)?.let { locale ->
+            currentLanguage = locale
+        } ?: run {
+            checkLocaleChange(activity)
+        }
     }
 
     // Avoid duplicated setup
-    private fun isCurrentLanguageSetting(context: Context, newLocale: Locale): Boolean {
-        val oldLocale = LanguageSetting.getLanguage(context).toString()
-        return newLocale.toString() == oldLocale
+    private fun isCurrentLanguageSetting(newLocale: Locale, currentLocale: Locale): Boolean {
+        return newLocale.toString() == currentLocale.toString()
     }
 
     // Let's take it change! (Using recreate method that available on API 11 or more.
@@ -157,7 +144,8 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     // Check if locale has change while this activity was run to back stack.
     private fun checkLocaleChange(context: Context) {
-        if (!isCurrentLanguageSetting(context, currentLanguage)) {
+        val oldLanguage = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
+        if (!isCurrentLanguageSetting(currentLanguage, oldLanguage)) {
             sendOnBeforeLocaleChangedEvent()
             isLocalizationChanged = true
             callDummyActivity()

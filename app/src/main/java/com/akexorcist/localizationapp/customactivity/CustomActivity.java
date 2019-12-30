@@ -53,14 +53,6 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
         localizationDelegate.setLanguage(this, locale);
     }
 
-    public final void setDefaultLanguage(String language) {
-        localizationDelegate.setDefaultLanguage(language);
-    }
-
-    public final void setDefaultLanguage(Locale locale) {
-        localizationDelegate.setDefaultLanguage(locale);
-    }
-
     public final Locale getCurrentLanguage() {
         return localizationDelegate.getLanguage(this);
     }

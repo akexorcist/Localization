@@ -13,10 +13,13 @@ import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
  */
 
 public class MainApplication extends Application {
+
     LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate();
 
     @Override
     protected void attachBaseContext(Context base) {
+        // You can set default language when first time running.
+        localizationDelegate.setDefaultLanguage(base, "th");
         super.attachBaseContext(localizationDelegate.attachBaseContext(base));
     }
 
