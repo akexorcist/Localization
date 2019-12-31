@@ -14,7 +14,7 @@ public class SimpleCustomActivity extends CustomActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple);
+        setContentView(R.layout.activity_simple_custom);
 
         // Activity title is not change the language automatically.
         setTitle(R.string.hello_world);

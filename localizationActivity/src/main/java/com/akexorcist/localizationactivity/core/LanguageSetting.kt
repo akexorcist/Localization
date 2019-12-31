@@ -5,7 +5,6 @@ import androidx.annotation.VisibleForTesting
 import java.util.*
 
 
-
 object LanguageSetting {
     private const val PREFERENCE_LANGUAGE = "pref_language"
     private const val KEY_CURRENT_LANGUAGE = "key_language"
@@ -36,17 +35,27 @@ object LanguageSetting {
     }
 
     @JvmStatic
-    fun getLanguage(context: Context): Locale =
+    fun getLanguage(context: Context): Locale? =
         getPreference(context, KEY_CURRENT_LANGUAGE)?.let { locale: String ->
             val info = locale.split("_")
             when (info.size) {
                 1 -> Locale(info[0])
                 2 -> Locale(info[0], info[1])
-                else -> Locale.ENGLISH
+                else -> null
             }
         } ?: run {
-            Locale.ENGLISH
+            null
         }
+
+    fun getLanguageWithDefault(context: Context, default: Locale): Locale {
+        return getLanguage(context)?.let { locale ->
+            locale
+        } ?: run {
+            setLanguage(context, default)
+            default
+        }
+    }
+
 
     private fun setPreference(context: Context, key: String, value: String) {
         context.getSharedPreferences(PREFERENCE_LANGUAGE, Context.MODE_PRIVATE)
