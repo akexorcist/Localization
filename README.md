@@ -81,7 +81,7 @@ Update
 
 Set default language implementation was changed (From 1.2.2 to 1.2.3)
 ===========================
-setDefaultLanguage has removed from the Activity class. You have to assign the default language in Application with LocalizationApplicationDelegate instead.
+`setDefaultLanguage` has removed from the Activity class. You have to assign the default language in Application with LocalizationApplicationDelegate instead.
 
 Old (1.2.2)
 ---------------------------
@@ -346,9 +346,9 @@ About Save/Restore Instance State. Read more on The [Real Best Practices to Save
 
 Documentation
 ===========================
-English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html (Last update : 1.2.2)
+English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html
 
-Thai Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language.html (Last update : 1.2.2)
+Thai Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language.html
 
 
 Special Thanks
