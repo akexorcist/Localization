@@ -1,1 +1,1 @@
-include ':app', ':localizationActivity'
+include ':app', ':localization'
