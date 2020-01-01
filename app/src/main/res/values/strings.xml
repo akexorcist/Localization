@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Localization</string>
+    <string name="app_name" translatable="false">Localization Demo</string>
     <string name="activity" translatable="false">Activity</string>
     <string name="fragment" translatable="false">Fragment</string>
     <string name="parent_fragment" translatable="false">Parent Fragment</string>
