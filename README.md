@@ -45,7 +45,7 @@ Gradle
 implementation 'com.akexorcist:localization:1.2.3'
 ```
 
-(Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
+(Optional) You can exclude `androidx.appcompat:appcompat`, if your project doens't use AppCompat v7 and declare this library with delegate way.
 
 
 Update
