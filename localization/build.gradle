@@ -61,6 +61,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-apply from: '../publish/installv1.gradle'
-apply from: '../publish/bintrayv1.gradle'
+//apply from: '../publish/installv1.gradle'
+//apply from: '../publish/bintrayv1.gradle'
 
