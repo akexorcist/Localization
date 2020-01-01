@@ -1,10 +1,10 @@
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--LocalizationActivity-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
 
 Android-LocalizationActivity
 ==============================
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/01-header.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/01-header.jpg)
 
 You can now chill out on supporting multiple languages on your android application.
 
@@ -35,14 +35,14 @@ Maven
 ```
 <dependency>
   <groupId>com.akexorcist</groupId>
-  <artifactId>localizationactivity</artifactId>
+  <artifactId>localization</artifactId>
   <version>1.2.3</version>
 </dependency>
 ```
 
 Gradle
 ```
-implementation 'com.akexorcist:localizationactivity:1.2.3'
+implementation 'com.akexorcist:localization:1.2.3'
 ```
 
 (Optional) You can exclude `com.android.support:appcompat-v7`, if your project doens't use AppCompat v7 and declare this library with delegate way.
@@ -52,8 +52,8 @@ Update
 ===========================
  1.2.3
  ---------------------------
-* [bug] Bug fixed : Incorrect behavior in API level 24-27 (Android 7.0 - 8.1) [#30](https://github.com/akexorcist/Android-LocalizationActivity/issues/30) [#37](https://github.com/akexorcist/Android-LocalizationActivity/issues/37)
-* [bug] Bug fixed : setDefaultLanguage does not work properly [#28](https://github.com/akexorcist/Android-LocalizationActivity/issues/28)
+* [bug] Bug fixed : Incorrect behavior in API level 24-27 (Android 7.0 - 8.1) [#30](https://github.com/akexorcist/Android-Localization/issues/30) [#37](https://github.com/akexorcist/Android-Localization/issues/37)
+* [bug] Bug fixed : setDefaultLanguage does not work properly [#28](https://github.com/akexorcist/Android-Localization/issues/28)
 * Migrate to AndroidX and latest Gradle
 * Migrate to Kotlin
 * Add UI automated test in example code
@@ -62,7 +62,7 @@ Update
 
  1.2.2
  ---------------------------
-* [bug] Bug fixed [#18](https://github.com/akexorcist/Android-LocalizationActivity/issues/18) 
+* [bug] Bug fixed [#18](https://github.com/akexorcist/Android-Localization/issues/18) 
 * Remove java 1.8 and lambda from the library 
 * Update gradle to 3.0 stable
 
@@ -74,9 +74,9 @@ Update
 
  1.2.0
  ---------------------------
-* [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-LocalizationActivity/issues/14)
-* [bug] Language and country support [#5](https://github.com/akexorcist/Android-LocalizationActivity/issues/5)
-* [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-LocalizationActivity/issues/15) [#9](https://github.com/akexorcist/Android-LocalizationActivity/issues/9)
+* [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-Localization/issues/14)
+* [bug] Language and country support [#5](https://github.com/akexorcist/Android-Localization/issues/5)
+* [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-Localization/issues/15) [#9](https://github.com/akexorcist/Android-Localization/issues/9)
 
 
 Set default language implementation was changed (From 1.2.2 to 1.2.3)
@@ -272,21 +272,21 @@ fun onAfterLocaleChanged()
 
 This override method will be called then activity language was changed. If you need to know when language has change, just override these methods.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/04-life_cycle.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/04-life_cycle.jpg)
 
 Usually change the language code has a problem with activity that already created.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/05-step_one.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/05-step_one.jpg)
 
 If latest activity can change the language. It does not apply to previous activity.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/06-step_two.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/06-step_two.jpg)
 
 But no problem for this library when application getback to previous activity. If you extend that activity to LocalizationActivity. It will changed immediately.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/07-step_three.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/07-step_three.jpg)
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/08-step_four.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/08-step_four.jpg)
 
 
 Action Bar or Toolbar's title
