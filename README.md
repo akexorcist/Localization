@@ -1,7 +1,7 @@
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-LocalizationActivity.svg?branch=master)](https://travis-ci.org/akexorcist/Android-LocalizationActivity) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localizationactivity)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-Localization.svg?branch=master)](https://travis-ci.org/akexorcist/Android-Localization) [![JCenter](https://api.bintray.com/packages/akexorcist/maven/localization/images/download.svg)](https://bintray.com/akexorcist/maven/localization)
 
-Android-LocalizationActivity
+Localization Library
 ==============================
 
 ![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/01-header.jpg)
@@ -123,7 +123,7 @@ LocalizationActivity extends from AppCompatActivity
 ===========================
 LocalizationActivity is extended from AppCompatActivity class. So you still can use all methods from AppCompatActivity class.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/03-extend.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/03-extend.jpg)
 
 
 Don't like AppCompat? Try delegate way 
@@ -227,7 +227,7 @@ class MainActivity: LocalizationActivity() {
 
 Then just build up some String Resource for English and Thai language.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-LocalizationActivity/master/image/02-string_resource.jpg)
+![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/02-string_resource.jpg)
 
 Complete! Your application now supports multiple languages now.
 
