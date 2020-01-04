@@ -13,6 +13,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import androidx.test.uiautomator.UiDevice
+import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -60,6 +61,9 @@ class ViewPagerTest {
 
         val textView3 = onView(withId(R.id.textViewTitle))
         textView3.check(matches(withText("您好世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "您好世界")
 
         uiDevices.setOrientationNatural()
 
@@ -99,6 +103,9 @@ class ViewPagerTest {
 
         val textView7 = onView(withId(R.id.textViewTitle))
         textView7.check(matches(withText("Ciao mondo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Ciao mondo")
 
         uiDevices.setOrientationNatural()
 
@@ -132,6 +139,9 @@ class ViewPagerTest {
 
         val textView11 = onView(withId(R.id.textViewTitle))
         textView11.check(matches(withText("こんにちは世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "こんにちは世界")
 
         val appCompatButton13 = onView(withId(R.id.btn_activity_view_pager))
         appCompatButton13.perform(scrollTo(), click())
@@ -167,6 +177,9 @@ class ViewPagerTest {
 
         val textView15 = onView(withId(R.id.textViewTitle))
         textView15.check(matches(withText("안녕하세요세계")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "안녕하세요세계")
 
         uiDevices.setOrientationNatural()
 
@@ -206,6 +219,9 @@ class ViewPagerTest {
 
         val textView19 = onView(withId(R.id.textViewTitle))
         textView19.check(matches(withText("Olá mundo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Olá mundo")
 
         uiDevices.setOrientationNatural()
 
@@ -245,6 +261,9 @@ class ViewPagerTest {
 
         val textView23 = onView(withId(R.id.textViewTitle))
         textView23.check(matches(withText("สวัสดีชาวโลก")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
 
         uiDevices.setOrientationNatural()
 
@@ -284,6 +303,9 @@ class ViewPagerTest {
 
         val textView27 = onView(withId(R.id.textViewTitle))
         textView27.check(matches(withText("Hello world")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Hello world")
 
         uiDevices.setOrientationNatural()
 

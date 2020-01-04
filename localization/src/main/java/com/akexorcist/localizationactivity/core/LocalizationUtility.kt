@@ -30,7 +30,9 @@ object LocalizationUtility {
                     context.createConfigurationContext(config)
                 }
                 else -> {
+                    @Suppress("DEPRECATION")
                     config.locale = currentLocale
+                    @Suppress("DEPRECATION")
                     context.resources.updateConfiguration(config, context.resources.displayMetrics)
                     context
                 }

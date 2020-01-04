@@ -13,6 +13,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
+import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -50,6 +51,9 @@ class NestedFragmentTest {
 
         val textView2 = onView(withId(R.id.textViewTitle))
         textView2.check(matches(withText("您好世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "您好世界")
 
         uiDevices.setOrientationNatural()
 
@@ -82,6 +86,9 @@ class NestedFragmentTest {
 
         val textView4 = onView(withId(R.id.textViewTitle))
         textView4.check(matches(withText("Ciao mondo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Ciao mondo")
 
         uiDevices.setOrientationNatural()
 
@@ -108,6 +115,9 @@ class NestedFragmentTest {
 
         val textView6 = onView(withId(R.id.textViewTitle))
         textView6.check(matches(withText("こんにちは世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "こんにちは世界")
 
         uiDevices.setOrientationNatural()
 
@@ -134,6 +144,9 @@ class NestedFragmentTest {
 
         val textView8 = onView(withId(R.id.textViewTitle))
         textView8.check(matches(withText("안녕하세요세계")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "안녕하세요세계")
 
         uiDevices.setOrientationNatural()
 
@@ -166,6 +179,9 @@ class NestedFragmentTest {
 
         val textView10 = onView(withId(R.id.textViewTitle))
         textView10.check(matches(withText("Olá mundo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Olá mundo")
 
         uiDevices.setOrientationNatural()
 
@@ -198,6 +214,9 @@ class NestedFragmentTest {
 
         val textView12 = onView(withId(R.id.textViewTitle))
         textView12.check(matches(withText("สวัสดีชาวโลก")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
 
         uiDevices.setOrientationNatural()
 
@@ -226,5 +245,8 @@ class NestedFragmentTest {
 
         val textView14 = onView(withId(R.id.textViewTitle))
         textView14.check(matches(withText("Hello world")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Hello world")
     }
 }
