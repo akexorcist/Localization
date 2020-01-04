@@ -13,6 +13,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
+import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -52,12 +53,18 @@ class SimpleFragmentTest {
 
         val textView2 = onView(withId(R.id.textViewTitle))
         textView2.check(matches(withText("您好世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "您好世界")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView2.check(matches(withText("您好世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "您好世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "您好世界")
 
         val appCompatButton2 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton2.perform(scrollTo(), click())
@@ -94,12 +101,18 @@ class SimpleFragmentTest {
 
         val textView4 = onView(withId(R.id.textViewTitle))
         textView4.check(matches(withText("Ciao mondo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Ciao mondo")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView4.check(matches(withText("Ciao mondo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Ciao mondo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Ciao mondo")
 
         val appCompatButton3 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton3.perform(scrollTo(), click())
@@ -124,12 +137,18 @@ class SimpleFragmentTest {
 
         val textView6 = onView(withId(R.id.textViewTitle))
         textView6.check(matches(withText("こんにちは世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "こんにちは世界")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView6.check(matches(withText("こんにちは世界")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "こんにちは世界")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "こんにちは世界")
 
         val appCompatButton4 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton4.perform(scrollTo(), click())
@@ -154,12 +173,18 @@ class SimpleFragmentTest {
 
         val textView8 = onView(withId(R.id.textViewTitle))
         textView8.check(matches(withText("안녕하세요세계")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "안녕하세요세계")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView8.check(matches(withText("안녕하세요세계")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "안녕하세요세계")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "안녕하세요세계")
 
         val appCompatButton5 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton5.perform(scrollTo(), click())
@@ -196,12 +221,18 @@ class SimpleFragmentTest {
 
         val textView10 = onView(withId(R.id.textViewTitle))
         textView10.check(matches(withText("Olá mundo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Olá mundo")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView10.check(matches(withText("Olá mundo")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Olá mundo")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Olá mundo")
 
         val appCompatButton6 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton6.perform(scrollTo(), click())
@@ -238,12 +269,18 @@ class SimpleFragmentTest {
 
         val textView12 = onView(withId(R.id.textViewTitle))
         textView12.check(matches(withText("สวัสดีชาวโลก")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
 
         uiDevices.setOrientationNatural()
 
         Thread.sleep(200)
 
         textView12.check(matches(withText("สวัสดีชาวโลก")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "สวัสดีชาวโลก")
 
         val appCompatButton7 = onView(withId(R.id.btn_activity_fragment))
         appCompatButton7.perform(scrollTo(), click())
@@ -268,5 +305,8 @@ class SimpleFragmentTest {
 
         val textView14 = onView(withId(R.id.textViewTitle))
         textView14.check(matches(withText("Hello world")))
+        assertEquals(mActivityTestRule.activity.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.baseContext.getString(R.string.hello_world), "Hello world")
+        assertEquals(mActivityTestRule.activity.applicationContext.getString(R.string.hello_world), "Hello world")
     }
 }
