@@ -41,22 +41,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun attachBaseContext(context: Context): Context {
-        val locale = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
-        val config = context.resources.configuration
-        return when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                config.setLocale(locale)
-                val localeList = LocaleList(locale)
-                LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
-                context.createConfigurationContext(config)
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                config.setLocale(locale)
-                context.createConfigurationContext(config)
-            }
-            else -> context
-        }
+        return LocalizationUtility.applyLocalizationContext(context)
     }
 
     fun getApplicationContext(applicationContext: Context): Context {
