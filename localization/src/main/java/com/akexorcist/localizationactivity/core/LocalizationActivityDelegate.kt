@@ -131,10 +131,8 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     private fun checkLocaleChange(context: Context) {
         val oldLanguage = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
         if (!isCurrentLanguageSetting(currentLanguage, oldLanguage)) {
-            sendOnBeforeLocaleChangedEvent()
             isLocalizationChanged = true
-            callDummyActivity()
-            activity.recreate()
+            notifyLanguageChanged()
         }
     }
 
