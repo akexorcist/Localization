@@ -29,7 +29,11 @@ object LocalizationUtility {
                     config.setLocale(currentLocale)
                     context.createConfigurationContext(config)
                 }
-                else -> context
+                else -> {
+                    config.locale = currentLocale
+                    context.resources.updateConfiguration(config, context.resources.displayMetrics)
+                    context
+                }
             }
         } else {
             return baseContext
