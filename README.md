@@ -359,6 +359,9 @@ Special Thanks
 ===========================
 @first087
 @AleksanderMielczarek
+@vhiribarren
+@yunusemrecetin
+@tiborviktorpasztor
 
 
 Licence
