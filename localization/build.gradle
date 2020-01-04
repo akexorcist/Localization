@@ -50,7 +50,7 @@ ext {
     siteUrl = 'https://github.com/akexorcist/Android-Localization'
     gitUrl = 'https://github.com/akexorcist/Android-Localization.git'
 
-    libraryVersion = '1.2.3'
+    libraryVersion = '1.2.4'
 
     developerId = 'akexorcist'
     developerName = 'Somkiat Khitwongwattana'

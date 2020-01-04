@@ -36,13 +36,13 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localization</artifactId>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
 </dependency>
 ```
 
 Gradle
 ```
-implementation 'com.akexorcist:localization:1.2.3'
+implementation 'com.akexorcist:localization:1.2.4'
 ```
 
 (Optional) You can exclude `androidx.appcompat:appcompat`, if your project doens't use AppCompat v7 and declare this library with delegate way.
@@ -50,6 +50,10 @@ implementation 'com.akexorcist:localization:1.2.3'
 
 Update
 ===========================
+ 1.2.4
+ ---------------------------
+* Merged PR from [#7](https://github.com/akexorcist/Android-Localization/pull/7) [#25](https://github.com/akexorcist/Android-Localization/pull/25) [#10](https://github.com/akexorcist/Android-Localization/pull/110)
+ 
  1.2.3
  ---------------------------
 * [bug] Bug fixed : Incorrect behavior in API level 24-27 (Android 7.0 - 8.1) [#30](https://github.com/akexorcist/Android-Localization/issues/30) [#37](https://github.com/akexorcist/Android-Localization/issues/37)
@@ -79,7 +83,7 @@ Update
 * [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-Localization/issues/15) [#9](https://github.com/akexorcist/Android-Localization/issues/9)
 
 
-Set default language implementation was changed (From 1.2.2 to 1.2.3)
+Set default language implementation was changed (From 1.2.2 to 1.2.3 or higher)
 ===========================
 `setDefaultLanguage` has removed from the Activity class. You have to assign the default language in Application with LocalizationApplicationDelegate instead.
 
@@ -96,7 +100,7 @@ class MainActivity: LocalizationActivity() {
 }
 ```
 
-New (1.2.3)
+New (1.2.3 or higher)
 ---------------------------
 ```kotlin
 class MainApplication : Application() {
