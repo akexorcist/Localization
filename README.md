@@ -139,7 +139,7 @@ abstract class CustomActivity: Activity(), OnLocaleChangedListener {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
-        localizationDelegate.onCreate(savedInstanceState)
+        localizationDelegate.onCreate()
         super.onCreate(savedInstanceState)
     }
     
