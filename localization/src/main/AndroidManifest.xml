@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.akexorcist.localizationactivity">
-
-    <application>
-        <activity
-            android:name=".ui.BlankDummyActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
-    </application>
-
-</manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.akexorcist.localizationactivity" />

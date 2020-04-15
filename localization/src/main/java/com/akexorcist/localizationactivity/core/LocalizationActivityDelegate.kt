@@ -2,12 +2,10 @@ package com.akexorcist.localizationactivity.core
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Handler
 import android.os.LocaleList
-import com.akexorcist.localizationactivity.ui.BlankDummyActivity
 import java.util.*
 
 open class LocalizationActivityDelegate(val activity: Activity) {
@@ -123,7 +121,6 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     private fun notifyLanguageChanged() {
         sendOnBeforeLocaleChangedEvent()
         activity.intent.putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true)
-        callDummyActivity()
         activity.recreate()
     }
 
@@ -154,9 +151,5 @@ open class LocalizationActivityDelegate(val activity: Activity) {
         for (listener in localeChangedListeners) {
             listener.onAfterLocaleChanged()
         }
-    }
-
-    private fun callDummyActivity() {
-        activity.startActivity(Intent(activity, BlankDummyActivity::class.java))
     }
 }
