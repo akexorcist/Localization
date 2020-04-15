@@ -355,6 +355,18 @@ To fix this, Using the Additional Languages API in Play Core library to download
 
 For more information about Additional Language API : https://android-developers.googleblog.com/2019/03/the-latest-android-app-bundle-updates.html 
 
+If you don't want to implement this feature in your code, just ignore the language resources optimization by adding the Android App Bundle configuration in your app's build.gradle
+```groovy
+android {
+    ... 
+    bundle { 
+        language { 
+            enableSplit = false 
+        } 
+    } 
+}
+```  
+
 Documentation
 ===========================
 English Version : http://www.akexorcist.com/2015/07/localization-activity-best-way-to-handle-language-en.html
