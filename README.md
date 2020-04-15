@@ -36,23 +36,30 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localization</artifactId>
-  <version>1.2.4</version>
+  <version>1.2.5</version>
 </dependency>
 ```
 
 Gradle
 ```
-implementation 'com.akexorcist:localization:1.2.4'
+implementation 'com.akexorcist:localization:1.2.5'
 ```
 
-(Optional) You can exclude `androidx.appcompat:appcompat`, if your project doens't use AppCompat v7 and declare this library with delegate way.
+(Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
 
 
 Update
 ===========================
+ 1.2.5
+ ---------------------------
+* [bug] Bug fixed [#53](https://github.com/akexorcist/Android-Localization/issues/53) [#52](https://github.com/akexorcist/Android-Localization/issues/52) [#41](https://github.com/akexorcist/Android-Localization/issues/41)
+* Removed dummy activity for fade in/out transition when language changing (if you want, create by yourself when onBeforeLocaleChanged(...) called)
+* API level 14 supported ([#54](https://github.com/akexorcist/Android-Localization/issues/54))
+* Added example code for AndroidX Preferences 
+
  1.2.4
  ---------------------------
-* Merged PR from [#7](https://github.com/akexorcist/Android-Localization/pull/7) [#25](https://github.com/akexorcist/Android-Localization/pull/25) [#10](https://github.com/akexorcist/Android-Localization/pull/110)
+* Merged PR from [#7](https://github.com/akexorcist/Android-Localization/pull/7) [#25](https://github.com/akexorcist/Android-Localization/pull/25) [#10](https://github.com/akexorcist/Android-Localization/pull/10)
  
  1.2.3
  ---------------------------
