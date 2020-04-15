@@ -134,9 +134,6 @@ LocalizationActivity extends from AppCompatActivity
 ===========================
 LocalizationActivity is extended from AppCompatActivity class. So you still can use all methods from AppCompatActivity class.
 
-![Header image](https://raw.githubusercontent.com/akexorcist/Android-Localization/master/image/03-extend.jpg)
-
-
 Don't like AppCompat? Try delegate way 
 ===========================
 (By @AleksanderMielczarek)
