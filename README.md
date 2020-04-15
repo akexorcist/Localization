@@ -206,7 +206,7 @@ class MainApplication: Application(), LocalizationApplicationDelegate {
         localizationDelegate.onConfigurationChanged(this)
     }
     
-    override fun getApplicationContext() {
+    override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 }
