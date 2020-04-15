@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.akexorcist.localizationapp"
-        minSdkVersion 18
+        minSdkVersion 14
         targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
@@ -31,6 +31,7 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
     implementation project(':localization')
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

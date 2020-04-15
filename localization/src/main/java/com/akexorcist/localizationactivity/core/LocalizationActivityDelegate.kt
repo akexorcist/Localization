@@ -2,12 +2,10 @@ package com.akexorcist.localizationactivity.core
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Handler
 import android.os.LocaleList
-import com.akexorcist.localizationactivity.ui.BlankDummyActivity
 import java.util.*
 
 open class LocalizationActivityDelegate(val activity: Activity) {
@@ -41,7 +39,22 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun attachBaseContext(context: Context): Context {
-        return LocalizationUtility.applyLocalizationContext(context)
+        val locale = LanguageSetting.getLanguageWithDefault(context, LanguageSetting.getDefaultLanguage(context))
+        val config = context.resources.configuration
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                config.setLocale(locale)
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                config.setLocales(localeList)
+                context.createConfigurationContext(config)
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
+                config.setLocale(locale)
+                context.createConfigurationContext(config)
+            }
+            else -> context
+        }
     }
 
     fun getApplicationContext(applicationContext: Context): Context {
@@ -123,7 +136,6 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     private fun notifyLanguageChanged() {
         sendOnBeforeLocaleChangedEvent()
         activity.intent.putExtra(KEY_ACTIVITY_LOCALE_CHANGED, true)
-        callDummyActivity()
         activity.recreate()
     }
 
@@ -154,9 +166,5 @@ open class LocalizationActivityDelegate(val activity: Activity) {
         for (listener in localeChangedListeners) {
             listener.onAfterLocaleChanged()
         }
-    }
-
-    private fun callDummyActivity() {
-        activity.startActivity(Intent(activity, BlankDummyActivity::class.java))
     }
 }

@@ -7,7 +7,7 @@ import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import java.util.*
 
 abstract class LocalizationApplication : Application() {
-    private var localizationDelegate = LocalizationApplicationDelegate()
+    private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, getDefaultLanguage())

@@ -36,23 +36,30 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localization</artifactId>
-  <version>1.2.4</version>
+  <version>1.2.5</version>
 </dependency>
 ```
 
 Gradle
 ```
-implementation 'com.akexorcist:localization:1.2.4'
+implementation 'com.akexorcist:localization:1.2.5'
 ```
 
-(Optional) You can exclude `androidx.appcompat:appcompat`, if your project doens't use AppCompat v7 and declare this library with delegate way.
+(Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
 
 
 Update
 ===========================
+ 1.2.5
+ ---------------------------
+* [bug] Bug fixed [#53](https://github.com/akexorcist/Android-Localization/issues/53) [#52](https://github.com/akexorcist/Android-Localization/issues/52) [#41](https://github.com/akexorcist/Android-Localization/issues/41)
+* Removed dummy activity for fade in/out transition when language changing (if you want, create by yourself when onBeforeLocaleChanged(...) called)
+* API level 14 supported ([#54](https://github.com/akexorcist/Android-Localization/issues/54))
+* Added example code for AndroidX Preferences 
+
  1.2.4
  ---------------------------
-* Merged PR from [#7](https://github.com/akexorcist/Android-Localization/pull/7) [#25](https://github.com/akexorcist/Android-Localization/pull/25) [#10](https://github.com/akexorcist/Android-Localization/pull/110)
+* Merged PR from [#7](https://github.com/akexorcist/Android-Localization/pull/7) [#25](https://github.com/akexorcist/Android-Localization/pull/25) [#10](https://github.com/akexorcist/Android-Localization/pull/10)
  
  1.2.3
  ---------------------------
@@ -104,7 +111,7 @@ New (1.2.3 or higher)
 ---------------------------
 ```kotlin
 class MainApplication : Application() {
-    private var localizationDelegate = LocalizationApplicationDelegate()
+    private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
@@ -206,7 +213,7 @@ class MainApplication: Application(), LocalizationApplicationDelegate {
         localizationDelegate.onConfigurationChanged(this)
     }
     
-    override fun getApplicationContext() {
+    override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 }
@@ -347,6 +354,25 @@ Fragment language configuration is depending with activity. If activity language
 
 About Save/Restore Instance State. Read more on The [Real Best Practices to Save/Restore Activity's and Fragment's state.](http://inthecheesefactory.com/blog/fragment-state-saving-best-practices/en)
 
+Language resources optimization in Android App Bundle
+===========================
+Change the language by library can cause a crash to your app when you publishing your app with Android App Bundle with language resources optimization enabled. 
+
+To fix this, Using the Additional Languages API in Play Core library to download the additional language before.
+
+For more information about Additional Language API : https://android-developers.googleblog.com/2019/03/the-latest-android-app-bundle-updates.html 
+
+If you don't want to implement this feature in your code, just ignore the language resources optimization by adding the Android App Bundle configuration in your app's build.gradle
+```groovy
+android {
+    ... 
+    bundle { 
+        language { 
+            enableSplit = false 
+        } 
+    } 
+}
+```  
 
 Documentation
 ===========================
@@ -362,6 +388,7 @@ Special Thanks
 @vhiribarren
 @yunusemrecetin
 @tiborviktorpasztor
+@dimkinware 
 
 
 Licence
