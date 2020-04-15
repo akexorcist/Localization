@@ -104,7 +104,7 @@ New (1.2.3 or higher)
 ---------------------------
 ```kotlin
 class MainApplication : Application() {
-    private var localizationDelegate = LocalizationApplicationDelegate()
+    private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
