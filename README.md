@@ -347,6 +347,13 @@ Fragment language configuration is depending with activity. If activity language
 
 About Save/Restore Instance State. Read more on The [Real Best Practices to Save/Restore Activity's and Fragment's state.](http://inthecheesefactory.com/blog/fragment-state-saving-best-practices/en)
 
+Language resources optimization in Android App Bundle
+===========================
+Change the language by library can cause a crash to your app when you publishing your app with Android App Bundle with language resources optimization enabled. 
+
+To fix this, Using the Additional Languages API in Play Core library to download the additional language before.
+
+For more information about Additional Language API : https://android-developers.googleblog.com/2019/03/the-latest-android-app-bundle-updates.html 
 
 Documentation
 ===========================
