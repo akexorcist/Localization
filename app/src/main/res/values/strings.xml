@@ -23,6 +23,7 @@
     <string name="nested_fragment_activity" translatable="false">Activity + Nested Fragment</string>
     <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
+    <string name="list_preferences_activity" translatable="false">Activity + Preference Fragment</string>
 
     <string name="america" translatable="false">America</string>
     <string name="china" translatable="false">China</string>

@@ -23,6 +23,7 @@
         <activity android:name=".customactivity.SimpleCustomActivity" />
         <activity android:name=".stackedactivity.Stack1Activity" />
         <activity android:name=".stackedactivity.Stack2Activity" />
+        <activity android:name=".preferences.ListPreferencesActivity" />
     </application>
 
 </manifest>

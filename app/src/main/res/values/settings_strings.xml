@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_language_list_titles" translatable="false">
+        <item>America</item>
+        <item>China</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>Korea</item>
+        <item>Portugal</item>
+        <item>Thai</item>
+    </string-array>
+    <string-array name="pref_language_list_values" translatable="false">
+        <item>en</item>
+        <item>zh</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>pt</item>
+        <item>th</item>
+    </string-array>
+</resources>

@@ -7,6 +7,7 @@ import android.view.View;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity;
 import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity;
+import com.akexorcist.localizationapp.preferences.ListPreferencesActivity;
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity;
 import com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity;
 import com.akexorcist.localizationapp.stackedactivity.Stack1Activity;
@@ -25,6 +26,7 @@ public class MainActivity extends LocalizationActivity {
         findViewById(R.id.btn_activity_fragment).setOnClickListener(onSimpleFragmentClick());
         findViewById(R.id.btn_activity_nested_fragment).setOnClickListener(onNestedFragmentClick());
         findViewById(R.id.btn_activity_view_pager).setOnClickListener(onViewPagerClick());
+        findViewById(R.id.btn_activity_list_preferences).setOnClickListener(onPreferenceFragmentClick());
     }
 
     public View.OnClickListener onSimpleActivityClick() {
@@ -49,6 +51,10 @@ public class MainActivity extends LocalizationActivity {
 
     public View.OnClickListener onViewPagerClick() {
         return view -> goToActivity(ViewPagerActivity.class);
+    }
+
+    public View.OnClickListener onPreferenceFragmentClick() {
+        return view -> goToActivity(ListPreferencesActivity.class);
     }
 
     public void goToActivity(Class<?> activity) {

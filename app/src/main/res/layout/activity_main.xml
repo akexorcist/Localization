@@ -64,6 +64,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/viewpager_activity" />
+
+            <Button
+                android:id="@+id/btn_activity_list_preferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_preferences_activity" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
