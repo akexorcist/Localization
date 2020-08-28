@@ -32,7 +32,12 @@ public abstract class CustomActivity extends Activity implements OnLocaleChanged
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            applyOverrideConfiguration(localizationDelegate.updateConfigurationLocale(newBase));
+            super.attachBaseContext(newBase);
+        } else {
+            super.attachBaseContext(localizationDelegate.attachBaseContext(newBase));
+        }
     }
 
     @Override

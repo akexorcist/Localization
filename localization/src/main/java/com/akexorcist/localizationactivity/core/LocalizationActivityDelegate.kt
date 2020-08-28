@@ -2,6 +2,7 @@ package com.akexorcist.localizationactivity.core
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Build
 import android.os.Handler
@@ -57,6 +58,25 @@ open class LocalizationActivityDelegate(val activity: Activity) {
                 context.createConfigurationContext(config)
             }
             else -> context
+        }
+    }
+
+    fun updateConfigurationLocale(context: Context): Configuration {
+        val locale = LanguageSetting.getLanguageWithDefault(
+            context,
+            LanguageSetting.getDefaultLanguage(context)
+        )
+        val config = context.resources.configuration
+        return config.apply {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                config.setLocale(locale)
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                config.setLocales(localeList)
+            }
+            else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                config.setLocale(locale)
+            }
         }
     }
 
