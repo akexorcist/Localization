@@ -24,6 +24,7 @@ package com.akexorcist.localizationactivity.ui
 
 import android.content.Context
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -51,7 +52,7 @@ abstract class LocalizationActivity : AppCompatActivity, OnLocaleChangedListener
     }
 
     override fun attachBaseContext(newBase: Context) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             applyOverrideConfiguration(localizationDelegate.updateConfigurationLocale(newBase))
             super.attachBaseContext(newBase)
         } else {
