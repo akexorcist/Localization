@@ -23,9 +23,9 @@ android {
     }
 }
 
-dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
+task dokkaJavadoc(type:org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/documentation"
 }
 
 dependencies {
@@ -51,7 +51,7 @@ ext {
     siteUrl = 'https://github.com/akexorcist/Android-Localization'
     gitUrl = 'https://github.com/akexorcist/Android-Localization.git'
 
-    libraryVersion = '1.2.5'
+    libraryVersion = '1.2.6'
 
     developerId = 'akexorcist'
     developerName = 'Somkiat Khitwongwattana'
