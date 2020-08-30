@@ -13,12 +13,15 @@ import java.util.*
 object LocalizationUtility {
     fun applyLocalizationContext(baseContext: Context): Context {
         val baseLocale = getLocaleFromConfiguration(baseContext.resources.configuration)
-        val currentLocale = LanguageSetting.getLanguageWithDefault(baseContext, LanguageSetting.getDefaultLanguage(baseContext))
+        val currentLocale = LanguageSetting.getLanguageWithDefault(
+            baseContext,
+            LanguageSetting.getDefaultLanguage(baseContext)
+        )
         if (!baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)) {
-            val context = LocalizationContext(baseContext)
-            val config = context.resources.configuration
             return when {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                    val context = LocalizationContext(baseContext)
+                    val config = context.resources.configuration
                     config.setLocale(currentLocale)
                     val localeList = LocaleList(currentLocale)
                     LocaleList.setDefault(localeList)
@@ -26,15 +29,21 @@ object LocalizationUtility {
                     context.createConfigurationContext(config)
                 }
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
+                    val context = LocalizationContext(baseContext)
+                    val config = context.resources.configuration
                     config.setLocale(currentLocale)
                     context.createConfigurationContext(config)
                 }
                 else -> {
+                    val config = baseContext.resources.configuration
                     @Suppress("DEPRECATION")
                     config.locale = currentLocale
                     @Suppress("DEPRECATION")
-                    context.resources.updateConfiguration(config, context.resources.displayMetrics)
-                    context
+                    baseContext.resources.updateConfiguration(
+                        config,
+                        baseContext.resources.displayMetrics
+                    )
+                    baseContext
                 }
             }
         } else {

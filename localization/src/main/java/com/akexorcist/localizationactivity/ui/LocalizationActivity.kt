@@ -24,14 +24,21 @@ package com.akexorcist.localizationactivity.ui
 
 import android.content.Context
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate
 import com.akexorcist.localizationactivity.core.OnLocaleChangedListener
 import java.util.*
 
-abstract class LocalizationActivity : AppCompatActivity(), OnLocaleChangedListener {
-    private val localizationDelegate: LocalizationActivityDelegate by lazy { LocalizationActivityDelegate(this) }
+abstract class LocalizationActivity : AppCompatActivity, OnLocaleChangedListener {
+    constructor() : super()
+    constructor(@LayoutRes contentLayoutId: Int) : super(contentLayoutId)
+
+    private val localizationDelegate: LocalizationActivityDelegate by lazy {
+        LocalizationActivityDelegate(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
@@ -45,12 +52,16 @@ abstract class LocalizationActivity : AppCompatActivity(), OnLocaleChangedListen
     }
 
     override fun attachBaseContext(newBase: Context) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             applyOverrideConfiguration(localizationDelegate.updateConfigurationLocale(newBase))
             super.attachBaseContext(newBase)
         } else {
             super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
         }
+    }
+
+    override fun getBaseContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getBaseContext())
     }
 
     override fun getApplicationContext(): Context {
