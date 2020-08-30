@@ -1,5 +1,8 @@
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890) [![Build Status](https://travis-ci.org/akexorcist/Android-Localization.svg?branch=master)](https://travis-ci.org/akexorcist/Android-Localization) [![JCenter](https://api.bintray.com/packages/akexorcist/maven/localization/images/download.svg)](https://bintray.com/akexorcist/maven/localization)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890)
+[![JCenter](https://api.bintray.com/packages/akexorcist/maven/localization/images/download.svg)](https://bintray.com/akexorcist/maven/localization) 
+![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-14-brightgreen) 
+[![Build Status](https://travis-ci.org/akexorcist/Android-Localization.svg?branch=master)](https://travis-ci.org/akexorcist/Android-Localization) 
 
 Localization Library
 ==============================
@@ -36,13 +39,13 @@ Maven
 <dependency>
   <groupId>com.akexorcist</groupId>
   <artifactId>localization</artifactId>
-  <version>1.2.5</version>
+  <version>1.2.6</version>
 </dependency>
 ```
 
 Gradle
 ```
-implementation 'com.akexorcist:localization:1.2.5'
+implementation 'com.akexorcist:localization:1.2.6'
 ```
 
 (Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
@@ -50,6 +53,20 @@ implementation 'com.akexorcist:localization:1.2.5'
 
 Update
 ===========================
+ 1.2.6
+ ---------------------------
+* [pr] [#66](https://github.com/akexorcist/Android-Localization/issues/66) - Fix incompatible with AppCompat 1.2.0 or higher
+* [pr] [#60](https://github.com/akexorcist/Android-Localization/issues/60) - Supporting locale variants
+* [bug] Bug fixed [#65](https://github.com/akexorcist/Android-Localization/issues/65)
+* Add layout resource support in LocalizationActivity's constructor 
+* Fix base context and application context not update in some version
+* Update UI test
+* Update Gradle and dependencies version
+  * Kotlin : 1.3.72
+  * Gradle Plugin : 4.0.1
+  * Gradle Wrapper : 6.1.1 
+  * AppCompat : 1.2.0 
+
  1.2.5
  ---------------------------
 * [bug] Bug fixed [#53](https://github.com/akexorcist/Android-Localization/issues/53) [#52](https://github.com/akexorcist/Android-Localization/issues/52) [#41](https://github.com/akexorcist/Android-Localization/issues/41)
@@ -258,10 +275,12 @@ For example
 
 ```kotlin
 setLanguage("th")                             // Language : Thailand
-setLanguage("th_TH")                       // Language : Thailand, Country : Thai
+setLanguage("th", "TH")                       // Language : Thailand, Country : Thai
+setLanguage(Locale("th", "TH"))               // Language : Thailand, Country : Thai
 setLanguage("en")                             // Language : English
-setLanguage("en_GB")                       // Language : English,  Country : Great Britain
-setLanguage("en_US")                       // Language : English,  Country : United States
+setLanguage("en", "GB")                       // Language : English,  Country : Great Britain
+setLanguage("en", "US")                       // Language : English,  Country : United States
+setLanguage(Locale("en", "US"))               // Language : English,  Country : United States
 setLanguage(Locale.KOREA)                     // Language : Korean,  Country : Korea
 setLanguage(Locale.KOREAN)                    // Language : Korean
 setLanguage(Locale.CANADA_FRENCH)             // Language : French,  Country : Canada
