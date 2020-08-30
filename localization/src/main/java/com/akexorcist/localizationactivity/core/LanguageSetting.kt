@@ -22,7 +22,7 @@ object LanguageSetting {
             when (info.size) {
                 1 -> Locale(info[0])
                 2 -> Locale(info[0], info[1])
-                3 -> Locale(info[0],info[1],info[2])
+                3 -> Locale(info[0], info[1], info[2])
                 else -> Locale.ENGLISH
             }
         } ?: run {
@@ -42,6 +42,7 @@ object LanguageSetting {
             when (info.size) {
                 1 -> Locale(info[0])
                 2 -> Locale(info[0], info[1])
+                3 -> Locale(info[0], info[1], info[2])
                 else -> null
             }
         } ?: run {
