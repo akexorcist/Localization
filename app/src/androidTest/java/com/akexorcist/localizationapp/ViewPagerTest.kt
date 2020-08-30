@@ -13,6 +13,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import androidx.test.uiautomator.UiDevice
+import com.akexorcist.localizationapp.util.waitViewShown
 import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -33,6 +34,7 @@ class ViewPagerTest {
         val appCompatButton = onView(withId(R.id.btn_activity_view_pager))
         appCompatButton.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_china))
         val appCompatImageButton = onView(withId(R.id.btn_china))
         appCompatImageButton.perform(scrollTo(), click())
 
@@ -67,6 +69,7 @@ class ViewPagerTest {
         val textView4 = onView(withId(R.id.textViewOne))
         textView4.check(matches(withText("一")))
 
+        waitViewShown(withId(R.id.btn_italy))
         val appCompatImageButton2 = onView(withId(R.id.btn_italy))
         appCompatImageButton2.perform(scrollTo(), click())
 
@@ -101,6 +104,7 @@ class ViewPagerTest {
         val textView8 = onView(withId(R.id.textViewOne))
         textView8.check(matches(withText("Uno")))
 
+        waitViewShown(withId(R.id.btn_japan))
         val appCompatImageButton3 = onView(withId(R.id.btn_japan))
         appCompatImageButton3.perform(scrollTo(), click())
 
@@ -129,6 +133,7 @@ class ViewPagerTest {
         val textView12 = onView(withId(R.id.textViewOne))
         textView12.check(matches(withText("一")))
 
+        waitViewShown(withId(R.id.btn_korea))
         val appCompatImageButton4 = onView(withId(R.id.btn_korea))
         appCompatImageButton4.perform(scrollTo(), click())
 
@@ -163,6 +168,7 @@ class ViewPagerTest {
         val textView16 = onView(withId(R.id.textViewOne))
         textView16.check(matches(withText("하나")))
 
+        waitViewShown(withId(R.id.btn_portugal))
         val appCompatImageButton5 = onView(withId(R.id.btn_portugal))
         appCompatImageButton5.perform(scrollTo(), click())
 
@@ -197,6 +203,7 @@ class ViewPagerTest {
         val textView20 = onView(withId(R.id.textViewOne))
         textView20.check(matches(withText("Um")))
 
+        waitViewShown(withId(R.id.btn_thai))
         val appCompatImageButton6 = onView(withId(R.id.btn_thai))
         appCompatImageButton6.perform(scrollTo(), click())
 
@@ -231,6 +238,7 @@ class ViewPagerTest {
         val textView24 = onView(withId(R.id.textViewOne))
         textView24.check(matches(withText("หนึ่ง")))
 
+        waitViewShown(withId(R.id.btn_america))
         val appCompatImageButton7 = onView(withId(R.id.btn_america))
         appCompatImageButton7.perform(scrollTo(), click())
 

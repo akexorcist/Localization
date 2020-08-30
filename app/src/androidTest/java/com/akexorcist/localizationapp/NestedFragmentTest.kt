@@ -13,6 +13,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
+import com.akexorcist.localizationapp.util.waitViewShown
 import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -33,6 +34,7 @@ class NestedFragmentTest {
         val appCompatButton = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_china))
         val appCompatImageButton = onView(withId(R.id.btn_china))
         appCompatImageButton.perform(scrollTo(), click())
 
@@ -54,6 +56,7 @@ class NestedFragmentTest {
         val appCompatButton2 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton2.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_italy))
         val appCompatImageButton2 = onView(withId(R.id.btn_italy))
         appCompatImageButton2.perform(scrollTo(), click())
 
@@ -81,6 +84,7 @@ class NestedFragmentTest {
         val appCompatButton3 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton3.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_japan))
         val appCompatImageButton3 = onView(withId(R.id.btn_japan))
         appCompatImageButton3.perform(scrollTo(), click())
 
@@ -102,6 +106,7 @@ class NestedFragmentTest {
         val appCompatButton4 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton4.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_korea))
         val appCompatImageButton4 = onView(withId(R.id.btn_korea))
         appCompatImageButton4.perform(scrollTo(), click())
 
@@ -123,6 +128,7 @@ class NestedFragmentTest {
         val appCompatButton5 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton5.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_portugal))
         val appCompatImageButton5 = onView(withId(R.id.btn_portugal))
         appCompatImageButton5.perform(scrollTo(), click())
 
@@ -150,6 +156,7 @@ class NestedFragmentTest {
         val appCompatButton6 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton6.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_thai))
         val appCompatImageButton6 = onView(withId(R.id.btn_thai))
         appCompatImageButton6.perform(scrollTo(), click())
 
@@ -177,6 +184,7 @@ class NestedFragmentTest {
         val appCompatButton7 = onView(withId(R.id.btn_activity_nested_fragment))
         appCompatButton7.perform(scrollTo(), click())
 
+        waitViewShown(withId(R.id.btn_america))
         val appCompatImageButton7 = onView(withId(R.id.btn_america))
         appCompatImageButton7.perform(scrollTo(), click())
 

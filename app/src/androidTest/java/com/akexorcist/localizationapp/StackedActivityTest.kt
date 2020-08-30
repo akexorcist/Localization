@@ -13,6 +13,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
+import com.akexorcist.localizationapp.util.waitViewShown
 import junit.framework.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -36,6 +37,7 @@ class StackedActivityTest {
         val appCompatButton2 = onView(withId(R.id.btn_change_language))
         appCompatButton2.perform(click())
 
+        waitViewShown(withId(R.id.btn_china))
         val appCompatImageButton = onView(withId(R.id.btn_china))
         appCompatImageButton.perform(click())
 
@@ -53,6 +55,7 @@ class StackedActivityTest {
         val appCompatButton3 = onView(withId(R.id.btn_change_language))
         appCompatButton3.perform(click())
 
+        waitViewShown(withId(R.id.btn_italy))
         val appCompatImageButton2 = onView(withId(R.id.btn_italy))
         appCompatImageButton2.perform(click())
 
@@ -70,6 +73,7 @@ class StackedActivityTest {
         val appCompatButton4 = onView(withId(R.id.btn_change_language))
         appCompatButton4.perform(click())
 
+        waitViewShown(withId(R.id.btn_japan))
         val appCompatImageButton3 = onView(withId(R.id.btn_japan))
         appCompatImageButton3.perform(click())
 
@@ -87,6 +91,7 @@ class StackedActivityTest {
         val appCompatButton5 = onView(withId(R.id.btn_change_language))
         appCompatButton5.perform(click())
 
+        waitViewShown(withId(R.id.btn_korea))
         val appCompatImageButton4 = onView(withId(R.id.btn_korea))
         appCompatImageButton4.perform(click())
 
@@ -104,6 +109,7 @@ class StackedActivityTest {
         val appCompatButton6 = onView(withId(R.id.btn_change_language))
         appCompatButton6.perform(click())
 
+        waitViewShown(withId(R.id.btn_portugal))
         val appCompatImageButton5 = onView(withId(R.id.btn_portugal))
         appCompatImageButton5.perform(click())
 
@@ -121,6 +127,7 @@ class StackedActivityTest {
         val appCompatButton7 = onView(withId(R.id.btn_change_language))
         appCompatButton7.perform(click())
 
+        waitViewShown(withId(R.id.btn_thai))
         val appCompatImageButton6 = onView(withId(R.id.btn_thai))
         appCompatImageButton6.perform(click())
 
@@ -138,6 +145,7 @@ class StackedActivityTest {
         val appCompatButton8 = onView(withId(R.id.btn_change_language))
         appCompatButton8.perform(click())
 
+        waitViewShown(withId(R.id.btn_america))
         val appCompatImageButton7 = onView(withId(R.id.btn_america))
         appCompatImageButton7.perform(click())
 
