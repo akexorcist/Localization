@@ -73,19 +73,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
                 config.setLocales(localeList)
-            }
-            else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 config.setLocale(locale)
             }
         }
     }
 
     fun getApplicationContext(applicationContext: Context): Context {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            applicationContext
-        } else {
-            LocalizationUtility.applyLocalizationContext(applicationContext)
-        }
+        return LocalizationUtility.applyLocalizationContext(applicationContext)
     }
 
     fun getResources(resources: Resources): Resources {

@@ -60,6 +60,10 @@ abstract class LocalizationActivity : AppCompatActivity, OnLocaleChangedListener
         }
     }
 
+    override fun getBaseContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getBaseContext())
+    }
+
     override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
