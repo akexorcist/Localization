@@ -170,7 +170,12 @@ abstract class CustomActivity: Activity(), OnLocaleChangedListener {
     }
     
     override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            applyOverrideConfiguration(localizationDelegate.updateConfigurationLocale(newBase))
+            super.attachBaseContext(newBase)
+        } else {
+            super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
+        }
     }
     
     override fun getApplicationContext(): Context {
