@@ -2,31 +2,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_background_primary_gradient"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/large_margin"
-    android:paddingStart="@dimen/large_margin"
-    android:paddingEnd="@dimen/large_margin"
-    android:paddingTop="@dimen/large_margin"
     tools:context="com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/Button.White.Outline.Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/large_margin"
-        android:text="@string/activity"
-        android:textColor="@color/app_light_text"
-        android:textSize="@dimen/text_size" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/back" />
 
-    <FrameLayout
+    <TextView
+        style="@style/Text.Title.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/activity" />
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/layout_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/large_margin"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1" />
 
     <include
+        android:id="@+id/layout_language_chooser"
         layout="@layout/layout_language_chooser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp" />
 
 </LinearLayout>

@@ -2,71 +2,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_background_primary_gradient"
     tools:context="com.akexorcist.localizationapp.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/large_margin"
-        android:paddingEnd="@dimen/large_margin"
-        android:paddingStart="@dimen/large_margin"
-        android:paddingTop="@dimen/large_margin">
+        android:padding="32dp">
 
         <TextView
             android:id="@+id/textViewTitle"
+            style="@style/Text.Title.White"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/large_padding"
-            android:text="@string/hello_world"
-            android:textColor="@color/app_text"
-            android:textSize="@dimen/text_size" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/hello_world" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_simple_activity"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/simple_activity" />
 
             <Button
                 android:id="@+id/btn_custom_activity"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/custom_activity" />
 
             <Button
                 android:id="@+id/btn_stacked_activity"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/stacked_activity" />
 
             <Button
                 android:id="@+id/btn_activity_fragment"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_activity" />
 
             <Button
                 android:id="@+id/btn_activity_nested_fragment"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nested_fragment_activity" />
 
             <Button
                 android:id="@+id/btn_activity_view_pager"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/viewpager_activity" />
 
             <Button
                 android:id="@+id/btn_activity_list_preferences"
+                style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/list_preferences_activity" />

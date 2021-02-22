@@ -8,6 +8,8 @@ import com.akexorcist.localizationapp.R
 class LanguagePreferenceFragment : PreferenceFragmentCompat() {
     companion object {
         private const val KEY_PREFERENCE_LANGUAGE = "language"
+
+        fun newInstance() = LanguagePreferenceFragment()
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -21,6 +23,6 @@ class LanguagePreferenceFragment : PreferenceFragmentCompat() {
     }
 
     interface PreferenceChangeListener {
-        fun onLanguagePreferenceChanged(langauge: String)
+        fun onLanguagePreferenceChanged(language: String)
     }
 }
