@@ -92,6 +92,18 @@ abstract class LocalizationActivity : AppCompatActivity, OnLocaleChangedListener
         localizationDelegate.setLanguage(this, locale)
     }
 
+    fun setLanguageWithoutNotification(language: String) {
+        localizationDelegate.setLanguageWithoutNotification(this, language)
+    }
+
+    fun setLanguageWithoutNotification(language: String, country: String) {
+        localizationDelegate.setLanguageWithoutNotification(this, language, country)
+    }
+
+    fun setLanguageWithoutNotification(locale: Locale) {
+        localizationDelegate.setLanguageWithoutNotification(this, locale)
+    }
+
     fun getCurrentLanguage(): Locale {
         return localizationDelegate.getLanguage(this)
     }

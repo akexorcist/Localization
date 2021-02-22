@@ -125,6 +125,32 @@ open class LocalizationActivityDelegate(val activity: Activity) {
         }
     }
 
+    fun setLanguageWithoutNotification(context: Context, newLanguage: String) {
+        val locale = Locale(newLanguage)
+        setLanguageWithoutNotification(context, locale)
+    }
+
+    fun setLanguageWithoutNotification(context: Context, newLanguage: String, newCountry: String) {
+        val locale = Locale(newLanguage, newCountry)
+        setLanguageWithoutNotification(context, locale)
+    }
+
+    /**
+     * Change application language but without recreating it
+     */
+    fun setLanguageWithoutNotification(context: Context, newLocale: Locale) {
+
+        val oldLocale = LanguageSetting.getLanguageWithDefault(
+            context,
+            LanguageSetting.getDefaultLanguage(context)
+        )
+        if (!isCurrentLanguageSetting(newLocale, oldLocale)) {
+            LanguageSetting.setLanguage(activity, newLocale)
+            // Don't notifiy current activity notifyLanguageChanged()
+        }
+
+    }
+
     // Get current language
     fun getLanguage(context: Context): Locale {
         return LanguageSetting.getLanguageWithDefault(
