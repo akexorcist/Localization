@@ -5,10 +5,10 @@
     android:background="@drawable/shape_background_primary_gradient"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingStart="@dimen/large_margin"
-    android:paddingTop="@dimen/large_margin"
-    android:paddingEnd="@dimen/large_margin"
-    android:paddingBottom="@dimen/large_margin"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp"
     tools:context="com.akexorcist.localizationapp.simpleactivity.SimpleActivity">
 
     <LinearLayout
