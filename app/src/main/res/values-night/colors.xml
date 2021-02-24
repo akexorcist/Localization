@@ -8,8 +8,8 @@
     <color name="primary_2">#25A3A4</color>
     <color name="accent">#EDB81B</color>
 
-    <color name="themed_primary_1">#3197CD</color>
-    <color name="themed_primary_2">#25A3A4</color>
-    <color name="themed_text">#FFFFFF</color>
+    <color name="themed_primary_1">#204559</color>
+    <color name="themed_primary_2">#1F5B5C</color>
+    <color name="themed_text">#DDDDDD</color>
 
 </resources>

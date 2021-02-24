@@ -5,6 +5,7 @@
     <string name="parent_fragment" translatable="false">Parent Fragment</string>
     <string name="child_fragment" translatable="false">Child Fragment</string>
     <string name="back" translatable="false">&lt; Back</string>
+    <string name="dark_theme_description" translatable="false">Please toggle the dark theme from system settings</string>
 
     <string name="one">One</string>
     <string name="two">Two</string>
@@ -25,6 +26,7 @@
     <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
     <string name="list_preferences_activity" translatable="false">Activity + Preference Fragment</string>
+    <string name="dark_theme_activity" translatable="false">Dark Theme</string>
 
     <string name="america" translatable="false">America</string>
     <string name="china" translatable="false">China</string>

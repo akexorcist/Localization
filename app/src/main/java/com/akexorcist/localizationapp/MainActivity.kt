@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity
+import com.akexorcist.localizationapp.darktheme.DarkThemeActivity
 import com.akexorcist.localizationapp.databinding.ActivityMainBinding
 import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity
 import com.akexorcist.localizationapp.preferences.ListPreferencesActivity
@@ -26,6 +27,7 @@ class MainActivity : LocalizationActivity() {
         binding.btnActivityNestedFragment.setOnClickListener { goToActivity(NestedFragmentActivity::class.java) }
         binding.btnActivityViewPager.setOnClickListener { goToActivity(ViewPagerActivity::class.java) }
         binding.btnActivityListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
+        binding.btnDarkTheme.setOnClickListener { goToActivity(DarkThemeActivity::class.java) }
     }
 
     private fun goToActivity(activity: Class<*>?) {

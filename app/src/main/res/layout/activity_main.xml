@@ -75,6 +75,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/list_preferences_activity" />
+
+            <Button
+                android:id="@+id/btn_dark_theme"
+                style="@style/Button.White.Outline.Menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dark_theme_activity" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

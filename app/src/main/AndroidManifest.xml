@@ -25,6 +25,9 @@
         <activity android:name=".stackedactivity.Stack1Activity" />
         <activity android:name=".stackedactivity.Stack2Activity" />
         <activity android:name=".preferences.ListPreferencesActivity" />
+        <activity
+            android:name=".darktheme.DarkThemeActivity"
+            android:theme="@style/DayNightTheme" />
     </application>
 
 </manifest>

@@ -6,15 +6,25 @@
         <item name="colorAccent">@color/accent</item>
     </style>
 
+    <style name="DayNightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/themed_primary_1</item>
+        <item name="colorPrimaryDark">@color/themed_primary_1</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
     <style name="Text" />
 
     <style name="Text.Title">
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">32sp</item>
     </style>
 
     <style name="Text.Title.White">
-        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text.Title.White.DayNight">
+        <item name="android:textColor">@color/themed_text</item>
     </style>
 
     <style name="Text.Content">
@@ -24,6 +34,10 @@
 
     <style name="Text.Content.White">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text.Content.White.DayNight">
+        <item name="android:textColor">@color/themed_text</item>
     </style>
 
     <style name="Button">
@@ -56,6 +70,28 @@
         <item name="android:padding">0dp</item>
         <item name="android:gravity">start</item>
         <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="Button.White.DayNight">
+        <item name="android:textColor">@color/button_white_daynight</item>
+    </style>
+
+    <style name="Button.White.DayNight.Outline">
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="Button.White.DayNight.Outline.Menu">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:gravity">start</item>
     </style>
 
 </resources>
