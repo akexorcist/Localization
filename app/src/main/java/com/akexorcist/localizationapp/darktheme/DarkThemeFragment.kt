@@ -15,7 +15,7 @@ class DarkThemeFragment : Fragment() {
         private const val KEY_SCROLL_Y = "scroll_y"
 
         fun newInstance(): Fragment {
-            return SimpleFragment()
+            return DarkThemeFragment()
         }
     }
 

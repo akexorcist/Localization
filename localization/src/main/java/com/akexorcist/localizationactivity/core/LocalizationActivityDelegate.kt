@@ -44,20 +44,34 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             context,
             LanguageSetting.getDefaultLanguage(context)
         )
-        val config = context.resources.configuration
         return when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                config.setLocale(locale)
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
+                val config = Configuration().apply {
+                    setLocale(locale)
+                    setLocales(localeList)
+                }
                 context.createConfigurationContext(config)
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                config.setLocale(locale)
+                val config = Configuration().apply {
+                    setLocale(locale)
+                }
                 context.createConfigurationContext(config)
             }
-            else -> context
+            else -> {
+                val config = Configuration().apply {
+                    @Suppress("DEPRECATION")
+                    this.locale = locale
+                }
+                @Suppress("DEPRECATION")
+                context.resources.updateConfiguration(
+                    config,
+                    context.resources.displayMetrics
+                )
+                context
+            }
         }
     }
 
@@ -66,15 +80,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             context,
             LanguageSetting.getDefaultLanguage(context)
         )
-        val config = context.resources.configuration
-        return config.apply {
+        return Configuration().apply {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                config.setLocale(locale)
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
+                setLocale(locale)
+                setLocales(localeList)
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLocale(locale)
+                setLocale(locale)
             }
         }
     }
