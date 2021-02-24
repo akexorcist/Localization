@@ -215,10 +215,10 @@ class MainApplication: LocalizationApplication() {
 
 // Implement the LocalizationApplicationDelegate
 class MainApplication: Application(), LocalizationApplicationDelegate {
-    private val localizationDelegate = LocalizationApplicationDelegate(this)
+    private val localizationDelegate = LocalizationApplicationDelegate()
     
     override fun attachBaseContext(base: Context) {
-        localizationDelegate.setDefaultLanguage(Locale.ENGLISH)
+        localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
     
