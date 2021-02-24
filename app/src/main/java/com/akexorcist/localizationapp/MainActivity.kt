@@ -20,6 +20,7 @@ class MainActivity : LocalizationActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.textViewTitle.text = applicationContext.getString(R.string.hello_world)
         binding.btnSimpleActivity.setOnClickListener { goToActivity(SimpleActivity::class.java) }
         binding.btnCustomActivity.setOnClickListener { goToActivity(SimpleCustomActivity::class.java) }
         binding.btnStackedActivity.setOnClickListener { goToActivity(Stack1Activity::class.java) }
