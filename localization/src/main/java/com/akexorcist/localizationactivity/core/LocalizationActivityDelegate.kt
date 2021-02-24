@@ -98,22 +98,27 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     fun getResources(resources: Resources): Resources {
         val locale = LanguageSetting.getLanguage(activity)
-        val config = resources.configuration
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            config.setLocale(locale)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val localeList = LocaleList(locale)
             LocaleList.setDefault(localeList)
-            config.setLocales(localeList)
+            val config = Configuration().apply {
+                setLocale(locale)
+                setLocales(localeList)
+                setLayoutDirection(locale)
+            }
+            activity.createConfigurationContext(config).resources
         } else {
-            @Suppress("DEPRECATION")
-            config.locale = locale
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLayoutDirection(locale)
+            val config = Configuration().apply {
+                @Suppress("DEPRECATION")
+                this.locale = locale
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    setLayoutDirection(locale)
+                }
             }
             @Suppress("DEPRECATION")
             resources.updateConfiguration(config, resources.displayMetrics)
+            resources
         }
-        return resources
     }
 
     // Provide method to set application language by country name.
