@@ -6,6 +6,7 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity
 import com.akexorcist.localizationapp.darktheme.DarkThemeActivity
 import com.akexorcist.localizationapp.databinding.ActivityMainBinding
+import com.akexorcist.localizationapp.hilt.HiltActivity
 import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity
 import com.akexorcist.localizationapp.preferences.ListPreferencesActivity
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity
@@ -29,6 +30,7 @@ class MainActivity : LocalizationActivity() {
         binding.btnActivityViewPager.setOnClickListener { goToActivity(ViewPagerActivity::class.java) }
         binding.btnActivityListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
         binding.btnDarkTheme.setOnClickListener { goToActivity(DarkThemeActivity::class.java) }
+        binding.btnHilt.setOnClickListener { goToActivity(HiltActivity::class.java) }
     }
 
     private fun goToActivity(activity: Class<*>?) {

@@ -28,6 +28,7 @@
         <activity
             android:name=".darktheme.DarkThemeActivity"
             android:theme="@style/DayNightTheme" />
+        <activity android:name=".hilt.HiltActivity" />
     </application>
 
 </manifest>
