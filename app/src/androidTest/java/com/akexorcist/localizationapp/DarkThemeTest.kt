@@ -11,11 +11,12 @@ import com.akexorcist.localizationapp.data.ExpectedContent
 import com.akexorcist.localizationapp.runner.AndroidSdkLevel29TestRunner
 import com.akexorcist.localizationapp.screen.MainActivityScreen
 import com.akexorcist.localizationapp.screen.SimpleFragmentScreen
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-// For local running only, dark theme in quick settings panel is required
+@Ignore("For local running only, dark theme in quick settings panel is required")
 @RunWith(AndroidSdkLevel29TestRunner::class)
 class DarkThemeTest {
     @JvmField
