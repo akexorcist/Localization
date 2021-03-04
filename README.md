@@ -12,7 +12,7 @@ Android library for in-app language changes support in your application
 
 Feature
 ====
-* In-app language changes
+* In-app language changing
 * Default language when first launch
 * Work with string resource in XML and programmatically
 * RTL language support
@@ -190,7 +190,7 @@ You have to call `setTitle(resId)` or `getActionBar().setTitle(resId)` in `onCre
 ```kotlin
 class MainActivity: LocalizationActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // ...
+        /* ... */
         setTitle(R.string.main_activity_title)
     }
 }
