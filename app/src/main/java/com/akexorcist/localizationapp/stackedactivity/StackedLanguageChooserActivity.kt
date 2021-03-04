@@ -2,10 +2,10 @@ package com.akexorcist.localizationapp.stackedactivity
 
 import android.os.Bundle
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
-import com.akexorcist.localizationapp.databinding.ActivityStack2Binding
+import com.akexorcist.localizationapp.databinding.ActivityStackedLanguageChooserBinding
 
-class Stack2Activity : LocalizationActivity() {
-    private val binding: ActivityStack2Binding by lazy { ActivityStack2Binding.inflate(layoutInflater) }
+class StackedLanguageChooserActivity : LocalizationActivity() {
+    private val binding: ActivityStackedLanguageChooserBinding by lazy { ActivityStackedLanguageChooserBinding.inflate(layoutInflater) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

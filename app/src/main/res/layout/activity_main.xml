@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            tools:text="@string/hello_world" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,63 +32,63 @@
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/simple_activity" />
+                android:text="@string/menu_simple_activity" />
 
             <Button
                 android:id="@+id/btn_custom_activity"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/custom_activity" />
+                android:text="@string/menu_custom_activity" />
 
             <Button
                 android:id="@+id/btn_stacked_activity"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/stacked_activity" />
+                android:text="@string/menu_stacked_activity" />
 
             <Button
-                android:id="@+id/btn_activity_fragment"
+                android:id="@+id/btn_simple_fragment"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/fragment_activity" />
+                android:text="@string/menu_simple_fragment" />
 
             <Button
-                android:id="@+id/btn_activity_nested_fragment"
+                android:id="@+id/btn_nested_fragment"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nested_fragment_activity" />
+                android:text="@string/menu_nested_fragment" />
 
             <Button
-                android:id="@+id/btn_activity_view_pager"
+                android:id="@+id/btn_view_pager"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/viewpager_activity" />
+                android:text="@string/menu_viewpager" />
 
             <Button
-                android:id="@+id/btn_activity_list_preferences"
+                android:id="@+id/btn_list_preferences"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/list_preferences_activity" />
+                android:text="@string/menu_list_preferences" />
 
             <Button
                 android:id="@+id/btn_dark_theme"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dark_theme_activity" />
+                android:text="@string/menu_dark_theme" />
 
             <Button
                 android:id="@+id/btn_hilt"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hilt_activity" />
+                android:text="@string/menu_hilt" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

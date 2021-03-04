@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.akexorcist.localizationapp.databinding.FragmentThreeBinding
+import com.akexorcist.localizationapp.databinding.FragmentViewPagerThreeBinding
 
 class ThreeFragment : Fragment() {
     companion object {
@@ -13,8 +13,8 @@ class ThreeFragment : Fragment() {
         fun newInstance(): Fragment = ThreeFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentThreeBinding.inflate(layoutInflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val binding = FragmentViewPagerThreeBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 }

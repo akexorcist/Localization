@@ -21,7 +21,7 @@ class HiltActivity : LocalizationActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.textView.text = storyProvider.getAppleStory()
+        binding.textViewContent.text = storyProvider.getAppleStory()
         binding.btnBack.setOnClickListener { super.onBackPressed() }
         binding.layoutLanguageChooser.btnAmerica.setOnClickListener { setLanguage("en") }
         binding.layoutLanguageChooser.btnChina.setOnClickListener { setLanguage("zh") }

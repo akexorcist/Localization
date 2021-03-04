@@ -18,16 +18,16 @@
     <string name="next" translatable="false"><![CDATA[>]]></string>
     <string name="change_language" translatable="false">Change Language &gt;</string>
 
-    <string name="simple_activity" translatable="false">Simple Activity</string>
-    <string name="custom_activity" translatable="false">Custom Activity</string>
-    <string name="stacked_activity" translatable="false">Stacked Activity</string>
-    <string name="fragment_activity" translatable="false">Activity + Fragment</string>
-    <string name="nested_fragment_activity" translatable="false">Activity + Nested Fragment</string>
-    <string name="viewpager_activity" translatable="false">Activity + View Pager</string>
+    <string name="menu_simple_activity" translatable="false">Simple Activity</string>
+    <string name="menu_custom_activity" translatable="false">Custom Activity</string>
+    <string name="menu_stacked_activity" translatable="false">Stacked Activity</string>
+    <string name="menu_simple_fragment" translatable="false">Simple Fragment</string>
+    <string name="menu_nested_fragment" translatable="false">Nested Fragment</string>
+    <string name="menu_viewpager" translatable="false">View Pager</string>
+    <string name="menu_list_preferences" translatable="false">Preference Fragment</string>
+    <string name="menu_dark_theme" translatable="false">Dark Theme</string>
+    <string name="menu_hilt" translatable="false">Dependency Injection with Hilt</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
-    <string name="list_preferences_activity" translatable="false">Activity + Preference Fragment</string>
-    <string name="dark_theme_activity" translatable="false">Dark Theme</string>
-    <string name="hilt_activity" translatable="false">Dependency Injection with Hilt</string>
 
     <string name="america" translatable="false">America</string>
     <string name="china" translatable="false">China</string>

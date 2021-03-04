@@ -32,7 +32,7 @@
             android:paddingBottom="16dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text_view_content"
                 style="@style/Text.Content.White.DayNight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

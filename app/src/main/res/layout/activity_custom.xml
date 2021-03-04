@@ -32,7 +32,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text_view_content"
                 style="@style/Text.Content.White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,14 +43,11 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/btn_change_language"
-        style="@style/Button.White.Outline.Menu"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/layout_language_chooser"
+        layout="@layout/layout_language_chooser"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/change_language" />
+        android:layout_marginBottom="24dp" />
 
 </LinearLayout>

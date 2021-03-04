@@ -11,7 +11,7 @@ import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity
 import com.akexorcist.localizationapp.preferences.ListPreferencesActivity
 import com.akexorcist.localizationapp.simpleactivity.SimpleActivity
 import com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity
-import com.akexorcist.localizationapp.stackedactivity.Stack1Activity
+import com.akexorcist.localizationapp.stackedactivity.StackedHomeActivity
 import com.akexorcist.localizationapp.viewpager.ViewPagerActivity
 
 class MainActivity : LocalizationActivity() {
@@ -21,14 +21,14 @@ class MainActivity : LocalizationActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.textViewTitle.text = applicationContext.getString(R.string.hello_world)
+        binding.textViewTitle.setText(R.string.hello_world)
         binding.btnSimpleActivity.setOnClickListener { goToActivity(SimpleActivity::class.java) }
         binding.btnCustomActivity.setOnClickListener { goToActivity(SimpleCustomActivity::class.java) }
-        binding.btnStackedActivity.setOnClickListener { goToActivity(Stack1Activity::class.java) }
-        binding.btnActivityFragment.setOnClickListener { goToActivity(SimpleFragmentActivity::class.java) }
-        binding.btnActivityNestedFragment.setOnClickListener { goToActivity(NestedFragmentActivity::class.java) }
-        binding.btnActivityViewPager.setOnClickListener { goToActivity(ViewPagerActivity::class.java) }
-        binding.btnActivityListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
+        binding.btnStackedActivity.setOnClickListener { goToActivity(StackedHomeActivity::class.java) }
+        binding.btnSimpleFragment.setOnClickListener { goToActivity(SimpleFragmentActivity::class.java) }
+        binding.btnNestedFragment.setOnClickListener { goToActivity(NestedFragmentActivity::class.java) }
+        binding.btnViewPager.setOnClickListener { goToActivity(ViewPagerActivity::class.java) }
+        binding.btnListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
         binding.btnDarkTheme.setOnClickListener { goToActivity(DarkThemeActivity::class.java) }
         binding.btnHilt.setOnClickListener { goToActivity(HiltActivity::class.java) }
     }

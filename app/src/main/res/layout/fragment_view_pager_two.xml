@@ -6,7 +6,7 @@
     tools:background="@drawable/shape_background_primary_gradient">
 
     <TextView
-        android:id="@+id/textViewTwo"
+        android:id="@+id/text_view_two"
         style="@style/Text.Title.White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

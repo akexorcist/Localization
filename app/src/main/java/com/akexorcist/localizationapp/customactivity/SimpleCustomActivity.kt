@@ -1,14 +1,11 @@
 package com.akexorcist.localizationapp.customactivity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.HorizontalScrollView
 import com.akexorcist.localizationapp.R
-import com.akexorcist.localizationapp.databinding.ActivitySimpleBinding
-import com.akexorcist.localizationapp.databinding.ActivitySimpleCustomBinding
+import com.akexorcist.localizationapp.databinding.ActivityCustomBinding
 
 class SimpleCustomActivity : CustomActivity() {
-    private val binding: ActivitySimpleCustomBinding by lazy { ActivitySimpleCustomBinding.inflate(layoutInflater) }
+    private val binding: ActivityCustomBinding by lazy { ActivityCustomBinding.inflate(layoutInflater) }
 
     companion object {
         private const val KEY_SCROLL_X = "scroll_x"

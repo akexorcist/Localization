@@ -6,9 +6,9 @@
     tools:background="@drawable/shape_background_primary_gradient">
 
     <TextView
-        android:id="@+id/textViewHello"
+        android:id="@+id/text_view_one"
         style="@style/Text.Title.White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/one" />
 </LinearLayout>
