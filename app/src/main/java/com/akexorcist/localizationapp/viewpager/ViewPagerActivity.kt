@@ -33,7 +33,6 @@ class ViewPagerActivity : LocalizationActivity() {
         adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
         binding.vpGreeting.adapter = adapter
         binding.vpGreeting.registerOnPageChangeCallback(onPageChangeCallback)
-        setNavigationVisibility(binding.vpGreeting.currentItem)
     }
 
     override fun onDestroy() {
