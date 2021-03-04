@@ -2,11 +2,11 @@ package com.akexorcist.localizationapp.viewpager
 
 import android.os.Bundle
 import android.view.View
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import androidx.viewpager2.widget.ViewPager2
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.akexorcist.localizationapp.databinding.ActivityViewPagerBinding
 
-class ViewPagerActivity : LocalizationActivity(), OnPageChangeListener {
+class ViewPagerActivity : LocalizationActivity() {
     private val binding: ActivityViewPagerBinding by lazy { ActivityViewPagerBinding.inflate(layoutInflater) }
     private lateinit var adapter: ViewPagerAdapter
 
@@ -30,10 +30,15 @@ class ViewPagerActivity : LocalizationActivity(), OnPageChangeListener {
         binding.btnNext.setOnClickListener { onNextPageClick() }
         binding.btnPrev.setOnClickListener { onPreviousPageClick() }
 
-        adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
         binding.vpGreeting.adapter = adapter
-        binding.vpGreeting.addOnPageChangeListener(this)
+        binding.vpGreeting.registerOnPageChangeCallback(onPageChangeCallback)
         setNavigationVisibility(binding.vpGreeting.currentItem)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.vpGreeting.unregisterOnPageChangeCallback(onPageChangeCallback)
     }
 
     public override fun onSaveInstanceState(outState: Bundle) {
@@ -48,12 +53,11 @@ class ViewPagerActivity : LocalizationActivity(), OnPageChangeListener {
         binding.vpGreeting.currentItem = savedInstanceState.getInt(KEY_CURRENT_PAGE)
     }
 
-    override fun onPageSelected(position: Int) {
-        setNavigationVisibility(position)
+    private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            setNavigationVisibility(position)
+        }
     }
-
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-    override fun onPageScrollStateChanged(state: Int) {}
 
     private fun onNextPageClick() {
         binding.vpGreeting.currentItem = binding.vpGreeting.currentItem + 1
@@ -65,6 +69,6 @@ class ViewPagerActivity : LocalizationActivity(), OnPageChangeListener {
 
     private fun setNavigationVisibility(currentPosition: Int) {
         binding.btnPrev.visibility = if (currentPosition == 0) View.GONE else View.VISIBLE
-        binding.btnNext.visibility = if (currentPosition == adapter.count - 1) View.GONE else View.VISIBLE
+        binding.btnNext.visibility = if (currentPosition == adapter.itemCount - 1) View.GONE else View.VISIBLE
     }
 }

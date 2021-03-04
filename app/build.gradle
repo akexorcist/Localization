@@ -52,7 +52,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
-
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation "com.google.dagger:hilt-android:2.33-beta"
     kapt "com.google.dagger:hilt-compiler:2.33-beta"
 
