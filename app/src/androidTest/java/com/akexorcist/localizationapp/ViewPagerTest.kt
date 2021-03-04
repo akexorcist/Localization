@@ -24,7 +24,10 @@ class ViewPagerTest {
     @Test
     fun viewPager() {
         onScreen<MainActivityScreen> {
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<ViewPagerScreen> {
@@ -69,7 +72,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<ViewPagerScreen> {
@@ -114,7 +120,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<ViewPagerScreen> {
@@ -159,7 +168,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<ViewPagerScreen> {
@@ -204,7 +216,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<ViewPagerScreen> {
@@ -249,7 +264,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<ViewPagerScreen> {
@@ -294,7 +312,10 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonViewPager { click() }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<ViewPagerScreen> {

@@ -24,7 +24,10 @@ class HiltDependencyInjectionTest {
     @Test
     fun hiltDependencyInjection() {
         onScreen<MainActivityScreen> {
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<HiltDependencyInjectionScreen> {
@@ -45,7 +48,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<HiltDependencyInjectionScreen> {
@@ -69,7 +75,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<HiltDependencyInjectionScreen> {
@@ -93,7 +102,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<HiltDependencyInjectionScreen> {
@@ -117,7 +129,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<HiltDependencyInjectionScreen> {
@@ -141,7 +156,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<HiltDependencyInjectionScreen> {
@@ -165,7 +183,10 @@ class HiltDependencyInjectionTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonHilt { click() }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<HiltDependencyInjectionScreen> {

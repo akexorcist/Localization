@@ -24,7 +24,10 @@ class ListPreferencesTest {
     @Test
     fun listPreferences() {
         onScreen<MainActivityScreen> {
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<ListPreferencesScreen> {
@@ -38,7 +41,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_CHINESE) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_CHINESE) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<ListPreferencesScreen> {
@@ -53,7 +59,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_ITALIAN) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_ITALIAN) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<ListPreferencesScreen> {
@@ -68,7 +77,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_JAPANESE) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_JAPANESE) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<ListPreferencesScreen> {
@@ -83,7 +95,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_KOREAN) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_KOREAN) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<ListPreferencesScreen> {
@@ -98,7 +113,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<ListPreferencesScreen> {
@@ -113,7 +131,10 @@ class ListPreferencesTest {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_THAI) }
             uiDevices.setOrientationNatural()
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_THAI) }
-            buttonListPreferences { click() }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<ListPreferencesScreen> {

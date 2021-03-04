@@ -16,7 +16,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-@Ignore("For local running only, dark theme in quick settings panel is required")
+
 @RunWith(AndroidSdkLevel29TestRunner::class)
 class DarkThemeTest {
     @JvmField
@@ -28,9 +28,13 @@ class DarkThemeTest {
 
     @Test
     @TargetApiLevel(Build.VERSION_CODES.Q)
+    @Ignore("For local running only, dark theme in quick settings panel is required")
     fun darkTheme() {
         onScreen<MainActivityScreen> {
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<SimpleFragmentScreen> {
@@ -58,7 +62,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<SimpleFragmentScreen> {
@@ -89,7 +96,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<SimpleFragmentScreen> {
@@ -120,7 +130,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<SimpleFragmentScreen> {
@@ -151,7 +164,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<SimpleFragmentScreen> {
@@ -182,7 +198,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<SimpleFragmentScreen> {
@@ -213,7 +232,10 @@ class DarkThemeTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonDarkTheme { click() }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<SimpleFragmentScreen> {

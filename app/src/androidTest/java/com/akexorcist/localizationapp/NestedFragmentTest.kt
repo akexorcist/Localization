@@ -24,7 +24,10 @@ class NestedFragmentTest {
     @Test
     fun nestedFragment() {
         onScreen<MainActivityScreen> {
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<NestedFragmentScreen> {
@@ -45,7 +48,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<NestedFragmentScreen> {
@@ -69,7 +75,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<NestedFragmentScreen> {
@@ -93,7 +102,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<NestedFragmentScreen> {
@@ -117,7 +129,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<NestedFragmentScreen> {
@@ -141,7 +156,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<NestedFragmentScreen> {
@@ -165,7 +183,10 @@ class NestedFragmentTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonNestedFragment { click() }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<NestedFragmentScreen> {
