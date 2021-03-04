@@ -5,11 +5,11 @@ import com.agoda.kakao.text.KButton
 import com.akexorcist.localizationapp.R
 
 class StackedLanguageChooserScreen : Screen<StackedLanguageChooserScreen>() {
-    val buttonAmerican = KButton { withId(R.id.btn_america) }
-    val buttonChinese = KButton { withId(R.id.btn_china) }
-    val buttonItalian = KButton { withId(R.id.btn_italy) }
-    val buttonJapanese = KButton { withId(R.id.btn_japan) }
-    val buttonKorean = KButton { withId(R.id.btn_korea) }
-    val buttonPortuguese = KButton { withId(R.id.btn_portugal) }
+    val buttonAmerican = KButton { withId(R.id.btn_american) }
+    val buttonChinese = KButton { withId(R.id.btn_chinese) }
+    val buttonItalian = KButton { withId(R.id.btn_italian) }
+    val buttonJapanese = KButton { withId(R.id.btn_japanese) }
+    val buttonKorean = KButton { withId(R.id.btn_korean) }
+    val buttonPortuguese = KButton { withId(R.id.btn_portuguese) }
     val buttonThai = KButton { withId(R.id.btn_thai) }
 }

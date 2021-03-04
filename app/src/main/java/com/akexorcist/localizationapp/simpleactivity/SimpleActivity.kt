@@ -19,12 +19,12 @@ class SimpleActivity : LocalizationActivity() {
         // Activity title is not change the language automatically.
         setTitle(R.string.hello_world)
         binding.btnBack.setOnClickListener { super.onBackPressed() }
-        binding.layoutLanguageChooser.btnAmerica.setOnClickListener { setLanguage("en") }
-        binding.layoutLanguageChooser.btnChina.setOnClickListener { setLanguage("zh") }
-        binding.layoutLanguageChooser.btnItaly.setOnClickListener { setLanguage("it") }
-        binding.layoutLanguageChooser.btnJapan.setOnClickListener { setLanguage("ja") }
-        binding.layoutLanguageChooser.btnKorea.setOnClickListener { setLanguage("ko") }
-        binding.layoutLanguageChooser.btnPortugal.setOnClickListener { setLanguage("pt") }
+        binding.layoutLanguageChooser.btnAmerican.setOnClickListener { setLanguage("en") }
+        binding.layoutLanguageChooser.btnChinese.setOnClickListener { setLanguage("zh") }
+        binding.layoutLanguageChooser.btnItalian.setOnClickListener { setLanguage("it") }
+        binding.layoutLanguageChooser.btnJapanese.setOnClickListener { setLanguage("ja") }
+        binding.layoutLanguageChooser.btnKorean.setOnClickListener { setLanguage("ko") }
+        binding.layoutLanguageChooser.btnPortuguese.setOnClickListener { setLanguage("pt") }
         binding.layoutLanguageChooser.btnThai.setOnClickListener { setLanguage("th") }
     }
 

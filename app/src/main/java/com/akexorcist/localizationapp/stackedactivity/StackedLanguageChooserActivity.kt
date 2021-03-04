@@ -10,12 +10,12 @@ class StackedLanguageChooserActivity : LocalizationActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.btnAmerica.setOnClickListener { changeLanguage("en") }
-        binding.btnChina.setOnClickListener { changeLanguage("zh") }
-        binding.btnItaly.setOnClickListener { changeLanguage("it") }
-        binding.btnJapan.setOnClickListener { changeLanguage("ja") }
-        binding.btnKorea.setOnClickListener { changeLanguage("ko") }
-        binding.btnPortugal.setOnClickListener { changeLanguage("pt") }
+        binding.btnAmerican.setOnClickListener { changeLanguage("en") }
+        binding.btnChinese.setOnClickListener { changeLanguage("zh") }
+        binding.btnItalian.setOnClickListener { changeLanguage("it") }
+        binding.btnJapanese.setOnClickListener { changeLanguage("ja") }
+        binding.btnKorean.setOnClickListener { changeLanguage("ko") }
+        binding.btnPortuguese.setOnClickListener { changeLanguage("pt") }
         binding.btnThai.setOnClickListener { changeLanguage("th") }
     }
 

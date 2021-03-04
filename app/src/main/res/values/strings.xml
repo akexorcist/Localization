@@ -29,11 +29,11 @@
     <string name="menu_hilt" translatable="false">Dependency Injection with Hilt</string>
     <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
 
-    <string name="america" translatable="false">America</string>
-    <string name="china" translatable="false">China</string>
-    <string name="italy" translatable="false">Italy</string>
-    <string name="japan" translatable="false">Japan</string>
-    <string name="korea" translatable="false">Korea</string>
-    <string name="portugal" translatable="false">Portugal</string>
+    <string name="american" translatable="false">American</string>
+    <string name="chinese" translatable="false">Chinese</string>
+    <string name="italian" translatable="false">Italian</string>
+    <string name="japanese" translatable="false">Japanese</string>
+    <string name="korean" translatable="false">Korean</string>
+    <string name="portuguese" translatable="false">Portuguese</string>
     <string name="thai" translatable="false">Thai</string>
 </resources>
