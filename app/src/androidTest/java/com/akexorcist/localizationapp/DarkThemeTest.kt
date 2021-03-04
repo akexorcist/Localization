@@ -15,7 +15,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
+// For local running only, dark theme in quick settings panel is required
 @RunWith(AndroidSdkLevel29TestRunner::class)
 class DarkThemeTest {
     @JvmField
