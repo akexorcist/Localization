@@ -339,7 +339,6 @@ class ViewPagerTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_AMERICAN)
             }
-            buttonViewPager { click() }
         }
     }
 }
