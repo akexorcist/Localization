@@ -1,5 +1,17 @@
 Release Notes
 ====
+1.2.7
+----
+* [pr] [#74](https://github.com/akexorcist/Localization/pull/74) - Add setLanguageWithoutNotification
+* [bug] Bug fixed [#72](https://github.com/akexorcist/Localization/issues/72) [#75](https://github.com/akexorcist/Localization/issues/75)
+* Migrate sample project from Java to Kotlin
+* New UI for sample project
+* Add more sample code for Dark Theme and Hilt Dependency Injection 
+* Migrate UI test from Espresso to Kakao
+* Update Gradle and dependencies version
+  * Kotlin : 1.4.31
+  * Gradle Plugin : 4.1.2
+  * Gradle Wrapper : 6.5
 
 1.2.6
 ----
