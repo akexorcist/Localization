@@ -10,6 +10,9 @@ import org.junit.runners.Suite
     StackedActivityTest::class,
     SimpleFragmentTest::class,
     NestedFragmentTest::class,
-    ViewPagerTest::class
+    ViewPagerTest::class,
+    ListPreferencesTest::class,
+    HiltDependencyInjectionTest::class,
+//    DarkThemeTest::class,
 )
 class AllTest

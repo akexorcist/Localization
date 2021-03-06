@@ -6,10 +6,6 @@ import android.os.Build
 import android.os.LocaleList
 import java.util.*
 
-/**
- * Created by Akexorcist on 10/19/2017 AD.
- */
-
 object LocalizationUtility {
     fun applyLocalizationContext(baseContext: Context): Context {
         val baseLocale = getLocaleFromConfiguration(baseContext.resources.configuration)
@@ -21,23 +17,26 @@ object LocalizationUtility {
             return when {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
                     val context = LocalizationContext(baseContext)
-                    val config = context.resources.configuration
-                    config.setLocale(currentLocale)
                     val localeList = LocaleList(currentLocale)
                     LocaleList.setDefault(localeList)
-                    config.setLocales(localeList)
+                    val config = Configuration().apply {
+                        setLocale(currentLocale)
+                        setLocales(localeList)
+                    }
                     context.createConfigurationContext(config)
                 }
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
                     val context = LocalizationContext(baseContext)
-                    val config = context.resources.configuration
-                    config.setLocale(currentLocale)
+                    val config = Configuration().apply {
+                        setLocale(currentLocale)
+                    }
                     context.createConfigurationContext(config)
                 }
                 else -> {
-                    val config = baseContext.resources.configuration
-                    @Suppress("DEPRECATION")
-                    config.locale = currentLocale
+                    val config = Configuration().apply {
+                        @Suppress("DEPRECATION")
+                        locale = currentLocale
+                    }
                     @Suppress("DEPRECATION")
                     baseContext.resources.updateConfiguration(
                         config,

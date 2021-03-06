@@ -1,49 +1,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
-    android:orientation="vertical">
+    android:background="@drawable/shape_background_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:background="@drawable/shape_background_primary_gradient">
 
     <TextView
+        style="@style/Text.Title.White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
-        android:layout_marginTop="@dimen/margin"
-        android:text="@string/fragment"
-        android:textColor="@color/app_light_text"
-        android:textSize="@dimen/text_size" />
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/fragment" />
 
     <ScrollView
         android:id="@+id/sv_apple_story"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text_view_content"
+                style="@style/Text.Content.White"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin"
-                android:layout_marginEnd="@dimen/margin"
-                android:layout_marginStart="@dimen/margin"
-                android:text="@string/sample_apple_story"
-                android:textColor="@color/app_text"
-                android:textSize="@dimen/text_size" />
+                android:text="@string/sample_apple_story" />
 
             <ImageView
                 android:layout_width="@dimen/iv_apple_size"
                 android:layout_height="@dimen/iv_apple_size"
-                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginTop="4dp"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/apple" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

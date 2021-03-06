@@ -2,9 +2,14 @@
 <resources>
 
     <color name="white">#ffffff</color>
-    <color name="light_gray">#f0f0f0</color>
+    <color name="white_alpha_10">#10ffffff</color>
     <color name="transparent">#00000000</color>
-    <color name="app_text">#2a2928</color>
-    <color name="app_light_text">#62605e</color>
+    <color name="primary_1">#3197CD</color>
+    <color name="primary_2">#25A3A4</color>
+    <color name="accent">#EDB81B</color>
+
+    <color name="themed_primary_1">#3197CD</color>
+    <color name="themed_primary_2">#25A3A4</color>
+    <color name="themed_text">#FFFFFF</color>
 
 </resources>

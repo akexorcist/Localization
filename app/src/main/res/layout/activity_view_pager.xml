@@ -2,63 +2,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_background_primary_gradient"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/large_margin"
-    android:paddingEnd="@dimen/large_margin"
-    android:paddingStart="@dimen/large_margin"
-    android:paddingTop="@dimen/large_margin"
     tools:context="com.akexorcist.localizationapp.simplefragment.SimpleFragmentActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/Button.White.Outline.Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/large_margin"
-        android:text="@string/viewpager_description"
-        android:textColor="@color/app_light_text"
-        android:textSize="@dimen/text_size" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/back" />
 
-    <RelativeLayout
+    <TextView
+        style="@style/Text.Content.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/viewpager_description" />
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/large_margin"
-        android:layout_weight="1">
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true">
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_greeting"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_background_content" />
 
         <Button
             android:id="@+id/btn_prev"
-            android:layout_width="@dimen/vp_btn_width"
+            style="@style/Button.White.Outline.Page"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@null"
             android:gravity="center"
-            android:minWidth="0dp"
-            android:text="@string/prev"
-            android:textColor="@color/app_text"
-            android:textSize="@dimen/large_text_size" />
+            android:text="@string/prev" />
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="@dimen/vp_btn_width"
+            style="@style/Button.White.Outline.Page"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="@null"
+            android:layout_gravity="end"
             android:gravity="center"
-            android:minWidth="0dp"
-            android:text="@string/next"
-            android:textColor="@color/app_text"
-            android:textSize="@dimen/large_text_size" />
-    </RelativeLayout>
+            android:text="@string/next" />
+    </FrameLayout>
 
     <include
+        android:id="@+id/layout_language_chooser"
         layout="@layout/layout_language_chooser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp" />
 
 </LinearLayout>

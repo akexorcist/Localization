@@ -3,71 +3,73 @@
     android:id="@+id/sv_language_chooser"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/padding">
+        android:padding="8dp">
 
         <ImageButton
-            android:id="@+id/btn_america"
+            android:id="@+id/btn_american"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/america"
+            android:contentDescription="@string/american"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_america" />
 
         <ImageButton
-            android:id="@+id/btn_china"
+            android:id="@+id/btn_chinese"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/china"
+            android:contentDescription="@string/chinese"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_china" />
 
         <ImageButton
-            android:id="@+id/btn_italy"
+            android:id="@+id/btn_italian"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/italy"
+            android:contentDescription="@string/italian"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_italy" />
 
         <ImageButton
-            android:id="@+id/btn_japan"
+            android:id="@+id/btn_japanese"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/japan"
+            android:contentDescription="@string/japanese"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_japan" />
 
         <ImageButton
-            android:id="@+id/btn_korea"
+            android:id="@+id/btn_korean"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/korea"
+            android:contentDescription="@string/korean"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_korea" />
 
         <ImageButton
-            android:id="@+id/btn_portugal"
+            android:id="@+id/btn_portuguese"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/portugal"
+            android:contentDescription="@string/portuguese"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_portugal" />
 
@@ -75,7 +77,7 @@
             android:id="@+id/btn_thai"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="@dimen/padding"
+            android:layout_marginEnd="32dp"
             android:background="@color/transparent"
             android:contentDescription="@string/thai"
             android:scaleType="fitCenter"

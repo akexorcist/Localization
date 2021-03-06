@@ -45,20 +45,34 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             context,
             LanguageSetting.getDefaultLanguage(context)
         )
-        val config = context.resources.configuration
         return when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                config.setLocale(locale)
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
+                val config = Configuration().apply {
+                    setLocale(locale)
+                    setLocales(localeList)
+                }
                 context.createConfigurationContext(config)
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                config.setLocale(locale)
+                val config = Configuration().apply {
+                    setLocale(locale)
+                }
                 context.createConfigurationContext(config)
             }
-            else -> context
+            else -> {
+                val config = Configuration().apply {
+                    @Suppress("DEPRECATION")
+                    this.locale = locale
+                }
+                @Suppress("DEPRECATION")
+                context.resources.updateConfiguration(
+                    config,
+                    context.resources.displayMetrics
+                )
+                context
+            }
         }
     }
 
@@ -67,15 +81,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             context,
             LanguageSetting.getDefaultLanguage(context)
         )
-        val config = context.resources.configuration
-        return config.apply {
+        return Configuration().apply {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                config.setLocale(locale)
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
-                config.setLocales(localeList)
+                setLocale(locale)
+                setLocales(localeList)
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLocale(locale)
+                setLocale(locale)
             }
         }
     }
@@ -86,22 +99,27 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     fun getResources(resources: Resources): Resources {
         val locale = LanguageSetting.getLanguage(activity)
-        val config = resources.configuration
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            config.setLocale(locale)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val localeList = LocaleList(locale)
             LocaleList.setDefault(localeList)
-            config.setLocales(localeList)
+            val config = Configuration().apply {
+                setLocale(locale)
+                setLocales(localeList)
+                setLayoutDirection(locale)
+            }
+            activity.createConfigurationContext(config).resources
         } else {
-            @Suppress("DEPRECATION")
-            config.locale = locale
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                config.setLayoutDirection(locale)
+            val config = Configuration().apply {
+                @Suppress("DEPRECATION")
+                this.locale = locale
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    setLayoutDirection(locale)
+                }
             }
             @Suppress("DEPRECATION")
             resources.updateConfiguration(config, resources.displayMetrics)
+            resources
         }
-        return resources
     }
 
     // Provide method to set application language by country name.
@@ -124,6 +142,32 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             LanguageSetting.setLanguage(activity, newLocale)
             notifyLanguageChanged()
         }
+    }
+
+    fun setLanguageWithoutNotification(context: Context, newLanguage: String) {
+        val locale = Locale(newLanguage)
+        setLanguageWithoutNotification(context, locale)
+    }
+
+    fun setLanguageWithoutNotification(context: Context, newLanguage: String, newCountry: String) {
+        val locale = Locale(newLanguage, newCountry)
+        setLanguageWithoutNotification(context, locale)
+    }
+
+    /**
+     * Change application language but without recreating it
+     */
+    fun setLanguageWithoutNotification(context: Context, newLocale: Locale) {
+
+        val oldLocale = LanguageSetting.getLanguageWithDefault(
+            context,
+            LanguageSetting.getDefaultLanguage(context)
+        )
+        if (!isCurrentLanguageSetting(newLocale, oldLocale)) {
+            LanguageSetting.setLanguage(activity, newLocale)
+            // Don't notifiy current activity notifyLanguageChanged()
+        }
+
     }
 
     // Get current language
