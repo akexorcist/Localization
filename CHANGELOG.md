@@ -3,6 +3,7 @@ Release Notes
 1.2.7
 ----
 * [pr] [#74](https://github.com/akexorcist/Localization/pull/74) - Add setLanguageWithoutNotification
+* [pr] [#83](https://github.com/akexorcist/Localization/pull/83) - fix: activity Intent can be NULL
 * [bug] Bug fixed [#72](https://github.com/akexorcist/Localization/issues/72) [#75](https://github.com/akexorcist/Localization/issues/75)
 * Migrate sample project from Java to Kotlin
 * New UI for sample project
