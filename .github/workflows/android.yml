@@ -22,10 +22,6 @@ jobs:
       
     - name: Run Unit test
       run: ./gradlew test
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: Firebase Test Lab Action
-      uses: asadmansr/Firebase-Test-Lab-Action@v1.0
 
   apk:
     name: Generate APK
@@ -55,3 +51,47 @@ jobs:
       with:
         name: app-debug-androidTest
         path: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+
+  firebase:
+    name: Run UI tests with Firebase Test Lab
+    needs: apk
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Download app APK
+        uses: actions/download-artifact@v1
+        with:
+          name: app-debug
+
+      - name: Download Android test APK
+        uses: actions/download-artifact@v1
+        with:
+          name: app-debug-androidTest
+
+      - name: Login to Google Cloud
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          version: '270.0.0'
+          service_account_key: ${{ secrets.FIREBASE_SERVICES_KEY }}
+
+      - name: Set current project
+        run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: Run Instrumentation Tests in Firebase Test Lab
+        run: "gcloud firebase test android run
+             --type instrumentation
+             --app app-debug/app-debug.apk
+             --test app-debug-androidTest/app-debug-androidTest.apk
+             --device model=flame,version=30,locale=en,orientation=portrait
+             --device model=x1q,version=29,locale=en,orientation=portrait
+             --device model=crownlte,version=28,locale=en,orientation=portrait
+             --device model=HWCOR,version=27,locale=en,orientation=portrait
+             --device model=SOV33,version=26,locale=en,orientation=portrait
+             --device model=mata,version=25,locale=en,orientation=portrait
+             --device model=HWMHA,version=24,locale=en,orientation=portrait
+             --device model=mlv1,version=23,locale=en,orientation=portrait
+             --device model=Nexus4,version=22,locale=en,orientation=portrait
+             --device model=flo,version=21,locale=en,orientation=portrait
+             --device model=victara,version=19,locale=en,orientation=portrait"
