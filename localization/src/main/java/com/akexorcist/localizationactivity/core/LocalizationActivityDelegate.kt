@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.os.Handler
 import android.os.LocaleList
+import android.os.Looper
 import java.util.*
 
 open class LocalizationActivityDelegate(val activity: Activity) {
@@ -34,7 +35,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     // If activity is run to back stack. So we have to check if this activity is resume working.
     fun onResume(context: Context) {
-        Handler().post {
+        Handler(Looper.getMainLooper()).post {
             checkLocaleChange(context)
             checkAfterLocaleChanging()
         }
