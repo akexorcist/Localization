@@ -1,10 +1,16 @@
 Release Notes
 ====
+
+1.2.8
+----
+* [PR] [#96](https://github.com/akexorcist/Localization/issues/96) - Fix compatibility with Hilt ViewModel injection
+* Add CI with GitHub Actions
+
 1.2.7
 ----
-* [pr] [#74](https://github.com/akexorcist/Localization/pull/74) - Add setLanguageWithoutNotification
-* [pr] [#83](https://github.com/akexorcist/Localization/pull/83) - fix: activity Intent can be NULL
-* [bug] Bug fixed [#72](https://github.com/akexorcist/Localization/issues/72) [#75](https://github.com/akexorcist/Localization/issues/75)
+* [PR] [#74](https://github.com/akexorcist/Localization/pull/74) - Add setLanguageWithoutNotification
+* [PR] [#83](https://github.com/akexorcist/Localization/pull/83) - fix: activity Intent can be NULL
+* [Bug] Bug fixed [#72](https://github.com/akexorcist/Localization/issues/72) [#75](https://github.com/akexorcist/Localization/issues/75)
 * Migrate sample project from Java to Kotlin
 * New UI for sample project
 * Add more sample code for Dark Theme and Hilt Dependency Injection 
@@ -16,9 +22,9 @@ Release Notes
 
 1.2.6
 ----
-* [pr] [#66](https://github.com/akexorcist/Android-Localization/issues/66) - Fix incompatible with AppCompat 1.2.0 or higher
-* [pr] [#60](https://github.com/akexorcist/Android-Localization/issues/60) - Supporting locale variants
-* [bug] Bug fixed [#65](https://github.com/akexorcist/Android-Localization/issues/65)
+* [PR] [#66](https://github.com/akexorcist/Android-Localization/issues/66) - Fix incompatible with AppCompat 1.2.0 or higher
+* [PR] [#60](https://github.com/akexorcist/Android-Localization/issues/60) - Supporting locale variants
+* [Bug] Bug fixed [#65](https://github.com/akexorcist/Android-Localization/issues/65)
 * Add layout resource support in LocalizationActivity's constructor 
 * Fix base context and application context not update in some version
 * Update UI test
@@ -30,7 +36,7 @@ Release Notes
 
 1.2.5
 ----
-* [bug] Bug fixed [#53](https://github.com/akexorcist/Android-Localization/issues/53) [#52](https://github.com/akexorcist/Android-Localization/issues/52) [#41](https://github.com/akexorcist/Android-Localization/issues/41)
+* [Bug] Bug fixed [#53](https://github.com/akexorcist/Android-Localization/issues/53) [#52](https://github.com/akexorcist/Android-Localization/issues/52) [#41](https://github.com/akexorcist/Android-Localization/issues/41)
 * Removed dummy activity for fade in/out transition when language changing (if you want, create by yourself when onBeforeLocaleChanged(...) called)
 * API level 14 supported ([#54](https://github.com/akexorcist/Android-Localization/issues/54))
 * Added example code for AndroidX Preferences 
@@ -41,8 +47,8 @@ Release Notes
  
 1.2.3
 ----
-* [bug] Bug fixed : Incorrect behavior in API level 24-27 (Android 7.0 - 8.1) [#30](https://github.com/akexorcist/Android-Localization/issues/30) [#37](https://github.com/akexorcist/Android-Localization/issues/37)
-* [bug] Bug fixed : setDefaultLanguage does not work properly [#28](https://github.com/akexorcist/Android-Localization/issues/28)
+* [Bug] Bug fixed : Incorrect behavior in API level 24-27 (Android 7.0 - 8.1) [#30](https://github.com/akexorcist/Android-Localization/issues/30) [#37](https://github.com/akexorcist/Android-Localization/issues/37)
+* [Bug] Bug fixed : setDefaultLanguage does not work properly [#28](https://github.com/akexorcist/Android-Localization/issues/28)
 * Migrate to AndroidX and latest Gradle
 * Migrate to Kotlin
 * Add UI automated test in example code
@@ -51,7 +57,7 @@ Release Notes
 
 1.2.2
 ----
-* [bug] Bug fixed [#18](https://github.com/akexorcist/Android-Localization/issues/18) 
+* [Bug] Bug fixed [#18](https://github.com/akexorcist/Android-Localization/issues/18) 
 * Remove java 1.8 and lambda from the library 
 * Update gradle to 3.0 stable
 
@@ -63,6 +69,6 @@ Release Notes
 
 1.2.0
 ----
-* [bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-Localization/issues/14)
-* [bug] Language and country support [#5](https://github.com/akexorcist/Android-Localization/issues/5)
-* [bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-Localization/issues/15) [#9](https://github.com/akexorcist/Android-Localization/issues/9)
+* [Bug] Bug fixed : Android 7.0 language [#14](https://github.com/akexorcist/Android-Localization/issues/14)
+* [Bug] Language and country support [#5](https://github.com/akexorcist/Android-Localization/issues/5)
+* [Bug] RTL on orientation changes [#15](https://github.com/akexorcist/Android-Localization/issues/15) [#9](https://github.com/akexorcist/Android-Localization/issues/9)
