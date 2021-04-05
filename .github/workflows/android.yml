@@ -77,7 +77,7 @@ jobs:
           service_account_key: ${{ secrets.FIREBASE_SERVICES_KEY }}
 
       - name: Set current project
-        run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: "gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}"
 
       - name: Run Instrumentation Tests in Firebase Test Lab
         run: "gcloud firebase test android run
