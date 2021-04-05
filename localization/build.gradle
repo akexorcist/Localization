@@ -49,7 +49,7 @@ ext {
     siteUrl = 'https://github.com/akexorcist/Android-Localization'
     gitUrl = 'https://github.com/akexorcist/Android-Localization.git'
 
-    libraryVersion = '1.2.7'
+    libraryVersion = '1.2.8'
 
     developerId = 'akexorcist'
     developerName = 'Somkiat Khitwongwattana'
@@ -60,6 +60,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-//apply from: '../publish/installv1.gradle'
-//apply from: '../publish/bintrayv1.gradle'
+apply from: '../publish/installv1.gradle'
+apply from: '../publish/bintrayv1.gradle'
 
