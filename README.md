@@ -81,8 +81,10 @@ class MainActivity: LocalizationActivity() {
 Or using `LocalizationActivityDelegate` with additional code
 ```kotlin
 open class CustomActivity : Activity(), OnLocaleChangedListener {
-    private val localizationDelegate = LocalizationActivityDelegate(this)
-
+    private val localizationDelegate by lazy {
+        LocalizationActivityDelegate(this)
+    }
+    
     public override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
         localizationDelegate.onCreate()
@@ -115,7 +117,9 @@ open class CustomActivity : Activity(), OnLocaleChangedListener {
         localizationDelegate.setLanguage(this, locale!!)
     }
 
-    val getCurrentLanguage: Locale = localizationDelegate.getLanguage(this)
+    val getCurrentLanguage: Locale by lazy {
+        localizationDelegate.getLanguage(this)
+    }
 
     // Just override method locale change event
     override fun onBeforeLocaleChanged() {}
