@@ -28,12 +28,12 @@ Download
 ====
 Gradle
 ```groovy
-implementation 'com.akexorcist:localization:1.2.7'
+implementation 'com.akexorcist:localization:1.2.8'
 ```
 
 (Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
 ```groovy
-implementation ('com.akexorcist:localization:1.2.7') {
+implementation ('com.akexorcist:localization:1.2.8') {
     exclude group: 'androidx.core', module: 'core'
 }
 ```
