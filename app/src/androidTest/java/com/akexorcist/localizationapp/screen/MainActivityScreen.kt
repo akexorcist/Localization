@@ -18,4 +18,5 @@ open class MainActivityScreen : Screen<MainActivityScreen>() {
     val buttonListPreferences = KButton { withId(R.id.btn_list_preferences) }
     val buttonDarkTheme = KButton { withId(R.id.btn_dark_theme) }
     val buttonHilt = KButton { withId(R.id.btn_hilt) }
+    val buttonBroadcastReceiver = KButton { withId(R.id.btn_broadcast_receiver) }
 }

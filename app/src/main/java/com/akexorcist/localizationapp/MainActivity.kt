@@ -3,6 +3,7 @@ package com.akexorcist.localizationapp
 import android.content.Intent
 import android.os.Bundle
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
+import com.akexorcist.localizationapp.broadcast.SimpleBroadcastActivity
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity
 import com.akexorcist.localizationapp.darktheme.DarkThemeActivity
 import com.akexorcist.localizationapp.databinding.ActivityMainBinding
@@ -35,6 +36,7 @@ class MainActivity : LocalizationActivity() {
         binding.btnListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
         binding.btnDarkTheme.setOnClickListener { goToActivity(DarkThemeActivity::class.java) }
         binding.btnHilt.setOnClickListener { goToActivity(HiltActivity::class.java) }
+        binding.btnBroadcastReceiver.setOnClickListener { goToActivity(SimpleBroadcastActivity::class.java) }
     }
 
     private fun goToActivity(activity: Class<*>?) {

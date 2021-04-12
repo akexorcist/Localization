@@ -103,6 +103,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/menu_hilt" />
+
+            <Button
+                android:id="@+id/btn_broadcast_receiver"
+                style="@style/Button.White.Outline.Menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_broadcast_receiver" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
