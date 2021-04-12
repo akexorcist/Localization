@@ -14,6 +14,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.espresso.web.webdriver.Locator
+import com.akexorcist.localizationapp.util.waitFor
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 class DialogWebViewTest {
@@ -32,7 +33,7 @@ class DialogWebViewTest {
                 click()
             }
         }
-        Thread.sleep(1000L)
+        waitFor(1000L)
         onScreen<DialogWebViewMainScreen> {
             buttonShowWebsite { click() }
         }
