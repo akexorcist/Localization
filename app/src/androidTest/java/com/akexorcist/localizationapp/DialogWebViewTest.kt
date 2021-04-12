@@ -33,7 +33,7 @@ class DialogWebViewTest {
                 click()
             }
         }
-        waitFor(1000L)
+        Thread.sleep(1000L)
         onScreen<DialogWebViewMainScreen> {
             buttonShowWebsite { click() }
         }
