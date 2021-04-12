@@ -34,7 +34,7 @@ class DialogWebViewSiteActivity : LocalizationActivity() {
                 </head>
                 <body>
                     <p id="content">
-                        ${getString(R.string.sample_youtube_app)}
+                        ${getString(R.string.hello_world)}
                     </p>
                 </body>
             </html>

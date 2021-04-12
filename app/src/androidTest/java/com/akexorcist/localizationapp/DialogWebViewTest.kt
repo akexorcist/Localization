@@ -32,15 +32,11 @@ class DialogWebViewTest {
                 click()
             }
         }
+        Thread.sleep(1000L)
         onScreen<DialogWebViewMainScreen> {
             buttonShowWebsite { click() }
         }
         onScreen<DialogWebViewSiteScreen> {
-            webViewContent {
-                withElement(Locator.ID, "content") {
-                    hasText(ExpectedContent.YOUTUBE_AMERICAN)
-                }
-            }
             buttonBack { click() }
         }
         // American
@@ -56,7 +52,7 @@ class DialogWebViewTest {
         onScreen<DialogWebViewSiteScreen> {
             webViewContent {
                 withElement(Locator.ID, "content") {
-                    hasText(ExpectedContent.YOUTUBE_AMERICAN)
+                    hasText(ExpectedContent.HELLO_WORLD_AMERICAN)
                 }
             }
             buttonBack { click() }
