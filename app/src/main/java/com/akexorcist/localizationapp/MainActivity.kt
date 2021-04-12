@@ -6,6 +6,8 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.akexorcist.localizationapp.customactivity.SimpleCustomActivity
 import com.akexorcist.localizationapp.darktheme.DarkThemeActivity
 import com.akexorcist.localizationapp.databinding.ActivityMainBinding
+import com.akexorcist.localizationapp.dialogwebview.DialogWebViewMainActivity
+import com.akexorcist.localizationapp.simpledialog.SimpleDialogMainActivity
 import com.akexorcist.localizationapp.hilt.HiltActivity
 import com.akexorcist.localizationapp.nestedfragment.NestedFragmentActivity
 import com.akexorcist.localizationapp.preferences.ListPreferencesActivity
@@ -27,6 +29,8 @@ class MainActivity : LocalizationActivity() {
         binding.btnStackedActivity.setOnClickListener { goToActivity(StackedHomeActivity::class.java) }
         binding.btnSimpleFragment.setOnClickListener { goToActivity(SimpleFragmentActivity::class.java) }
         binding.btnNestedFragment.setOnClickListener { goToActivity(NestedFragmentActivity::class.java) }
+        binding.btnDialogFragment.setOnClickListener { goToActivity(SimpleDialogMainActivity::class.java) }
+        binding.btnDialogWebView.setOnClickListener { goToActivity(DialogWebViewMainActivity::class.java) }
         binding.btnViewPager.setOnClickListener { goToActivity(ViewPagerActivity::class.java) }
         binding.btnListPreferences.setOnClickListener { goToActivity(ListPreferencesActivity::class.java) }
         binding.btnDarkTheme.setOnClickListener { goToActivity(DarkThemeActivity::class.java) }

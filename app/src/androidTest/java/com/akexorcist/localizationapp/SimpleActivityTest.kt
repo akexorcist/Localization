@@ -24,7 +24,10 @@ class SimpleActivityTest {
     @Test
     fun simpleActivity() {
         onScreen<MainActivityScreen> {
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<SimpleActivityScreen> {
@@ -45,7 +48,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<SimpleActivityScreen> {
@@ -69,7 +75,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<SimpleActivityScreen> {
@@ -93,7 +102,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<SimpleActivityScreen> {
@@ -117,7 +129,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<SimpleActivityScreen> {
@@ -141,7 +156,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<SimpleActivityScreen> {
@@ -165,7 +183,10 @@ class SimpleActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonSimpleActivity { click() }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<SimpleActivityScreen> {

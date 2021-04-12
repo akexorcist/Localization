@@ -63,6 +63,20 @@
                 android:text="@string/menu_nested_fragment" />
 
             <Button
+                android:id="@+id/btn_dialog_fragment"
+                style="@style/Button.White.Outline.Menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_dialog_fragment" />
+
+            <Button
+                android:id="@+id/btn_dialog_web_view"
+                style="@style/Button.White.Outline.Menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_dialog_web_view" />
+
+            <Button
                 android:id="@+id/btn_view_pager"
                 style="@style/Button.White.Outline.Menu"
                 android:layout_width="match_parent"

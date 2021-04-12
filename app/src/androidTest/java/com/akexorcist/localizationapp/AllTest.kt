@@ -10,6 +10,8 @@ import org.junit.runners.Suite
     StackedActivityTest::class,
     SimpleFragmentTest::class,
     NestedFragmentTest::class,
+    SimpleDialogTest::class,
+    DialogWebViewTest::class,
     ViewPagerTest::class,
     ListPreferencesTest::class,
     HiltDependencyInjectionTest::class,

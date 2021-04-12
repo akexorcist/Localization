@@ -25,7 +25,10 @@ class StackedActivityTest {
     @Test
     fun stackedActivity() {
         onScreen<MainActivityScreen> {
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Chinese
         onScreen<StackedHomeScreen> {
@@ -48,7 +51,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_CHINESE)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Italian
         onScreen<StackedHomeScreen> {
@@ -74,7 +80,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Japanese
         onScreen<StackedHomeScreen> {
@@ -100,7 +109,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_JAPANESE)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Korean
         onScreen<StackedHomeScreen> {
@@ -126,7 +138,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_KOREAN)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Portuguese
         onScreen<StackedHomeScreen> {
@@ -152,7 +167,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_PORTUGUESE)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // Thai
         onScreen<StackedHomeScreen> {
@@ -178,7 +196,10 @@ class StackedActivityTest {
                 uiDevices.setOrientationNatural()
                 hasText(ExpectedContent.HELLO_WORLD_THAI)
             }
-            buttonStackedActivity { click() }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
         }
         // American
         onScreen<StackedHomeScreen> {
