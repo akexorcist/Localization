@@ -53,19 +53,23 @@ Either not, using `LocalizationApplicationDelegate` with additional code as belo
 ```kotlin
 class MainApplication: Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
-
+    
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
-
+    
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         localizationDelegate.onConfigurationChanged(this)
     }
-
+    
     override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
+    }
+    
+    override fun getResources(): Resources {
+        return localizationDelegate.getResources(this)
     }
 }
 ```
