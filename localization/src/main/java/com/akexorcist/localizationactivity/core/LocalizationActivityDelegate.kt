@@ -100,26 +100,39 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     fun getResources(resources: Resources): Resources {
         val locale = LanguageSetting.getLanguage(activity)
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val localeList = LocaleList(locale)
-            LocaleList.setDefault(localeList)
-            val config = Configuration().apply {
-                setLocale(locale)
-                setLocales(localeList)
-                setLayoutDirection(locale)
-            }
-            activity.createConfigurationContext(config).resources
-        } else {
-            val config = Configuration().apply {
-                @Suppress("DEPRECATION")
-                this.locale = locale
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        return when {
+            Build.VERSION.SDK_INT > Build.VERSION_CODES.O -> {
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                val config = Configuration().apply {
+                    setLocale(locale)
+                    setLocales(localeList)
                     setLayoutDirection(locale)
                 }
+                activity.createConfigurationContext(config).resources
             }
-            @Suppress("DEPRECATION")
-            resources.updateConfiguration(config, resources.displayMetrics)
-            resources
+            Build.VERSION.SDK_INT == Build.VERSION_CODES.O -> {
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                resources.configuration.apply {
+                    setLocale(locale)
+                    setLocales(localeList)
+                    setLayoutDirection(locale)
+                }
+                resources
+            }
+            else -> {
+                val config = Configuration().apply {
+                    @Suppress("DEPRECATION")
+                    this.locale = locale
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        setLayoutDirection(locale)
+                    }
+                }
+                @Suppress("DEPRECATION")
+                resources.updateConfiguration(config, resources.displayMetrics)
+                resources
+            }
         }
     }
 
