@@ -11,10 +11,11 @@ import org.junit.runners.Suite
     SimpleFragmentTest::class,
     NestedFragmentTest::class,
     SimpleDialogTest::class,
-    DialogWebViewTest::class,
+//    DialogWebViewTest::class,
     ViewPagerTest::class,
     ListPreferencesTest::class,
     HiltDependencyInjectionTest::class,
+    BroadcastReceiverTest::class,
 //    DarkThemeTest::class,
 )
 class AllTest
