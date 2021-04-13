@@ -215,6 +215,53 @@ Change the language in Fragment
 Language in fragment will depends on activity. So no need for additional code in Fragment.
 
 
+Service
+---
+For normally usage, just extends from `LocalizationService`
+```kotlin
+class SimpleService : LocalizationService() {
+    /* ... */
+}
+```
+
+Or using `LocalizationServiceDelegate` with additional code
+```kotlin
+abstract class CustomService : Service() {
+    private val localizationDelegate: LocalizationServiceDelegate by lazy {
+        LocalizationServiceDelegate(this)
+    }
+
+    override fun getBaseContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getBaseContext())
+    }
+
+    override fun getApplicationContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext())
+    }
+
+    override fun getResources(): Resources {
+        return localizationDelegate.getResources(super.getResources())
+    }
+}
+```
+ 
+ 
+BroadcastReceiver
+---
+BroadcastReceiver is abstract class. So we cannot create LocalizationBroadcastReceiver fot you.
+
+In this case, you need to convert the context in `onReceive(context: Context, intent: Intent)` to localized context with `Context.toLocalizedContext()` before using.
+
+```kotlin
+class SimpleBroadcastReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val localizedContext = context.toLocalizedContext()
+        /* ... */
+    }
+}
+```
+
+
 Language resources optimization in Android App Bundle
 ====
 Change the language by library can cause a crash to your app when you publishing your app with Android App Bundle with language resources optimization enabled. 
