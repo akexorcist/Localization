@@ -4,14 +4,14 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         applicationId "com.akexorcist.localizationapp"
         minSdkVersion 19
-        targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        targetSdkVersion project.targetSdkVersion
+        versionCode project.versionCode
+        versionName project.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

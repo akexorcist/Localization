@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(project.ANDROID_MIN_SDK)
-        targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
-        versionCode Integer.parseInt(VERSION_CODE)
-        versionName VERSION_NAME
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+        versionCode project.versionCode
+        versionName project.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,13 +22,13 @@ android {
     }
 }
 
-task dokkaJavadoc(type:org.jetbrains.dokka.gradle.DokkaTask) {
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputFormat = 'javadoc'
     outputDirectory = "$buildDir/documentation"
 }
 
 dependencies {
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$project.kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "androidx.activity:activity-ktx:1.2.2"
     testImplementation 'junit:junit:4.13.2'
@@ -37,30 +37,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'localization'
-
-    publishedGroupId = 'com.akexorcist'
-    libraryName = 'Localization'
-    artifact = 'localization'
-
-    libraryDescription = 'Chill out on supporting multiple languages on your android application.'
-
-    siteUrl = 'https://github.com/akexorcist/Android-Localization'
-    gitUrl = 'https://github.com/akexorcist/Android-Localization.git'
-
-    libraryVersion = '1.2.8'
-
-    developerId = 'akexorcist'
-    developerName = 'Somkiat Khitwongwattana'
-    developerEmail = 'akexorcist@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-//apply from: '../publish/installv1.gradle'
-//apply from: '../publish/bintrayv1.gradle'
-
+//apply from: '../publish/mavencentral.gradle'
