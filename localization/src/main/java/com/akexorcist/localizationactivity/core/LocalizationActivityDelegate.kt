@@ -101,7 +101,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     fun getResources(resources: Resources): Resources {
         val locale = LanguageSetting.getLanguage(activity)
         return when {
-            Build.VERSION.SDK_INT > Build.VERSION_CODES.O -> {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
                 val config = Configuration().apply {
@@ -111,7 +111,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
                 }
                 activity.createConfigurationContext(config).resources
             }
-            Build.VERSION.SDK_INT == Build.VERSION_CODES.O -> {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && Build.VERSION.SDK_INT <= Build.VERSION_CODES.P -> {
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
                 resources.configuration.apply {
