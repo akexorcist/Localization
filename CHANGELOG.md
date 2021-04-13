@@ -1,6 +1,18 @@
 Release Notes
 ====
 
+1.2.9
+-- 
+* [Bug] Bug fixed [#93](https://github.com/akexorcist/Localization/issues/93) [#95](https://github.com/akexorcist/Localization/issues/95)
+* [PR] [#101](https://github.com/akexorcist/Localization/pull/101) - Update README.md
+* Add LocalizationService and LocalizationServiceDelegate for Service
+* Add `Context.toLocalizedContext()` extension function to convert context to localized context
+* Add more sample code and UI test for Dialog Fragment, Dialog + WebView, and BroadcastReceiver 
+* Update Gradle and dependencies version
+  * Kotlin : 1.4.32
+  * Gradle Plugin : 4.1.3
+  * Activity KTX : 1.2.2
+
 1.2.8
 ----
 * [PR] [#96](https://github.com/akexorcist/Localization/issues/96) - Fix compatibility with Hilt ViewModel injection
