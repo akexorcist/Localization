@@ -1,5 +1,5 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890)
-[![JCenter](https://api.bintray.com/packages/akexorcist/maven/localization/images/download.svg)](https://bintray.com/akexorcist/maven/localization) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localization/badge.svg)](https://search.maven.org/artifact/com.akexorcist/localization) 
 ![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-14-brightgreen) 
 [![Workflow Status](https://github.com/akexorcist/Android-Localization/actions/workflows/android.yml/badge.svg)](https://github.com/akexorcist/Localization/actions)
 
@@ -26,6 +26,18 @@ Try it at [Google Play](https://play.google.com/store/apps/details?id=com.akexor
 
 Download
 ====
+Since version 1.2.9 will move from JCenter to MavenCentral
+
+```groovy
+// build.gradle (project)
+allprojects {
+    repositories {
+        mavenCentral()
+        /* ... */
+    }
+}
+```
+
 Gradle
 ```groovy
 implementation 'com.akexorcist:localization:1.2.9'
