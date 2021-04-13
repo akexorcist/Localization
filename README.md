@@ -26,7 +26,7 @@ Try it at [Google Play](https://play.google.com/store/apps/details?id=com.akexor
 
 Download
 ====
-Since version 1.2.9 will move from JCenter to MavenCentral
+Since version 1.2.9 will [move from JCenter to MavenCentral](https://developer.android.com/studio/build/jcenter-migration)
 
 ```groovy
 // build.gradle (project)
