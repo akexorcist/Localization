@@ -17,17 +17,23 @@
     <string name="prev" translatable="false"><![CDATA[<]]></string>
     <string name="next" translatable="false"><![CDATA[>]]></string>
     <string name="change_language" translatable="false">Change Language &gt;</string>
+    <string name="show_content" translatable="false">Show content &gt;</string>
+    <string name="show_website" translatable="false">Show website &gt;</string>
+    <string name="select_any_language" translatable="false">Select any language</string>
+    <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
 
     <string name="menu_simple_activity" translatable="false">Simple Activity</string>
     <string name="menu_custom_activity" translatable="false">Custom Activity</string>
     <string name="menu_stacked_activity" translatable="false">Stacked Activity</string>
     <string name="menu_simple_fragment" translatable="false">Simple Fragment</string>
     <string name="menu_nested_fragment" translatable="false">Nested Fragment</string>
+    <string name="menu_dialog_fragment" translatable="false">Dialog Fragment</string>
+    <string name="menu_dialog_web_view" translatable="false">Dialog and WebView</string>
     <string name="menu_viewpager" translatable="false">View Pager</string>
     <string name="menu_list_preferences" translatable="false">Preference Fragment</string>
     <string name="menu_dark_theme" translatable="false">Dark Theme</string>
     <string name="menu_hilt" translatable="false">Dependency Injection with Hilt</string>
-    <string name="viewpager_description" translatable="false">Swipe or click to change page</string>
+    <string name="menu_broadcast_receiver" translatable="false">Broadcast Receiver</string>
 
     <string name="american" translatable="false">American</string>
     <string name="chinese" translatable="false">Chinese</string>

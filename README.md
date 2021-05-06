@@ -1,7 +1,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Localization-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2890)
-[![JCenter](https://api.bintray.com/packages/akexorcist/maven/localization/images/download.svg)](https://bintray.com/akexorcist/maven/localization) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.akexorcist/localization/badge.svg)](https://search.maven.org/artifact/com.akexorcist/localization) 
 ![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-14-brightgreen) 
-[![Build Status](https://travis-ci.org/akexorcist/Android-Localization.svg?branch=master)](https://travis-ci.org/akexorcist/Android-Localization) 
+[![Workflow Status](https://github.com/akexorcist/Android-Localization/actions/workflows/android.yml/badge.svg)](https://github.com/akexorcist/Localization/actions)
 
 
 Localization Library
@@ -26,14 +26,26 @@ Try it at [Google Play](https://play.google.com/store/apps/details?id=com.akexor
 
 Download
 ====
+Since version 1.2.9 will [move from JCenter to MavenCentral](https://developer.android.com/studio/build/jcenter-migration)
+
+```groovy
+// build.gradle (project)
+allprojects {
+    repositories {
+        mavenCentral()
+        /* ... */
+    }
+}
+```
+
 Gradle
 ```groovy
-implementation 'com.akexorcist:localization:1.2.7'
+implementation 'com.akexorcist:localization:1.2.9'
 ```
 
 (Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
 ```groovy
-implementation ('com.akexorcist:localization:1.2.7') {
+implementation ('com.akexorcist:localization:1.2.9') {
     exclude group: 'androidx.core', module: 'core'
 }
 ```
@@ -53,19 +65,23 @@ Either not, using `LocalizationApplicationDelegate` with additional code as belo
 ```kotlin
 class MainApplication: Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
-
+    
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
-
+    
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         localizationDelegate.onConfigurationChanged(this)
     }
-
+    
     override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
+    }
+    
+    override fun getResources(): Resources {
+        return localizationDelegate.getResources(this)
     }
 }
 ```
@@ -81,8 +97,10 @@ class MainActivity: LocalizationActivity() {
 Or using `LocalizationActivityDelegate` with additional code
 ```kotlin
 open class CustomActivity : Activity(), OnLocaleChangedListener {
-    private val localizationDelegate = LocalizationActivityDelegate(this)
-
+    private val localizationDelegate by lazy {
+        LocalizationActivityDelegate(this)
+    }
+    
     public override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
         localizationDelegate.onCreate()
@@ -115,7 +133,9 @@ open class CustomActivity : Activity(), OnLocaleChangedListener {
         localizationDelegate.setLanguage(this, locale!!)
     }
 
-    val getCurrentLanguage: Locale = localizationDelegate.getLanguage(this)
+    val getCurrentLanguage: Locale by lazy {
+        localizationDelegate.getLanguage(this)
+    }
 
     // Just override method locale change event
     override fun onBeforeLocaleChanged() {}
@@ -205,6 +225,53 @@ Activity will be recreate when language has changed as common behavior for confi
 Change the language in Fragment
 ----
 Language in fragment will depends on activity. So no need for additional code in Fragment.
+
+
+Service
+---
+For normally usage, just extends from `LocalizationService`
+```kotlin
+class SimpleService : LocalizationService() {
+    /* ... */
+}
+```
+
+Or using `LocalizationServiceDelegate` with additional code
+```kotlin
+abstract class CustomService : Service() {
+    private val localizationDelegate: LocalizationServiceDelegate by lazy {
+        LocalizationServiceDelegate(this)
+    }
+
+    override fun getBaseContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getBaseContext())
+    }
+
+    override fun getApplicationContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext())
+    }
+
+    override fun getResources(): Resources {
+        return localizationDelegate.getResources(super.getResources())
+    }
+}
+```
+ 
+ 
+BroadcastReceiver
+---
+BroadcastReceiver is abstract class. So we cannot create LocalizationBroadcastReceiver fot you.
+
+In this case, you need to convert the context in `onReceive(context: Context, intent: Intent)` to localized context with `Context.toLocalizedContext()` before using.
+
+```kotlin
+class SimpleBroadcastReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val localizedContext = context.toLocalizedContext()
+        /* ... */
+    }
+}
+```
 
 
 Language resources optimization in Android App Bundle

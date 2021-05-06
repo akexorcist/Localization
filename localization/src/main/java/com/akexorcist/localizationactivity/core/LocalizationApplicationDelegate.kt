@@ -1,6 +1,7 @@
 package com.akexorcist.localizationactivity.core
 
 import android.content.Context
+import android.content.res.Resources
 import java.util.*
 
 class LocalizationApplicationDelegate {
@@ -9,7 +10,9 @@ class LocalizationApplicationDelegate {
 
     fun attachBaseContext(context: Context): Context = LocalizationUtility.applyLocalizationContext(context)
 
-    fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.applyLocalizationContext(applicationContext)
+    fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.applyLocalizationConfig(applicationContext)
+
+    fun getResources(appContext: Context): Resources = LocalizationUtility.getResources(appContext)
 
     fun setDefaultLanguage(context: Context, language: String) {
         val locale = Locale(language)

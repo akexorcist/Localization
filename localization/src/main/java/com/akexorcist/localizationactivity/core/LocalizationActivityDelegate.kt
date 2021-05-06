@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.os.Handler
 import android.os.LocaleList
+import android.os.Looper
 import java.util.*
 
 open class LocalizationActivityDelegate(val activity: Activity) {
@@ -34,7 +35,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     // If activity is run to back stack. So we have to check if this activity is resume working.
     fun onResume(context: Context) {
-        Handler().post {
+        Handler(Looper.getMainLooper()).post {
             checkLocaleChange(context)
             checkAfterLocaleChanging()
         }
@@ -99,26 +100,39 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     fun getResources(resources: Resources): Resources {
         val locale = LanguageSetting.getLanguage(activity)
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val localeList = LocaleList(locale)
-            LocaleList.setDefault(localeList)
-            val config = Configuration(resources.configuration).apply {
-                setLocale(locale)
-                setLocales(localeList)
-                setLayoutDirection(locale)
-            }
-            activity.createConfigurationContext(config).resources
-        } else {
-            val config = Configuration().apply {
-                @Suppress("DEPRECATION")
-                this.locale = locale
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                val config = Configuration(resources.configuration).apply {
+                    setLocale(locale)
+                    setLocales(localeList)
                     setLayoutDirection(locale)
                 }
+                activity.createConfigurationContext(config).resources
             }
-            @Suppress("DEPRECATION")
-            resources.updateConfiguration(config, resources.displayMetrics)
-            resources
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && Build.VERSION.SDK_INT <= Build.VERSION_CODES.P -> {
+                val localeList = LocaleList(locale)
+                LocaleList.setDefault(localeList)
+                resources.configuration.apply {
+                    setLocale(locale)
+                    setLocales(localeList)
+                    setLayoutDirection(locale)
+                }
+                resources
+            }
+            else -> {
+                val config = Configuration().apply {
+                    @Suppress("DEPRECATION")
+                    this.locale = locale
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        setLayoutDirection(locale)
+                    }
+                }
+                @Suppress("DEPRECATION")
+                resources.updateConfiguration(config, resources.displayMetrics)
+                resources
+            }
         }
     }
 

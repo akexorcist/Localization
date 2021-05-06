@@ -3,6 +3,7 @@ package com.akexorcist.localizationactivity.ui
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
+import android.content.res.Resources
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import java.util.*
 
@@ -10,7 +11,7 @@ abstract class LocalizationApplication : Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
-        localizationDelegate.setDefaultLanguage(base, getDefaultLanguage())
+        localizationDelegate.setDefaultLanguage(base, getDefaultLanguage(base))
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
 
@@ -23,5 +24,9 @@ abstract class LocalizationApplication : Application() {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 
-    abstract fun getDefaultLanguage(): Locale
+    override fun getResources(): Resources {
+        return localizationDelegate.getResources(this)
+    }
+
+    abstract fun getDefaultLanguage(base: Context): Locale
 }

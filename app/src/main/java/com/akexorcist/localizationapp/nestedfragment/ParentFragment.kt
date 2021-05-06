@@ -15,7 +15,7 @@ class ParentFragment : Fragment() {
         fun newInstance(): Fragment = ParentFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNestedParentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

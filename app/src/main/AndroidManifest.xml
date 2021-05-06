@@ -29,6 +29,19 @@
             android:name=".darktheme.DarkThemeActivity"
             android:theme="@style/DayNightTheme" />
         <activity android:name=".hilt.HiltActivity" />
+        <activity android:name=".simpledialog.SimpleDialogLanguageChooserActivity" />
+        <activity android:name=".simpledialog.SimpleDialogMainActivity" />
+        <activity android:name=".dialogwebview.DialogWebViewMainActivity" />
+        <activity android:name=".dialogwebview.DialogWebViewSiteActivity" />
+        <activity android:name=".broadcast.SimpleBroadcastActivity" />
+
+        <receiver
+            android:name=".broadcast.SimpleBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.akexorcist.localizationapp.receiver.action.TO_BROADCAST" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

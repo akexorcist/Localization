@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_background_primary_gradient"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:context=".dialogwebview.DialogWebViewLanguageChooserFragment">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/Text.Content.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_any_language" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_american"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/american"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_america" />
+
+        <ImageButton
+            android:id="@+id/btn_chinese"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/chinese"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_china" />
+
+        <ImageButton
+            android:id="@+id/btn_italian"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:background="@color/transparent"
+            android:contentDescription="@string/italian"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_italy" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_japanese"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/japanese"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_japan" />
+
+        <ImageButton
+            android:id="@+id/btn_korean"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/korean"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_korea" />
+
+        <ImageButton
+            android:id="@+id/btn_portuguese"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/portuguese"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_portugal" />
+
+        <ImageButton
+            android:id="@+id/btn_thai"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:background="@color/transparent"
+            android:contentDescription="@string/thai"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_thai" />
+    </LinearLayout>
+
+</LinearLayout>

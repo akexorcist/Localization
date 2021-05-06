@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_background_primary_gradient"
+    android:orientation="vertical"
+    tools:context=".simpledialog.SimpleDialogMainActivity">
+
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/Button.White.Outline.Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/back" />
+
+    <Button
+        android:id="@+id/btn_change_language"
+        style="@style/Button.White.Outline.Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/change_language" />
+
+    <Button
+        android:id="@+id/btn_show_content"
+        style="@style/Button.White.Outline.Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/show_content" />
+</LinearLayout>

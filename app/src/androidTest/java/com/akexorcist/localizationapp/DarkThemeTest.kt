@@ -2,13 +2,13 @@ package com.akexorcist.localizationapp
 
 import android.os.Build
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
 import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.akexorcist.localizationapp.annotation.TargetApiLevel
 import com.akexorcist.localizationapp.data.ExpectedContent
-import com.akexorcist.localizationapp.runner.AndroidSdkLevel29TestRunner
 import com.akexorcist.localizationapp.screen.MainActivityScreen
 import com.akexorcist.localizationapp.screen.SimpleFragmentScreen
 import org.junit.Ignore
@@ -17,7 +17,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 
-@RunWith(AndroidSdkLevel29TestRunner::class)
+@RunWith(AndroidJUnit4ClassRunner::class)
 class DarkThemeTest {
     @JvmField
     val uiDevices: UiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
@@ -27,8 +27,7 @@ class DarkThemeTest {
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    @TargetApiLevel(Build.VERSION_CODES.Q)
-    @Ignore("For local running only, dark theme in quick settings panel is required")
+    @Ignore("For local running on Android Q+ only, dark theme in quick settings panel is required")
     fun darkTheme() {
         onScreen<MainActivityScreen> {
             buttonDarkTheme {
