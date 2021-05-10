@@ -26,7 +26,7 @@ class MainApplication : Application() {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 
-    override fun getResources(): Resources {
-        return localizationDelegate.getResources(this)
-    }
+//    override fun getResources(): Resources {
+//        return localizationDelegate.getResources(this)
+//    }
 }
