@@ -29,6 +29,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     }
 
     fun onCreate() {
+        WebViewResourceSolver.execute(activity)
         setupLanguage()
         checkBeforeLocaleChanging()
     }
