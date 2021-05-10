@@ -6,13 +6,13 @@ import java.util.*
 
 class LocalizationApplicationDelegate {
 
-    fun onConfigurationChanged(context: Context) = LocalizationUtility.applyLocalizationContext(context)
+    fun onConfigurationChanged(context: Context) = LocalizationUtility.getLocalizedContext(context)
 
-    fun attachBaseContext(context: Context): Context = LocalizationUtility.applyLocalizationContext(context)
+    fun attachBaseContext(context: Context): Context = LocalizationUtility.getLocalizedContext(context)
 
-    fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.applyLocalizationConfig(applicationContext)
+    fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.getLocalizedContext(applicationContext)
 
-    fun getResources(appContext: Context, resources: Resources): Resources = LocalizationUtility.getResources(appContext, resources)
+    fun getResources(appContext: Context, resources: Resources): Resources = LocalizationUtility.getLocalizedResources(appContext, resources)
 
     fun setDefaultLanguage(context: Context, language: String) {
         val locale = Locale(language)

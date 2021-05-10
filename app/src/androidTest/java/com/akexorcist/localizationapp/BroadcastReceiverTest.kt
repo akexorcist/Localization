@@ -8,6 +8,7 @@ import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.akexorcist.localizationapp.data.ExpectedContent
 import com.akexorcist.localizationapp.screen.MainActivityScreen
 import com.akexorcist.localizationapp.screen.SimpleBroadcastScreen
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,6 +23,7 @@ class BroadcastReceiverTest {
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
+//    @Ignore("For local running only, there is some flakiness when running on Firebase Test Lab")
     fun broadcastReceiver() {
         onScreen<MainActivityScreen> {
             buttonBroadcastReceiver {
