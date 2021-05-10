@@ -11,7 +11,7 @@ abstract class LocalizationApplication : Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
-        localizationDelegate.setDefaultLanguage(base, getDefaultLanguage())
+        localizationDelegate.setDefaultLanguage(base, getDefaultLanguage(base))
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
 
@@ -28,5 +28,5 @@ abstract class LocalizationApplication : Application() {
         return localizationDelegate.getResources(this)
     }
 
-    abstract fun getDefaultLanguage(): Locale
+    abstract fun getDefaultLanguage(base: Context): Locale
 }
