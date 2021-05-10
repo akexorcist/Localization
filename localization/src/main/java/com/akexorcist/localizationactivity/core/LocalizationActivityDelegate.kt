@@ -105,7 +105,7 @@ open class LocalizationActivityDelegate(val activity: Activity) {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
                 val localeList = LocaleList(locale)
                 LocaleList.setDefault(localeList)
-                val config = Configuration().apply {
+                val config = Configuration(resources.configuration).apply {
                     setLocale(locale)
                     setLocales(localeList)
                     setLayoutDirection(locale)
