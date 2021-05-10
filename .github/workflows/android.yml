@@ -84,4 +84,4 @@ jobs:
              --type instrumentation
              --app app-debug/app-debug.apk
              --test app-debug-androidTest/app-debug-androidTest.apk
-             --device model=Pixel2,version=27,locale=en,orientation=portrait"
+             --device model=flame,version=30,locale=en,orientation=portrait"
