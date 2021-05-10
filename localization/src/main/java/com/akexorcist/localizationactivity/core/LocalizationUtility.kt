@@ -97,13 +97,13 @@ object LocalizationUtility {
 
         return when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val configuration = Configuration().apply {
+                val configuration = Configuration(appContext.resources.configuration).apply {
                     setLocales(LocaleList(locale))
                 }
                 appContext.createConfigurationContext(configuration).resources
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                val configuration = Configuration().apply {
+                val configuration = Configuration(appContext.resources.configuration).apply {
                     setLocale(locale)
                 }
                 appContext.createConfigurationContext(configuration).resources
