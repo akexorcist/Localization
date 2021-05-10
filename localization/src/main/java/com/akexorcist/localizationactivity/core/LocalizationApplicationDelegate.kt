@@ -12,7 +12,7 @@ class LocalizationApplicationDelegate {
 
     fun getApplicationContext(applicationContext: Context): Context = LocalizationUtility.applyLocalizationConfig(applicationContext)
 
-    fun getResources(appContext: Context): Resources = LocalizationUtility.getResources(appContext)
+    fun getResources(appContext: Context, resources: Resources): Resources = LocalizationUtility.getResources(appContext, resources)
 
     fun setDefaultLanguage(context: Context, language: String) {
         val locale = Locale(language)

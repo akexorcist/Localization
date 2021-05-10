@@ -92,31 +92,34 @@ object LocalizationUtility {
     private fun isRequestedLocaleChanged(baseLocale: Locale, currentLocale: Locale) =
             !baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)
 
-    fun getResources(appContext: Context): Resources {
-        val locale = LanguageSetting.getLanguageWithDefault(appContext, LanguageSetting.getDefaultLanguage(appContext))
-
-        return when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val configuration = Configuration(appContext.resources.configuration).apply {
-                    setLocales(LocaleList(locale))
+    fun getResources(appContext: Context, resources: Resources): Resources {
+        val currentLocale = LanguageSetting.getLanguageWithDefault(appContext, LanguageSetting.getDefaultLanguage(appContext))
+        if(isRequestedLocaleChanged(currentLocale, getLocaleFromConfiguration(resources.configuration))) {
+            return when {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                    val configuration = Configuration(resources.configuration).apply {
+                        setLocales(LocaleList(currentLocale))
+                    }
+                    appContext.createConfigurationContext(configuration).resources
                 }
-                appContext.createConfigurationContext(configuration).resources
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                val configuration = Configuration(appContext.resources.configuration).apply {
-                    setLocale(locale)
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
+                    val configuration = Configuration(resources.configuration).apply {
+                        setLocale(currentLocale)
+                    }
+                    appContext.createConfigurationContext(configuration).resources
                 }
-                appContext.createConfigurationContext(configuration).resources
-            }
-            else -> {
-                val configuration = Configuration().apply {
+                else -> {
+                    val configuration = Configuration(resources.configuration).apply {
+                        @Suppress("DEPRECATION")
+                        this.locale = currentLocale
+                    }
+                    val metrics: DisplayMetrics = appContext.resources.displayMetrics
                     @Suppress("DEPRECATION")
-                    this.locale = locale
+                    return Resources(appContext.assets, metrics, configuration)
                 }
-                val metrics: DisplayMetrics = appContext.resources.displayMetrics
-                @Suppress("DEPRECATION")
-                return Resources(appContext.assets, metrics, configuration)
             }
+        } else {
+            return resources
         }
     }
 
