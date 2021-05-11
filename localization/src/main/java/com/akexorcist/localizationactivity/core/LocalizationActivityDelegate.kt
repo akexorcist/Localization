@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.os.BadParcelableException
 import android.os.Handler
 import android.os.Looper
 import java.util.*
@@ -106,10 +107,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
     // Check that bundle come from locale change.
     // If yes, bundle will be remove and set boolean flag to "true".
     private fun checkBeforeLocaleChanging() {
-        val isLocalizationChanged = activity.intent?.getBooleanExtra(KEY_ACTIVITY_LOCALE_CHANGED, false) ?: false
-        if (isLocalizationChanged) {
-            this.isLocalizationChanged = true
-            activity.intent?.removeExtra(KEY_ACTIVITY_LOCALE_CHANGED)
+        try {
+            val isLocalizationChanged = activity.intent?.getBooleanExtra(KEY_ACTIVITY_LOCALE_CHANGED, false) ?: false
+            if (isLocalizationChanged) {
+                this.isLocalizationChanged = true
+                activity.intent?.removeExtra(KEY_ACTIVITY_LOCALE_CHANGED)
+            }
+        } catch (e: BadParcelableException) {
+            e.printStackTrace()
         }
     }
 
