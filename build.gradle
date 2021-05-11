@@ -5,8 +5,8 @@ buildscript {
         targetSdkVersion = 30
         minSdkVersion = 14
 
-        versionName = '1.2.9'
-        versionCode = 10209
+        versionName = '1.2.10'
+        versionCode = 10210
 
         libraryName = 'Localization'
         libraryDescription = 'In-app language changing library for Android'
