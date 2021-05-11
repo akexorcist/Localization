@@ -11,11 +11,11 @@ abstract class LocalizationService : Service() {
     }
 
     override fun getBaseContext(): Context {
-        return localizationDelegate.getApplicationContext(super.getBaseContext())
+        return localizationDelegate.getLocalizedContext(super.getBaseContext())
     }
 
     override fun getApplicationContext(): Context {
-        return localizationDelegate.getApplicationContext(super.getApplicationContext())
+        return localizationDelegate.getLocalizedContext(super.getApplicationContext())
     }
 
     override fun getResources(): Resources {

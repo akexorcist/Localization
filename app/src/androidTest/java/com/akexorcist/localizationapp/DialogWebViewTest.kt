@@ -26,7 +26,6 @@ class DialogWebViewTest {
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    @Ignore("For local running only. There's an issue with WebView when disabled animation in UI test")
     fun dialogAndWebView() {
         onScreen<MainActivityScreen> {
             buttonDialogWebView {

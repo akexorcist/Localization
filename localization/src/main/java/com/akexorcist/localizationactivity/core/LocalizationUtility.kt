@@ -9,113 +9,61 @@ import android.util.DisplayMetrics
 import java.util.*
 
 object LocalizationUtility {
-    fun applyLocalizationConfig(baseContext: Context): Context {
-        val baseLocale = getLocaleFromConfiguration(baseContext.resources.configuration)
-        val currentLocale = LanguageSetting.getLanguageWithDefault(
-                baseContext,
-                LanguageSetting.getDefaultLanguage(baseContext)
-        )
-        if (!isRequestedLocaleChanged(baseLocale, currentLocale)) return baseContext
+    fun getLocalizedContext(baseContext: Context): Context {
+        val (configuration, isChanged) = getLocalizedConfiguration(baseContext, baseContext.resources.configuration)
+        return when {
+            isChanged && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ->
+                baseContext.createConfigurationContext(configuration)
+            isChanged -> {
+                @Suppress("DEPRECATION")
+                baseContext.resources.updateConfiguration(configuration, baseContext.resources.displayMetrics)
+                baseContext
+            }
+            else -> baseContext
+        }
+    }
 
+    fun getLocalizedResources(baseContext: Context, baseResources: Resources): Resources {
+        val (configuration, isChanged) = getLocalizedConfiguration(baseContext, baseResources.configuration)
+        return when {
+            isChanged && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ->
+                baseContext.createConfigurationContext(configuration).resources
+            isChanged -> {
+                val metrics: DisplayMetrics = baseContext.resources.displayMetrics
+                @Suppress("DEPRECATION")
+                return Resources(baseContext.assets, metrics, configuration)
+            }
+            else -> baseResources
+        }
+    }
+
+    fun getLocalizedConfiguration(baseContext: Context, baseConfiguration: Configuration): Pair<Configuration, Boolean> {
+        val defaultLocale = LanguageSetting.getDefaultLanguage(baseContext)
+        val currentLocale = LanguageSetting.getLanguageWithDefault(baseContext, defaultLocale)
+        val baseLocale = getLocaleFromConfiguration(baseConfiguration)
+        if (!isRequestedLocaleChanged(baseLocale, currentLocale)) return baseConfiguration to false
         return when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
                 val localeList = LocaleList(currentLocale)
                 LocaleList.setDefault(localeList)
-                val config = Configuration().apply {
+                Configuration(baseConfiguration).apply {
                     setLocale(currentLocale)
                     setLocales(localeList)
-                }
-                baseContext.createConfigurationContext(config)
+                } to true
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                val config = Configuration().apply {
+                Configuration(baseConfiguration).apply {
                     setLocale(currentLocale)
-                }
-                baseContext.createConfigurationContext(config)
+                } to true
             }
             else -> {
-                val config = Configuration().apply {
+                Configuration(baseConfiguration).apply {
                     @Suppress("DEPRECATION")
-                    locale = currentLocale
-                }
-                @Suppress("DEPRECATION")
-                baseContext.resources.updateConfiguration(
-                        config,
-                        baseContext.resources.displayMetrics
-                )
-                baseContext
-            }
-        }
-    }
-
-    fun applyLocalizationContext(baseContext: Context): Context {
-        val baseLocale = getLocaleFromConfiguration(baseContext.resources.configuration)
-        val currentLocale = LanguageSetting.getLanguageWithDefault(
-                baseContext,
-                LanguageSetting.getDefaultLanguage(baseContext)
-        )
-        if (!isRequestedLocaleChanged(baseLocale, currentLocale)) return baseContext
-
-        return when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val context = LocalizationContext(baseContext)
-                val localeList = LocaleList(currentLocale)
-                LocaleList.setDefault(localeList)
-                val config = Configuration().apply {
-                    setLocale(currentLocale)
-                    setLocales(localeList)
-                }
-                context.createConfigurationContext(config)
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                val context = LocalizationContext(baseContext)
-                val config = Configuration().apply {
-                    setLocale(currentLocale)
-                }
-                context.createConfigurationContext(config)
-            }
-            else -> {
-                val config = Configuration().apply {
-                    @Suppress("DEPRECATION")
-                    locale = currentLocale
-                }
-                @Suppress("DEPRECATION")
-                baseContext.resources.updateConfiguration(
-                        config,
-                        baseContext.resources.displayMetrics
-                )
-                baseContext
-            }
-        }
-    }
-
-    private fun isRequestedLocaleChanged(baseLocale: Locale, currentLocale: Locale) =
-            !baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)
-
-    fun getResources(appContext: Context): Resources {
-        val locale = LanguageSetting.getLanguageWithDefault(appContext, LanguageSetting.getDefaultLanguage(appContext))
-
-        return when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val configuration = Configuration().apply {
-                    setLocales(LocaleList(locale))
-                }
-                appContext.createConfigurationContext(configuration).resources
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 -> {
-                val configuration = Configuration().apply {
-                    setLocale(locale)
-                }
-                appContext.createConfigurationContext(configuration).resources
-            }
-            else -> {
-                val configuration = Configuration().apply {
-                    @Suppress("DEPRECATION")
-                    this.locale = locale
-                }
-                val metrics: DisplayMetrics = appContext.resources.displayMetrics
-                @Suppress("DEPRECATION")
-                return Resources(appContext.assets, metrics, configuration)
+                    this.locale = currentLocale
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        setLayoutDirection(currentLocale)
+                    }
+                } to true
             }
         }
     }
@@ -123,9 +71,12 @@ object LocalizationUtility {
     @Suppress("DEPRECATION")
     fun getLocaleFromConfiguration(configuration: Configuration): Locale {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            configuration.locales.get(0)
+            configuration.locales.get(0) ?: Locale.getDefault()
         } else {
             configuration.locale
         }
     }
+
+    private fun isRequestedLocaleChanged(baseLocale: Locale, currentLocale: Locale) =
+        !baseLocale.toString().equals(currentLocale.toString(), ignoreCase = true)
 }
