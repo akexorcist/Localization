@@ -69,7 +69,7 @@ object LocalizationUtility {
     }
 
     @Suppress("DEPRECATION")
-    fun getLocaleFromConfiguration(configuration: Configuration): Locale {
+    private fun getLocaleFromConfiguration(configuration: Configuration): Locale {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             configuration.locales.get(0) ?: Locale.getDefault()
         } else {

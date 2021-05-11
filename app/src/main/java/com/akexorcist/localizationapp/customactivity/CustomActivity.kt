@@ -9,7 +9,9 @@ import com.akexorcist.localizationactivity.core.OnLocaleChangedListener
 import java.util.*
 
 open class CustomActivity : Activity(), OnLocaleChangedListener {
-    private val localizationDelegate = LocalizationActivityDelegate(this)
+    private val localizationDelegate by lazy {
+        LocalizationActivityDelegate(this)
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)

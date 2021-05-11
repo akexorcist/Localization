@@ -15,7 +15,11 @@ open class LocalizationServiceDelegate(private val service: Service) {
         return LanguageSetting.getLanguageWithDefault(service, defaultLocale)
     }
 
-    fun getLocalizedContext(applicationContext: Context): Context {
+    fun getBaseContext(baseContext: Context): Context {
+        return LocalizationUtility.getLocalizedContext(baseContext)
+    }
+
+    fun getApplicationContext(applicationContext: Context): Context {
         return LocalizationUtility.getLocalizedContext(applicationContext)
     }
 }
