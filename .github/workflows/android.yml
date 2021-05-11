@@ -88,5 +88,5 @@ jobs:
              --device model=crownlte,version=28,locale=en,orientation=portrait
              --device model=OnePlus3T,version=26,locale=en,orientation=portrait
              --device model=HWMHA,version=24,locale=en,orientation=portrait
-             --device model=mlv1,version=23,locale=en,orientation=portrait
-             --device model=flo,version=21,locale=en,orientation=portrait"
+             --device model=grandppltedx,version=23,locale=en,orientation=portrait
+             --device model=Nexus5,version=21,locale=en,orientation=portrait"
