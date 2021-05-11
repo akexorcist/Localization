@@ -1,6 +1,16 @@
 Release Notes
 ====
 
+1.2.10
+-- 
+* [Bug] Bug fixed [#105](https://github.com/akexorcist/Localization/issues/105) [#103](https://github.com/akexorcist/Localization/issues/103) [#92](https://github.com/akexorcist/Localization/issues/92)
+* [PR] [#108](https://github.com/akexorcist/Localization/pull/108) - Fix resource not found crash
+* Fix incorrect Configuration creation
+* Using centralize localized logic (See `LocalizationUtility`) 
+* Remove `LocalizationContext` (no need anymore)
+* Prevent BadParcelableException in `LocalizationActivityDelegate.checkBeforeLocaleChanging()` with try-catch
+* Change `LocalizationDelegate.getResources(Context)` to `LocalizationDelegate.getResources(Context, Resources)` because resources from super class is require in this method. That's mean who does not using `LocalizationApplication` must update this method
+
 1.2.9
 -- 
 * [Bug] Bug fixed [#93](https://github.com/akexorcist/Localization/issues/93) [#95](https://github.com/akexorcist/Localization/issues/95)

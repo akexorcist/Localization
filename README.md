@@ -40,12 +40,12 @@ allprojects {
 
 Gradle
 ```groovy
-implementation 'com.akexorcist:localization:1.2.9'
+implementation 'com.akexorcist:localization:1.2.10'
 ```
 
 (Optional) You can exclude `androidx.appcompat:appcompat`, if your project does not use AppCompat.
 ```groovy
-implementation ('com.akexorcist:localization:1.2.9') {
+implementation ('com.akexorcist:localization:1.2.10') {
     exclude group: 'androidx.core', module: 'core'
 }
 ```
@@ -81,7 +81,7 @@ class MainApplication: Application() {
     }
     
     override fun getResources(): Resources {
-        return localizationDelegate.getResources(this)
+        return localizationDelegate.getResources(baseContext, super.getResources())
     }
 }
 ```
@@ -97,10 +97,8 @@ class MainActivity: LocalizationActivity() {
 Or using `LocalizationActivityDelegate` with additional code
 ```kotlin
 open class CustomActivity : Activity(), OnLocaleChangedListener {
-    private val localizationDelegate by lazy {
-        LocalizationActivityDelegate(this)
-    }
-    
+    private val localizationDelegate = LocalizationActivityDelegate(this)
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         localizationDelegate.addOnLocaleChangedListener(this)
         localizationDelegate.onCreate()
@@ -133,9 +131,8 @@ open class CustomActivity : Activity(), OnLocaleChangedListener {
         localizationDelegate.setLanguage(this, locale!!)
     }
 
-    val getCurrentLanguage: Locale by lazy {
-        localizationDelegate.getLanguage(this)
-    }
+    val currentLanguage: Locale
+        get() = localizationDelegate.getLanguage(this)
 
     // Just override method locale change event
     override fun onBeforeLocaleChanged() {}
@@ -244,7 +241,7 @@ abstract class CustomService : Service() {
     }
 
     override fun getBaseContext(): Context {
-        return localizationDelegate.getApplicationContext(super.getBaseContext())
+        return localizationDelegate.getBaseContext(super.getBaseContext())
     }
 
     override fun getApplicationContext(): Context {
