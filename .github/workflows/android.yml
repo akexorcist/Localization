@@ -84,4 +84,10 @@ jobs:
              --type instrumentation
              --app app-debug/app-debug.apk
              --test app-debug-androidTest/app-debug-androidTest.apk
-             --device model=OnePlus3T,version=26,locale=en,orientation=portrait"
+             --device model=flame,version=30,locale=en,orientation=portrait
+             --device model=crownlte,version=28,locale=en,orientation=portrait
+             --device model=OnePlus3T,version=26,locale=en,orientation=portrait
+             --device model=HWMHA,version=24,locale=en,orientation=portrait
+             --device model=mlv1,version=23,locale=en,orientation=portrait
+             --device model=flo,version=21,locale=en,orientation=portrait
+             --device model=Nexus4,version=19,locale=en,orientation=portrait"
