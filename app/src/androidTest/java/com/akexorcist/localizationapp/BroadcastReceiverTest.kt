@@ -23,7 +23,7 @@ class BroadcastReceiverTest {
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-//    @Ignore("For local running only, there is some flakiness when running on Firebase Test Lab")
+    @Ignore("For local running only, there is some flakiness when running on Firebase Test Lab")
     fun broadcastReceiver() {
         onScreen<MainActivityScreen> {
             buttonBroadcastReceiver {
