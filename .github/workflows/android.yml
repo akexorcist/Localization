@@ -84,4 +84,4 @@ jobs:
              --type instrumentation
              --app app-debug/app-debug.apk
              --test app-debug-androidTest/app-debug-androidTest.apk
-             --device model=SO-01J,version=26,locale=en,orientation=portrait"
+             --device model=OnePlus3T,version=26,locale=en,orientation=portrait"
