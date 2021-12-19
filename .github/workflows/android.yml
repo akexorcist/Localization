@@ -84,8 +84,8 @@ jobs:
              --type instrumentation
              --app app-debug/app-debug.apk
              --test app-debug-androidTest/app-debug-androidTest.apk
-             --device model=flame,version=30,locale=en,orientation=portrait
-             --device model=crownlte,version=28,locale=en,orientation=portrait
+             --device model=redfin,version=30,locale=en,orientation=portrait
+             --device model=greatlte,version=28,locale=en,orientation=portrait
              --device model=OnePlus3T,version=26,locale=en,orientation=portrait
              --device model=HWMHA,version=24,locale=en,orientation=portrait
              --device model=grandppltedx,version=23,locale=en,orientation=portrait
