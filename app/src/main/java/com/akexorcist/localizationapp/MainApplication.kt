@@ -15,7 +15,7 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        WebView(this).destroy()
+        localizationDelegate.onCreate(this)
     }
 
     override fun attachBaseContext(base: Context) {
