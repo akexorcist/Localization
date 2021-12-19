@@ -10,30 +10,61 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".simplefragment.SimpleFragmentActivity" />
-        <activity android:name=".nestedfragment.NestedFragmentActivity" />
-        <activity android:name=".viewpager.ViewPagerActivity" />
-        <activity android:name=".simpleactivity.SimpleActivity" />
-        <activity android:name=".customactivity.SimpleCustomActivity" />
-        <activity android:name=".stackedactivity.StackedHomeActivity" />
-        <activity android:name=".stackedactivity.StackedLanguageChooserActivity" />
-        <activity android:name=".preferences.ListPreferencesActivity" />
+        <activity
+            android:name=".simplefragment.SimpleFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nestedfragment.NestedFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewpager.ViewPagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".simpleactivity.SimpleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customactivity.SimpleCustomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".stackedactivity.StackedHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".stackedactivity.StackedLanguageChooserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".preferences.ListPreferencesActivity"
+            android:exported="false" />
         <activity
             android:name=".darktheme.DarkThemeActivity"
+            android:exported="false"
             android:theme="@style/DayNightTheme" />
-        <activity android:name=".hilt.HiltActivity" />
-        <activity android:name=".simpledialog.SimpleDialogLanguageChooserActivity" />
-        <activity android:name=".simpledialog.SimpleDialogMainActivity" />
-        <activity android:name=".dialogwebview.DialogWebViewMainActivity" />
-        <activity android:name=".dialogwebview.DialogWebViewSiteActivity" />
-        <activity android:name=".broadcast.SimpleBroadcastActivity" />
+        <activity
+            android:name=".hilt.HiltActivity"
+            android:exported="false" />
+        <activity
+            android:name=".simpledialog.SimpleDialogLanguageChooserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".simpledialog.SimpleDialogMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dialogwebview.DialogWebViewMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dialogwebview.DialogWebViewSiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".broadcast.SimpleBroadcastActivity"
+            android:exported="false" />
 
         <receiver
             android:name=".broadcast.SimpleBroadcastReceiver"
