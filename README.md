@@ -57,7 +57,7 @@ Custom application class which extends from `LocalizationApplication` is require
 ```kotlin
 class MainApplication: LocalizationApplication() {
     /* ... */
-    override fun getDefaultLanguage() = Locale.ENGLISH
+    override fun getDefaultLanguage(context: Context) = Locale.ENGLISH
 }
 ```
 

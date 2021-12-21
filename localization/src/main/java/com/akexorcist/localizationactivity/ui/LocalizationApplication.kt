@@ -28,5 +28,5 @@ abstract class LocalizationApplication : Application() {
         return localizationDelegate.getResources(this, super.getResources())
     }
 
-    abstract fun getDefaultLanguage(base: Context): Locale
+    abstract fun getDefaultLanguage(context: Context): Locale
 }

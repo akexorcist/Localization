@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.webkit.WebView
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import dagger.hilt.android.HiltAndroidApp
 import java.util.*
@@ -11,6 +12,11 @@ import java.util.*
 @HiltAndroidApp
 class MainApplication : Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
+
+    override fun onCreate() {
+        super.onCreate()
+        localizationDelegate.onCreate(this)
+    }
 
     override fun attachBaseContext(base: Context) {
         localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
@@ -25,6 +31,10 @@ class MainApplication : Application() {
     override fun getApplicationContext(): Context {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
+
+//    override fun getApplicationContext(): Context {
+//        return localizationDelegate.getApplicationContext2(super.getApplicationContext())
+//    }
 
     override fun getResources(): Resources {
         return localizationDelegate.getResources(baseContext, super.getResources())
