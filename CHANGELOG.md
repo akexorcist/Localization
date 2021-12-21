@@ -1,6 +1,19 @@
 Release Notes
 ====
 
+1.2.11
+-- 
+* [Bug] Bug fixed [#105](https://github.com/akexorcist/Localization/pull/105) [#118](https://github.com/akexorcist/Localization/pull/118) [#114](https://github.com/akexorcist/Localization/pull/114) [#118](https://github.com/akexorcist/Localization/pull/118)
+* [PR] [#125](https://github.com/akexorcist/Localization/pull/125) - Fix WebView crashing on Android 5
+* Update Gradle and dependencies version
+  * Compile SDK Version 31
+  * Target SDK Version 31
+  * Kotlin : 1.6.10
+  * Gradle : 7.0.2 
+  * Gradle Plugin : 4.2.2
+  * Activity KTX : 1.4.0
+  * AndroidX AppCompat 1.4.0
+
 1.2.10
 -- 
 * [Bug] Bug fixed [#105](https://github.com/akexorcist/Localization/issues/105) [#103](https://github.com/akexorcist/Localization/issues/103) [#92](https://github.com/akexorcist/Localization/issues/92)

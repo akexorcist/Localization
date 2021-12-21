@@ -7,8 +7,8 @@ buildscript {
 
         targetJavaVersion = JavaVersion.VERSION_1_8
 
-        versionName = '1.2.10'
-        versionCode = 10210
+        versionName = '1.2.11'
+        versionCode = 10211
 
         libraryName = 'Localization'
         libraryDescription = 'In-app language changing library for Android'
