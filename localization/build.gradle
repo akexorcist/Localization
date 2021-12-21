@@ -38,11 +38,11 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$project.kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation "androidx.activity:activity-ktx:1.2.2"
+    implementation "androidx.activity:activity-ktx:1.4.0"
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
 //apply from: '../publish/mavencentral.gradle'
