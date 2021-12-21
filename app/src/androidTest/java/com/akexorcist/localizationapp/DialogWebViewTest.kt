@@ -27,20 +27,46 @@ class DialogWebViewTest {
 
     @Test
     fun dialogAndWebView() {
+        // Italy
         onScreen<MainActivityScreen> {
             buttonDialogWebView {
                 scrollTo()
                 click()
             }
         }
-        Thread.sleep(1000L)
+        onScreen<DialogWebViewMainScreen> {
+            buttonChangeLanguage { click() }
+        }
+        onScreen<DialogWebViewLanguageChooserScreen> {
+            buttonItalian { click() }
+        }
         onScreen<DialogWebViewMainScreen> {
             buttonShowWebsite { click() }
         }
         onScreen<DialogWebViewSiteScreen> {
+            webViewContent {
+                withElement(Locator.ID, "content") {
+                    hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
+                }
+            }
             buttonBack { click() }
         }
+        onScreen<DialogWebViewMainScreen> {
+            buttonBack { click() }
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_ITALIAN)
+            }
+        }
+
         // American
+        onScreen<MainActivityScreen> {
+            buttonDialogWebView {
+                scrollTo()
+                click()
+            }
+        }
         onScreen<DialogWebViewMainScreen> {
             buttonChangeLanguage { click() }
         }

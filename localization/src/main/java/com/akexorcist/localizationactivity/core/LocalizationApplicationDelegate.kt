@@ -2,9 +2,13 @@ package com.akexorcist.localizationactivity.core
 
 import android.content.Context
 import android.content.res.Resources
+import android.webkit.WebView
 import java.util.*
 
 class LocalizationApplicationDelegate {
+    fun onCreate(context: Context) {
+        WebView(context).destroy()
+    }
 
     fun onConfigurationChanged(context: Context) = LocalizationUtility.getLocalizedContext(context)
 

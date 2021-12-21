@@ -5,6 +5,8 @@ buildscript {
         targetSdkVersion = 31
         minSdkVersion = 14
 
+        targetJavaVersion = JavaVersion.VERSION_1_8
+
         versionName = '1.2.10'
         versionCode = 10210
 
