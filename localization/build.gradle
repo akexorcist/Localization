@@ -29,7 +29,7 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$project.kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation "androidx.activity:activity-ktx:1.2.2"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

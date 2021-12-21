@@ -2,8 +2,8 @@ package com.akexorcist.localizationactivity.ui
 
 import android.content.Context
 import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate
@@ -30,12 +30,27 @@ abstract class LocalizationActivity : AppCompatActivity, OnLocaleChangedListener
     }
 
     override fun attachBaseContext(newBase: Context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            applyOverrideConfiguration(localizationDelegate.updateConfigurationLocale(newBase))
-            super.attachBaseContext(newBase)
-        } else {
-            super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
-        }
+        super.attachBaseContext(delegateBaseContext(newBase))
+    }
+
+    /**
+     * Get a base context for [attachBaseContext]. You can override this function to wrap this
+     * context by using ContextWrapper. For example, if your project use ViewPump from
+     * `io.github.inflationx:viewpump` module ([ViewPump](https://github.com/InflationX/ViewPump)),
+     * you can override this method to wrap this context with `ViewPumpContextWrapper`.
+     * ```Kotlin
+     * override fun delegateBaseContext(context: Context): Context {
+     *  val localizedContext: Context = super.delegateBaseContext(context)
+     *  return ViewPumpContextWrapper.wrap(localizedContext)
+     * }
+     * ```
+     * @param context a new base context from [attachBaseContext] parameter.
+     * @return a new base context. By default, it will return
+     * [LocalizationActivityDelegate.attachBaseContext]
+     */
+    @CallSuper
+    open fun delegateBaseContext(context: Context): Context {
+        return localizationDelegate.attachBaseContext(context)
     }
 
     override fun getBaseContext(): Context {
