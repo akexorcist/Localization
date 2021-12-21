@@ -20,6 +20,14 @@ android {
             res.srcDirs = ['src/main/res']
         }
     }
+
+    compileOptions {
+        sourceCompatibility project.targetJavaVersion
+        targetCompatibility project.targetJavaVersion
+    }
+    kotlinOptions {
+        jvmTarget = project.targetJavaVersion.toString()
+    }
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
