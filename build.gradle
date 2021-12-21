@@ -1,9 +1,11 @@
 buildscript {
     project.ext {
         kotlin_version = '1.4.32'
-        compileSdkVersion = 30
-        targetSdkVersion = 30
+        compileSdkVersion = 31
+        targetSdkVersion = 31
         minSdkVersion = 14
+
+        targetJavaVersion = JavaVersion.VERSION_1_8
 
         versionName = '1.2.10'
         versionCode = 10210
