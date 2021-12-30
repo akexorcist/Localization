@@ -14,6 +14,6 @@ class SimpleStoryProvider @Inject constructor(
     @ApplicationContext private val appContext: Context
 ) : StoryProvider {
     override fun getAppleStory(): String {
-        return appContext.toLocalizedContext().getString(R.string.sample_apple_story)
+        return appContext.getString(R.string.sample_apple_story)
     }
 }

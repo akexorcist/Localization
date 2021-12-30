@@ -32,10 +32,6 @@ class MainApplication : Application() {
         return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 
-//    override fun getApplicationContext(): Context {
-//        return localizationDelegate.getApplicationContext2(super.getApplicationContext())
-//    }
-
     override fun getResources(): Resources {
         return localizationDelegate.getResources(baseContext, super.getResources())
     }
