@@ -152,7 +152,7 @@ It have only 4 public methods.
 
 ```kotlin
 fun setLanguage(language: String)
-fun setLanguage(language: String, country: Strinng)
+fun setLanguage(language: String, country: String)
 fun setLanguage(locale: Locale)
 fun getCurrentLanguage(): String
 ```
