@@ -13,6 +13,7 @@ class ViewPagerScreen : Screen<ViewPagerScreen>() {
     val buttonKorean = KButton { withId(R.id.btn_korean) }
     val buttonPortuguese = KButton { withId(R.id.btn_portuguese) }
     val buttonThai = KButton { withId(R.id.btn_thai) }
+    val buttonHebrew = KButton { withId(R.id.btn_hebrew) }
     val buttonPrevious = KButton { withId(R.id.btn_prev) }
     val buttonNext = KButton { withId(R.id.btn_next) }
     val textViewHello = KTextView { withId(R.id.text_view_hello) }

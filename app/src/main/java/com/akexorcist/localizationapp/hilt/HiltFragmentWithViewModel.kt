@@ -37,6 +37,7 @@ class HiltFragmentWithViewModel : Fragment(R.layout.fragment_hilt) {
         view.findViewById<ImageButton>(R.id.btn_korean).setOnClickListener { setLanguage("ko") }
         view.findViewById<ImageButton>(R.id.btn_portuguese).setOnClickListener { setLanguage("pt") }
         view.findViewById<ImageButton>(R.id.btn_thai).setOnClickListener { setLanguage("th") }
+        view.findViewById<ImageButton>(R.id.btn_hebrew).setOnClickListener { setLanguage("iw") }
     }
 
     private fun setLanguage(newLanguage: String) {

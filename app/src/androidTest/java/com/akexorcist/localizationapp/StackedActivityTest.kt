@@ -201,10 +201,39 @@ class StackedActivityTest {
                 click()
             }
         }
-        // American
+        // Hebrew
         onScreen<StackedHomeScreen> {
             textViewContent {
                 hasText(ExpectedContent.YOUTUBE_THAI)
+            }
+            buttonChangeLanguage { click() }
+        }
+        onScreen<StackedLanguageChooserScreen> {
+            buttonHebrew { click() }
+        }
+        onScreen<StackedHomeScreen> {
+            textViewContent {
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonStackedActivity {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<StackedHomeScreen> {
+            textViewContent {
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
             }
             buttonChangeLanguage { click() }
         }

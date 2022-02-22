@@ -30,6 +30,7 @@ class DialogWebViewLanguageChooserFragment : DialogFragment() {
         binding.btnKorean.setOnClickListener { changeLanguage("ko") }
         binding.btnPortuguese.setOnClickListener { changeLanguage("pt") }
         binding.btnThai.setOnClickListener { changeLanguage("th") }
+        binding.btnHebrew.setOnClickListener { changeLanguage("iw") }
     }
 
     private fun changeLanguage(language: String) {

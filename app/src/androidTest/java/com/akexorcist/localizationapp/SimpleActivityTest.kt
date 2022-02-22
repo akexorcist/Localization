@@ -188,10 +188,37 @@ class SimpleActivityTest {
                 click()
             }
         }
-        // American
+        // Hebrew
         onScreen<SimpleActivityScreen> {
             textViewContent {
                 hasText(ExpectedContent.YOUTUBE_THAI)
+            }
+            buttonHebrew {
+                scrollTo()
+                click()
+            }
+            textViewContent {
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonSimpleActivity {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<SimpleActivityScreen> {
+            textViewContent {
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
             }
             buttonAmerican {
                 scrollTo()

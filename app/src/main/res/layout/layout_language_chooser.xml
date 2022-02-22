@@ -77,10 +77,20 @@
             android:id="@+id/btn_thai"
             android:layout_width="@dimen/btn_language_size"
             android:layout_height="@dimen/btn_language_size"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/transparent"
             android:contentDescription="@string/thai"
             android:scaleType="fitCenter"
             android:src="@mipmap/country_thai" />
+
+        <ImageButton
+            android:id="@+id/btn_hebrew"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="32dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/hebrew"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_israel" />
     </LinearLayout>
 </HorizontalScrollView>

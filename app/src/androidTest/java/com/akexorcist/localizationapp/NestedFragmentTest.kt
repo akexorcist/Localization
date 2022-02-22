@@ -188,10 +188,37 @@ class NestedFragmentTest {
                 click()
             }
         }
-        // American
+        // Thai
         onScreen<NestedFragmentScreen> {
             textViewContent {
                 hasText(ExpectedContent.APPLE_THAI)
+            }
+            buttonHebrew {
+                scrollTo()
+                click()
+            }
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.APPLE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonNestedFragment {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<NestedFragmentScreen> {
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
             }
             buttonAmerican {
                 scrollTo()
