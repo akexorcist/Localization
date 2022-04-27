@@ -8,7 +8,7 @@ import android.content.res.Resources
 import android.os.BadParcelableException
 import android.os.Handler
 import android.os.Looper
-import java.util.*
+import java.util.Locale
 
 open class LocalizationActivityDelegate(val activity: Activity) {
     private lateinit var currentLanguage: Locale
@@ -145,11 +145,14 @@ open class LocalizationActivityDelegate(val activity: Activity) {
 
     // Check if locale has change while this activity was run to back stack.
     private fun checkLocaleChange(context: Context) {
-        val defaultLocale = LanguageSetting.getDefaultLanguage(context)
-        val currentLocale = LanguageSetting.getLanguageWithDefault(context, defaultLocale)
-        if (!isCurrentLanguageSetting(currentLanguage, currentLocale)) {
-            isLocalizationChanged = true
-            notifyLanguageChanged()
+        if (this::currentLanguage.isInitialized) {
+            val defaultLocale = LanguageSetting.getDefaultLanguage(context)
+            val currentLocale = LanguageSetting.getLanguageWithDefault(context, defaultLocale)
+
+            if (!isCurrentLanguageSetting(currentLanguage, currentLocale)) {
+                isLocalizationChanged = true
+                notifyLanguageChanged()
+            }
         }
     }
 
