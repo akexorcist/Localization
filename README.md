@@ -3,6 +3,9 @@
 ![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-14-brightgreen) 
 [![Workflow Status](https://github.com/akexorcist/Android-Localization/actions/workflows/android.yml/badge.svg)](https://github.com/akexorcist/Localization/actions)
 
+Discontinued
+====
+Since Google announced Android 13 with per-app language preferences supports. This feature also backport to older Android version with AndroidX. So there's no reason to contribute this library anymore. For more stability, compatibility, and longer supports from Google team, please migrate to AndroidX. See [Migrate to AndroidX guide](./MIGRATE_TO_ANDROIDX.md). 
 
 Localization Library
 ====
