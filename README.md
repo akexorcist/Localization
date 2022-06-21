@@ -5,7 +5,7 @@
 
 Discontinued
 ====
-Since Google announced Android 13 with per-app language preferences supports. This feature also backport to older Android version with AndroidX. So there's no reason to contribute this library anymore. For more stability, compatibility, and longer supports from Google team, please migrate to AndroidX. See [Migrate to AndroidX guide](./MIGRATE_TO_ANDROIDX). 
+Since Google announced Android 13 with per-app language preferences supports. This feature also backport to older Android version with AndroidX. So there's no reason to contribute this library anymore. For more stability, compatibility, and longer supports from Google team, please migrate to AndroidX. See [Migrate to AndroidX guide](./MIGRATE_TO_ANDROIDX.md). 
 
 Localization Library
 ====
