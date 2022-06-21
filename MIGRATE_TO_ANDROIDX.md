@@ -1,6 +1,7 @@
 # Migrate to AndroidX
 Since AndroidX supports per-app language preferences for backward compatibility. Please migrate this library to AndroidX for more stability, compatibility, and longer supports from Google team.  
 
+* AppCompat `1.6.0-alpha03` or higher is required (see [AppCompat release notes](https://developer.android.com/jetpack/androidx/releases/appcompat))
 * Remove `LocalizationApplicationDelegate` from Application class
 * Replace `LocalizationActivity` with `AppCompatActivity` or remove `LocalizationActivityDelegate` from your custom Activity
 * Replace `setLanguage(language)` with `AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(language))`
