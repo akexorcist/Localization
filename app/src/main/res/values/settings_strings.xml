@@ -8,6 +8,7 @@
         <item>Korean</item>
         <item>Portuguese</item>
         <item>Thai</item>
+        <item>Hebrew</item>
     </string-array>
     <string-array name="pref_language_list_values" translatable="false">
         <item>en</item>
@@ -17,5 +18,6 @@
         <item>ko</item>
         <item>pt</item>
         <item>th</item>
+        <item>iw</item>
     </string-array>
 </resources>

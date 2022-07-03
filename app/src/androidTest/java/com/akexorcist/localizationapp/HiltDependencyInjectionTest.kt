@@ -188,10 +188,37 @@ class HiltDependencyInjectionTest {
                 click()
             }
         }
-        // American
+        // Hebrew
         onScreen<HiltDependencyInjectionScreen> {
             textViewContent {
                 hasText(ExpectedContent.APPLE_THAI)
+            }
+            buttonHebrew {
+                scrollTo()
+                click()
+            }
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.APPLE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonHilt {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<HiltDependencyInjectionScreen> {
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
             }
             buttonAmerican {
                 scrollTo()

@@ -26,6 +26,7 @@ class ViewPagerActivity : LocalizationActivity() {
         binding.layoutLanguageChooser.btnKorean.setOnClickListener { setLanguage("ko") }
         binding.layoutLanguageChooser.btnPortuguese.setOnClickListener { setLanguage("pt") }
         binding.layoutLanguageChooser.btnThai.setOnClickListener { setLanguage("th") }
+        binding.layoutLanguageChooser.btnHebrew.setOnClickListener { setLanguage("iw") }
 
         binding.btnNext.setOnClickListener { onNextPageClick() }
         binding.btnPrev.setOnClickListener { onPreviousPageClick() }

@@ -80,6 +80,14 @@ class BroadcastReceiverTest {
             textViewContent {
                 hasText(ExpectedContent.APPLE_THAI)
             }
+            // Hebrew
+            buttonHebrew {
+                scrollTo()
+                click()
+            }
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
+            }
             // American
             buttonAmerican {
                 scrollTo()

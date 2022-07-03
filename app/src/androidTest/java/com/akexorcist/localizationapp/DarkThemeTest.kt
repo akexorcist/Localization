@@ -1,13 +1,11 @@
 package com.akexorcist.localizationapp
 
-import android.os.Build
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
 import com.agoda.kakao.screen.Screen.Companion.onScreen
-import com.akexorcist.localizationapp.annotation.TargetApiLevel
 import com.akexorcist.localizationapp.data.ExpectedContent
 import com.akexorcist.localizationapp.screen.MainActivityScreen
 import com.akexorcist.localizationapp.screen.SimpleFragmentScreen
@@ -236,10 +234,44 @@ class DarkThemeTest {
                 click()
             }
         }
-        // American
+        // Hebrew
         onScreen<SimpleFragmentScreen> {
             textViewContent {
                 hasText(ExpectedContent.APPLE_THAI)
+            }
+            buttonThai {
+                scrollTo()
+                click()
+            }
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
+            }
+        }
+        uiDevices.openQuickSettings()
+        uiDevices.findObject(UiSelector().text("Dark theme")).click()
+        uiDevices.pressBack()
+        uiDevices.pressBack()
+        onScreen<SimpleFragmentScreen> {
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonDarkTheme {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<SimpleFragmentScreen> {
+            textViewContent {
+                hasText(ExpectedContent.APPLE_HEBREW)
             }
             buttonAmerican {
                 scrollTo()

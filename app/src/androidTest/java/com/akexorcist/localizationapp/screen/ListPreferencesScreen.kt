@@ -14,6 +14,7 @@ class ListPreferencesScreen : Screen<ListPreferencesScreen>() {
     val buttonKorean = KButton { withText(R.string.korean) }
     val buttonPortuguese = KButton { withText(R.string.portuguese) }
     val buttonThai = KButton { withText(R.string.thai) }
+    val buttonHebrew = KButton { withText(R.string.hebrew) }
     val textViewTitle: KTextView
         get() = KTextView {
             withId(android.R.id.title)

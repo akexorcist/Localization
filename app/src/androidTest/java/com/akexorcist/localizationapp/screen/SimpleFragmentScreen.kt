@@ -13,5 +13,6 @@ class SimpleFragmentScreen : Screen<SimpleFragmentScreen>() {
     val buttonKorean = KButton { withId(R.id.btn_korean) }
     val buttonPortuguese = KButton { withId(R.id.btn_portuguese) }
     val buttonThai = KButton { withId(R.id.btn_thai) }
+    val buttonHebrew = KButton { withId(R.id.btn_hebrew) }
     val textViewContent = KTextView { withId(R.id.text_view_content) }
 }

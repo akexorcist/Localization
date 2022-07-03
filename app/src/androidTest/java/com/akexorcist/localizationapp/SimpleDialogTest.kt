@@ -145,6 +145,25 @@ class SimpleDialogTest {
             pressBack()
             uiDevices.setOrientationNatural()
         }
+        // Hebrew
+        onScreen<SimpleDialogMainScreen> {
+            buttonChangeLanguage { click() }
+        }
+        onScreen<SimpleDialogLanguageChooserScreen> {
+            buttonHebrew { click() }
+        }
+        onScreen<SimpleDialogMainScreen> {
+            buttonShowContent { click() }
+        }
+        onScreen<SimpleDialogContentScreen> {
+            textViewContent {
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.YOUTUBE_HEBREW)
+            }
+            pressBack()
+            uiDevices.setOrientationNatural()
+        }
         // American
         onScreen<SimpleDialogMainScreen> {
             buttonChangeLanguage { click() }

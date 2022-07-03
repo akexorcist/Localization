@@ -317,6 +317,54 @@ class ViewPagerTest {
                 click()
             }
         }
+        // Hebrew
+        onScreen<ViewPagerScreen> {
+            buttonHebrew {
+                scrollTo()
+                click()
+            }
+            textViewOne {
+                hasText(ExpectedContent.ONE_HEBREW)
+            }
+            buttonNext { click() }
+            textViewTwo {
+                hasText(ExpectedContent.TWO_HEBREW)
+            }
+            buttonNext { click() }
+            textViewThree {
+                hasText(ExpectedContent.THREE_HEBREW)
+            }
+            buttonNext { click() }
+            textViewHello {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationRight()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonPrevious { click() }
+            textViewThree {
+                hasText(ExpectedContent.THREE_HEBREW)
+            }
+            buttonPrevious { click() }
+            textViewTwo {
+                hasText(ExpectedContent.TWO_HEBREW)
+            }
+            buttonPrevious { click() }
+            textViewOne {
+                hasText(ExpectedContent.ONE_HEBREW)
+            }
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle {
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+                uiDevices.setOrientationNatural()
+                hasText(ExpectedContent.HELLO_WORLD_HEBREW)
+            }
+            buttonViewPager {
+                scrollTo()
+                click()
+            }
+        }
         // American
         onScreen<ViewPagerScreen> {
             buttonAmerican {

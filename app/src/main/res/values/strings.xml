@@ -42,4 +42,5 @@
     <string name="korean" translatable="false">Korean</string>
     <string name="portuguese" translatable="false">Portuguese</string>
     <string name="thai" translatable="false">Thai</string>
+    <string name="hebrew" translatable="false">Hebrew</string>
 </resources>

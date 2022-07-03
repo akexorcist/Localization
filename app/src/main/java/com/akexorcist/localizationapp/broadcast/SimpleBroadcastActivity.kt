@@ -23,6 +23,7 @@ class SimpleBroadcastActivity : LocalizationActivity() {
         binding.layoutLanguageChooser.btnKorean.setOnClickListener { onChangeLanguageButtonClicked("ko") }
         binding.layoutLanguageChooser.btnPortuguese.setOnClickListener { onChangeLanguageButtonClicked("pt") }
         binding.layoutLanguageChooser.btnThai.setOnClickListener { onChangeLanguageButtonClicked("th") }
+        binding.layoutLanguageChooser.btnHebrew.setOnClickListener { onChangeLanguageButtonClicked("iw") }
     }
 
     private fun onChangeLanguageButtonClicked(language: String) {

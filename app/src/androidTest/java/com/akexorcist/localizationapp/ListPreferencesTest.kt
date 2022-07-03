@@ -136,9 +136,27 @@ class ListPreferencesTest {
                 click()
             }
         }
-        // American
+        // Hebrew
         onScreen<ListPreferencesScreen> {
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_THAI) }
+            buttonChangeLanguage { click() }
+            buttonHebrew { click() }
+            textViewTitle { hasText(ExpectedContent.HELLO_WORLD_HEBREW) }
+            uiDevices.setOrientationRight()
+            pressBack()
+        }
+        onScreen<MainActivityScreen> {
+            textViewTitle { hasText(ExpectedContent.HELLO_WORLD_HEBREW) }
+            uiDevices.setOrientationNatural()
+            textViewTitle { hasText(ExpectedContent.HELLO_WORLD_HEBREW) }
+            buttonListPreferences {
+                scrollTo()
+                click()
+            }
+        }
+        // American
+        onScreen<ListPreferencesScreen> {
+            textViewTitle { hasText(ExpectedContent.HELLO_WORLD_HEBREW) }
             buttonChangeLanguage { click() }
             buttonAmerican { click() }
             textViewTitle { hasText(ExpectedContent.HELLO_WORLD_AMERICAN) }

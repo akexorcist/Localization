@@ -25,6 +25,7 @@ class SimpleCustomActivity : CustomActivity() {
         binding.layoutLanguageChooser.btnKorean.setOnClickListener { setLanguage("ko") }
         binding.layoutLanguageChooser.btnPortuguese.setOnClickListener { setLanguage("pt") }
         binding.layoutLanguageChooser.btnThai.setOnClickListener { setLanguage("th") }
+        binding.layoutLanguageChooser.btnHebrew.setOnClickListener { setLanguage("iw") }
     }
 
     public override fun onSaveInstanceState(outState: Bundle) {

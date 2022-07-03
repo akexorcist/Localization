@@ -94,4 +94,22 @@
             android:src="@mipmap/country_thai" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_hebrew"
+            android:layout_width="@dimen/btn_language_size"
+            android:layout_height="@dimen/btn_language_size"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/hebrew"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/country_israel" />
+
+    </LinearLayout>
+
 </LinearLayout>
